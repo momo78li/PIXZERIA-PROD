@@ -7,29 +7,23 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
-    // Define fixed positions for each section to avoid calculation errors
-    const sectionPositions: { [key: string]: number } = {
-      'leistungen': 600,   // Services section
-      'preise': 1400,      // Pricing section  
-      'website-check': 2200, // Website check
-      'beispiele': 2800,   // Case studies
-      'ueber-uns': 3600,   // About section
-      'blog': 4400,        // Blog section
-    };
-
-    const targetPosition = sectionPositions[sectionId];
+    const element = document.getElementById(sectionId);
     
-    if (targetPosition) {
+    if (element) {
+      // Get the current scroll position and element position
+      const rect = element.getBoundingClientRect();
+      const currentScroll = window.pageYOffset;
+      const elementTop = rect.top + currentScroll;
+      const headerHeight = 100;
+      
+      // Calculate target position
+      const targetPosition = elementTop - headerHeight;
+      
+      // Scroll to the calculated position
       window.scrollTo({
-        top: targetPosition,
+        top: Math.max(0, targetPosition), // Ensure we don't scroll to negative position
         behavior: 'smooth'
       });
-    } else {
-      // Fallback: try to find element normally
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
     }
     
     setIsOpen(false);

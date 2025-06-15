@@ -2,20 +2,18 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
-    const sectionPositions: { [key: string]: number } = {
-      'leistungen': 600,
-      'preise': 1400,
-      'website-check': 2200,
-      'beispiele': 2800,
-      'ueber-uns': 3600,
-      'blog': 4400,
-    };
-
-    const targetPosition = sectionPositions[sectionId];
+    const element = document.getElementById(sectionId);
     
-    if (targetPosition) {
+    if (element) {
+      const rect = element.getBoundingClientRect();
+      const currentScroll = window.pageYOffset;
+      const elementTop = rect.top + currentScroll;
+      const headerHeight = 100;
+      
+      const targetPosition = elementTop - headerHeight;
+      
       window.scrollTo({
-        top: targetPosition,
+        top: Math.max(0, targetPosition),
         behavior: 'smooth'
       });
     }
