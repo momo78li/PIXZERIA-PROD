@@ -1,0 +1,123 @@
+Umfassendes Business-Konzept für PIXZERIA
+
+(Stand 16. Juni 2025)
+
+⸻
+
+1 · Executive Summary
+
+PIXZERIA positioniert sich als „Webdesign-Pizzeria“: In festen Paketen, schnell, transparent und ohne versteckte Kosten entsteht für kleine und mittlere Unternehmen (KMU) eine moderne, DSGVO-konforme Website – so einfach wie Pizza bestellen. Lead-Magnet ist ein kostenloser Webseiten-Check, der Problembewusstsein schafft und Kontaktdaten generiert.
+
+⸻
+
+2 · Markt- & Zielgruppenanalyse
+
+Segment	Schmerzpunkt	Nutzenversprechen PIXZERIA	Marktpotenzial*
+Lokale Dienstleister (Handwerk, Praxen, Kanzleien)	Veraltete oder fehlende Website; wenig Zeit	Schnelles, fixes Paket inkl. SEO-Basics	Hoch – über 2 Mio. KMU in DE
+Start-ups & Solo-Self-Employed	Kein Budget für Agenturen	Starter-Paket, skalierbar	Wachsend
+Etablierte KMU mit Relaunch-Bedarf	Ladezeit, Usability, Design	Website-Refresh-Service	Kontinuierlich
+
+*Schätzwerte basierend auf Statistischem Bundesamt und Bitkom-Reports.
+
+⸻
+
+3 · Wertversprechen & Positionierung
+	•	Einfachheit: Klar strukturierter Bestellprozess und Pakete.
+	•	Geschwindigkeit: “Pizza-Speed” – schnelle Umsetzung ohne Qualitätseinbußen.
+	•	Transparenz: Einmalige Preise, klare Leistungslisten.
+	•	Komplettservice: Design, Technik, Bildmaterial, SEO-Grundlagen und DSGVO-Konformität ➜ alles inklusive.  ￼
+
+⸻
+
+4 · Produkt- & Funktionsportfolio
+
+4.1 Kernfunktionen der Website
+
+Funktion	Beschreibung	Quelle
+Navigationsmenü	Links zu Leistungen, Preise, Beispielprojekte, Über uns, Webseiten-Check	￼
+Paket-Shop	Starter (699 €), Professional (1 299 €), Enterprise (1 999 €) inkl. Leistungslisten u. CTA Anfragen	￼
+Optionale Zusatzleistungen	Content-Pflege ab 99 €, Technischer Support ab 49 €/h	￼ ￼
+Webseiten-Check (Lead Magnet)	Gratis Audit zu Design, Technik & DSGVO; Ergebnis innerhalb 48 h per Mail; DSGVO-Opt-in integriert	￼
+Beispielprojekte / Case Studies	Erfolgskennzahlen z. B. +30 % Anfragen bei „Müller Bau“	￼
+Über-uns-Story & Werte	Mission, Werte (Einfachheit, Geschwindigkeit, Qualität) & Teamvorstellung	￼
+Rechtstexte	Vollständiges Impressum, Datenschutz, AGB	￼
+
+4.2 Business-Prozess
+	1.	Lead-Erfassung: Webseiten-Check oder Paket-CTA.
+	2.	Onboarding-Call (30 min): Zieldefinition, CI-Übergabe.
+	3.	Design-Entwurf: 1 Revision im Paketpreis.
+	4.	Entwicklung & Testing: Next.js + Headless CMS (Vercel Deployment).
+	5.	Übergabe & Schulung (Video-Tutorial).
+	6.	Upsell: Wartung, SEO, Content-Pflege.
+
+⸻
+
+5 · Erlös- & Preismodell
+
+Quelle	Modell	Ø Marge*
+Paketpreise	Einmalig	60 – 70 %
+Zusatzleistungen	T&M (Stundensatz/Einzelpreis)	75 %
+Wartungs-Abo (Roadmap)	49 – 149 €/Monat	80 %
+Affiliate-Partnerschaften (Hosting, Tools)	Rev-Share	10 %
+
+*Schätzwerte auf Basis üblicher Agentur-Kalkulationen.
+
+⸻
+
+6 · Marketing- & Vertriebsstrategie
+	1.	Content-Marketing: Blog „Website-Wissen für KMU“, verknüpft mit Check-Tool.
+	2.	Search & Local Ads: Google Ads auf Keywords „Website erstellen lassen + Stadt“.
+	3.	Referral-Programm: 10 % Provision auf Projektvolumen.
+	4.	Partnermodelle: Kooperationen mit Steuerberatern & IT-Systemhäusern.
+	5.	Case-Study-Stories: Social-Proof aus Beispielprojekten.  ￼
+	6.	Messen & Webinare: „Website-Pizza-Day“ – Live-Site-Audits in 15 Minuten.
+
+⸻
+
+7 · Technische Architektur
+
+Ebene	Technologie	Vorteil
+Frontend	Next.js (SSR/ISR)	SEO-stark & schnell
+Hosting	Vercel	Autoscaling, CDN
+CMS	Headless (z. B. Storyblok/Contentful)	Selbstpflege durch Kunden
+Forms	Serverless Functions / Resend (Mail)	DSGVO-konform
+CI/CD	GitHub ↔ Vercel Preview	Rapid iteration
+Analytics	Plausible (EU)	Datenschutzfreundlich
+
+
+⸻
+
+8 · Roadmap (12 Monate)
+
+Quartal	Meilenstein
+Q3 / 25	Wartungs-Abo & Hosting-Reseller einführen
+Q4 / 25	Self-Service-Konfigurator ➜ Preis in Echtzeit
+Q1 / 26	AI-gestützter „1-Click-Page-Builder“
+Q2 / 26	White-Label-Programm für Agenturen
+
+
+⸻
+
+9 · Risiken & Compliance
+	•	Ressourcenengpässe: Skalierende Freelancer-Bank + Standards.
+	•	Preiswettbewerb (Baukasten-Anbieter): Fokus auf Service & Beratung.
+	•	Rechtliches: Ständige Aktualisierung DSGVO, TTDSG, Barrierefreiheit (BFSG 2025).
+	•	Abhängigkeit von Vercel: Multi-Cloud-Fallback definieren.
+
+⸻
+
+10 · KPI-Framework
+
+Funnel-Stufe	KPI	Ziel Jahr 1
+Website	Besucher / Monat	5 000
+Lead	Check-Anfragen-Rate	≥ 8 %
+Sales	Abschlussquote	25 %
+Projekt	Ø Durchlaufzeit	≤ 4 Wochen
+Customer Success	NPS	≥ 60
+
+
+⸻
+
+Fazit
+
+Mit seinem „Pizza-Prinzip“ hat PIXZERIA eine klare, leicht kommunizierbare Positionierung. Das kostenlose Audit füllt den Funnel, feste Pakete bieten Preissicherheit, und optionale Services sowie künftige Abos schaffen wiederkehrende Umsätze. Durch Automatisierung (Next.js/Vercel), klare Prozesse und eine starke Markenstory kann das Geschäftsmodell schnell skaliert werden, ohne die Kundenerfahrung zu verwässern.
