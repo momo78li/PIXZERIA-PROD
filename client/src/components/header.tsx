@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
@@ -7,22 +7,19 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
-    try {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start',
-          inline: 'nearest'
-        });
-        // Adjust for fixed header
-        setTimeout(() => {
-          window.scrollBy(0, -80);
-        }, 100);
-      }
-    } catch (error) {
-      console.error('Scroll error:', error);
+    const targetElement = document.getElementById(sectionId);
+    
+    if (targetElement) {
+      const rect = targetElement.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const targetPosition = rect.top + scrollTop - 90;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
     }
+    
     setIsOpen(false);
   };
 
@@ -47,17 +44,16 @@ export default function Header() {
           
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <a
+              <button
                 key={item.id}
-                href={`#${item.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
+                onClick={() => {
+                  console.log('Button clicked:', item.id);
                   scrollToSection(item.id);
                 }}
                 className="hover:text-pizza-red transition-colors cursor-pointer"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
             <Button 
               onClick={() => scrollToSection('website-check')}
@@ -76,17 +72,16 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col space-y-4 mt-8">
                 {navigation.map((item) => (
-                  <a
+                  <button
                     key={item.id}
-                    href={`#${item.id}`}
-                    onClick={(e) => {
-                      e.preventDefault();
+                    onClick={() => {
+                      console.log('Mobile button clicked:', item.id);
                       scrollToSection(item.id);
                     }}
-                    className="text-left hover:text-pizza-red transition-colors py-2 cursor-pointer block"
+                    className="text-left hover:text-pizza-red transition-colors py-2 cursor-pointer block w-full"
                   >
                     {item.name}
-                  </a>
+                  </button>
                 ))}
                 <Button 
                   onClick={() => scrollToSection('website-check')}
