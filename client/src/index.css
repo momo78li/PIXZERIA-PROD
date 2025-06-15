@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&family=Fredoka+One&display=swap');
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 17%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(0, 0%, 17%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 17%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(0, 73%, 41%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(0, 0%, 17%);
+  --radius: 0.5rem;
+  
+  /* Pizza-themed colors */
+  --pizza-red: hsl(0, 73%, 41%);
+  --pizza-orange: hsl(16, 100%, 60%);
+  --pizza-gold: hsl(45, 100%, 51%);
+  --pizza-cream: hsl(0, 0%, 98%);
+  --pizza-dark: hsl(0, 0%, 17%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(0, 73%, 41%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-inter antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-fredoka {
+    font-family: 'Fredoka One', cursive;
+  }
+  
+  .text-pizza-red {
+    color: var(--pizza-red);
+  }
+  
+  .text-pizza-orange {
+    color: var(--pizza-orange);
+  }
+  
+  .text-pizza-gold {
+    color: var(--pizza-gold);
+  }
+  
+  .text-pizza-dark {
+    color: var(--pizza-dark);
+  }
+  
+  .bg-pizza-red {
+    background-color: var(--pizza-red);
+  }
+  
+  .bg-pizza-orange {
+    background-color: var(--pizza-orange);
+  }
+  
+  .bg-pizza-gold {
+    background-color: var(--pizza-gold);
+  }
+  
+  .bg-pizza-cream {
+    background-color: var(--pizza-cream);
+  }
+  
+  .bg-pizza-dark {
+    background-color: var(--pizza-dark);
+  }
+  
+  .border-pizza-red {
+    border-color: var(--pizza-red);
+  }
+  
+  .border-pizza-orange {
+    border-color: var(--pizza-orange);
+  }
+  
+  .hover\:bg-pizza-red:hover {
+    background-color: var(--pizza-red);
+  }
+  
+  .hover\:bg-pizza-orange:hover {
+    background-color: var(--pizza-orange);
+  }
+  
+  .hover\:text-pizza-red:hover {
+    color: var(--pizza-red);
+  }
+  
+  .pizza-shadow {
+    box-shadow: 0 8px 32px hsla(0, 73%, 41%, 0.15);
+  }
+  
+  .gradient-pizza {
+    background: linear-gradient(45deg, var(--pizza-red), var(--pizza-orange));
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
