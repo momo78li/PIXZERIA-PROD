@@ -2,21 +2,15 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    window.location.hash = sectionId;
     
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      const currentScroll = window.pageYOffset;
-      const elementTop = rect.top + currentScroll;
-      const headerHeight = 100;
-      
-      const targetPosition = elementTop - headerHeight;
-      
-      window.scrollTo({
-        top: Math.max(0, targetPosition),
-        behavior: 'smooth'
-      });
-    }
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const y = element.offsetTop - 90;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 10);
   };
 
   return (

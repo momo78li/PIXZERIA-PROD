@@ -130,6 +130,7 @@ Changelog:
 - June 15, 2025. Initial setup with complete German PIXZERIA website
 - June 15, 2025. Fixed navigation functionality and CSS import order
 - June 15, 2025. Added Website-Refresh service to offerings
+- June 15, 2025. Implemented anchor-link navigation with CSS scroll-behavior for reliable scrolling
 ```
 
 ## User Preferences

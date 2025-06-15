@@ -7,24 +7,17 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    // Use URL hash navigation for more reliable scrolling
+    window.location.hash = sectionId;
     
-    if (element) {
-      // Get the current scroll position and element position
-      const rect = element.getBoundingClientRect();
-      const currentScroll = window.pageYOffset;
-      const elementTop = rect.top + currentScroll;
-      const headerHeight = 100;
-      
-      // Calculate target position
-      const targetPosition = elementTop - headerHeight;
-      
-      // Scroll to the calculated position
-      window.scrollTo({
-        top: Math.max(0, targetPosition), // Ensure we don't scroll to negative position
-        behavior: 'smooth'
-      });
-    }
+    // Then smooth scroll with offset
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const y = element.offsetTop - 90;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 10);
     
     setIsOpen(false);
   };
@@ -50,16 +43,14 @@ export default function Header() {
           
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <button
+              <a
                 key={item.id}
-                onClick={() => {
-                  console.log('Button clicked:', item.id);
-                  scrollToSection(item.id);
-                }}
+                href={`#${item.id}`}
                 className="hover:text-pizza-red transition-colors cursor-pointer"
+                style={{ scrollBehavior: 'smooth' }}
               >
                 {item.name}
-              </button>
+              </a>
             ))}
             <Button 
               onClick={() => scrollToSection('website-check')}
@@ -78,16 +69,15 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col space-y-4 mt-8">
                 {navigation.map((item) => (
-                  <button
+                  <a
                     key={item.id}
-                    onClick={() => {
-                      console.log('Mobile button clicked:', item.id);
-                      scrollToSection(item.id);
-                    }}
+                    href={`#${item.id}`}
+                    onClick={() => setIsOpen(false)}
                     className="text-left hover:text-pizza-red transition-colors py-2 cursor-pointer block w-full"
+                    style={{ scrollBehavior: 'smooth' }}
                   >
                     {item.name}
-                  </button>
+                  </a>
                 ))}
                 <Button 
                   onClick={() => scrollToSection('website-check')}

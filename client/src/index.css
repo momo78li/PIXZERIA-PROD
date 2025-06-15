@@ -61,6 +61,11 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Account for fixed header */
+  }
+
   body {
     @apply font-inter antialiased bg-background text-foreground;
   }
