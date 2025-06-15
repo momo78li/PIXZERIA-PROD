@@ -2,20 +2,22 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
-    try {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start',
-          inline: 'nearest'
-        });
-        setTimeout(() => {
-          window.scrollBy(0, -80);
-        }, 100);
-      }
-    } catch (error) {
-      console.error('Scroll error:', error);
+    const sectionPositions: { [key: string]: number } = {
+      'leistungen': 600,
+      'preise': 1400,
+      'website-check': 2200,
+      'beispiele': 2800,
+      'ueber-uns': 3600,
+      'blog': 4400,
+    };
+
+    const targetPosition = sectionPositions[sectionId];
+    
+    if (targetPosition) {
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
