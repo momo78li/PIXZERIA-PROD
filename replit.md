@@ -127,7 +127,9 @@ The application uses three main tables:
 
 ```
 Changelog:
-- June 15, 2025. Initial setup
+- June 15, 2025. Initial setup with complete German PIXZERIA website
+- June 15, 2025. Fixed navigation functionality and CSS import order
+- June 15, 2025. Added Website-Refresh service to offerings
 ```
 
 ## User Preferences

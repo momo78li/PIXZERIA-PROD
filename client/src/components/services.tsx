@@ -43,6 +43,12 @@ export default function Services() {
       color: "bg-indigo-500/10 group-hover:bg-indigo-500 text-indigo-500 group-hover:text-white"
     },
     {
+      icon: "🔄",
+      title: "Website-Refresh",
+      description: "Bestehende Seiten modernisieren",
+      color: "bg-teal-500/10 group-hover:bg-teal-500 text-teal-500 group-hover:text-white"
+    },
+    {
       icon: "🚀",
       title: "Schnell",
       description: "Lieferung in ≤ 4 Wochen",
