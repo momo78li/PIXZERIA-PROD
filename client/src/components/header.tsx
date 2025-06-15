@@ -7,18 +7,22 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
-    // Small delay to ensure DOM is ready
-    setTimeout(() => {
+    try {
       const element = document.getElementById(sectionId);
       if (element) {
-        const headerHeight = 80; // Account for fixed header
-        const elementPosition = element.offsetTop - headerHeight;
-        window.scrollTo({
-          top: elementPosition,
-          behavior: 'smooth'
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
         });
+        // Adjust for fixed header
+        setTimeout(() => {
+          window.scrollBy(0, -80);
+        }, 100);
       }
-    }, 100);
+    } catch (error) {
+      console.error('Scroll error:', error);
+    }
     setIsOpen(false);
   };
 
@@ -43,13 +47,17 @@ export default function Header() {
           
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <button
+              <a
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="hover:text-pizza-red transition-colors"
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.id);
+                }}
+                className="hover:text-pizza-red transition-colors cursor-pointer"
               >
                 {item.name}
-              </button>
+              </a>
             ))}
             <Button 
               onClick={() => scrollToSection('website-check')}
@@ -68,13 +76,17 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col space-y-4 mt-8">
                 {navigation.map((item) => (
-                  <button
+                  <a
                     key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="text-left hover:text-pizza-red transition-colors py-2"
+                    href={`#${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.id);
+                    }}
+                    className="text-left hover:text-pizza-red transition-colors py-2 cursor-pointer block"
                   >
                     {item.name}
-                  </button>
+                  </a>
                 ))}
                 <Button 
                   onClick={() => scrollToSection('website-check')}

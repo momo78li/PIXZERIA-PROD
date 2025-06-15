@@ -2,17 +2,21 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
-    setTimeout(() => {
+    try {
       const element = document.getElementById(sectionId);
       if (element) {
-        const headerHeight = 80;
-        const elementPosition = element.offsetTop - headerHeight;
-        window.scrollTo({
-          top: elementPosition,
-          behavior: 'smooth'
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
         });
+        setTimeout(() => {
+          window.scrollBy(0, -80);
+        }, 100);
       }
-    }, 100);
+    } catch (error) {
+      console.error('Scroll error:', error);
+    }
   };
 
   return (
