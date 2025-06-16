@@ -14,6 +14,7 @@ export default function Pricing() {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState<any>(null);
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
+  const [hostingOption, setHostingOption] = useState<'self' | 'pixzeria'>('self');
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -61,11 +62,13 @@ export default function Pricing() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email) {
+      const hostingText = hostingOption === 'pixzeria' ? `\nHosting: PIXZERIA Hosting (${selectedPackage?.hostingPrice})` : '\nHosting: Eigenes Hosting';
       const orderData = {
         ...formData,
         package: selectedPackage?.name,
         addOns: selectedAddOns,
-        message: `${formData.message}\n\nGewähltes Paket: ${selectedPackage?.name} (${selectedPackage?.price})\nGewählte Add-Ons: ${selectedAddOns.length > 0 ? selectedAddOns.join(', ') : 'Keine'}`
+        hosting: hostingOption,
+        message: `${formData.message}\n\nGewähltes Paket: ${selectedPackage?.name} (${selectedPackage?.price})${hostingText}\nGewählte Add-Ons: ${selectedAddOns.length > 0 ? selectedAddOns.join(', ') : 'Keine'}`
       };
       contactMutation.mutate(orderData);
     }
@@ -74,6 +77,7 @@ export default function Pricing() {
     {
       name: "Starter Pizza",
       price: "999€",
+      hostingPrice: "29€/Monat",
       description: "Perfekt für kleine Unternehmen",
       badge: "Starter",
       badgeIcon: Rocket,
@@ -85,12 +89,20 @@ export default function Pricing() {
         "Impressum & Datenschutz",
         "Bei Google findbar"
       ],
+      hostingFeatures: [
+        "Professionelles Hosting",
+        "Automatische SSL-Verschlüsselung",
+        "Tägliche Backups",
+        "24/7 Überwachung",
+        "Einfache Updates durch uns"
+      ],
       buttonColor: "bg-pizza-gold hover:bg-pizza-red-dark",
       popular: false
     },
     {
       name: "Professional Pizza",
       price: "1.699€",
+      hostingPrice: "49€/Monat",
       description: "Für wachsende Unternehmen",
       badge: "Beliebt",
       badgeIcon: Star,
@@ -102,12 +114,20 @@ export default function Pricing() {
         "Besucherstatistiken",
         "Bessere Google-Platzierung"
       ],
+      hostingFeatures: [
+        "Alles aus Starter Hosting",
+        "Erweiterte Backup-Strategien",
+        "Performance-Optimierung",
+        "E-Mail-Weiterleitungen",
+        "Prioritärer Support"
+      ],
       buttonColor: "bg-pizza-red hover:bg-pizza-red-dark",
       popular: true
     },
     {
       name: "Business Pizza",
       price: "2.499€",
+      hostingPrice: "79€/Monat",
       description: "Für erfolgreiche Unternehmen",
       badge: "Business",
       badgeIcon: Crown,
@@ -118,6 +138,13 @@ export default function Pricing() {
         "Produktübersicht",
         "Mehrere Kontaktformulare",
         "Foto-Galerien"
+      ],
+      hostingFeatures: [
+        "Alles aus Professional Hosting",
+        "Dedicated Resources",
+        "Advanced Security",
+        "Monatliche Berichte",
+        "VIP-Support"
       ],
       buttonColor: "bg-pizza-orange hover:bg-pizza-red-dark",
       popular: false
@@ -160,6 +187,38 @@ export default function Pricing() {
             Unsere <span className="text-pizza-red font-fredoka">Pizza-Menüs</span>
           </h2>
           <p className="text-xl text-gray-600">Transparente Preise, keine versteckten Kosten</p>
+          
+          {/* Hosting Option Toggle */}
+          <div className="bg-white rounded-2xl p-6 shadow-lg mt-8 max-w-2xl mx-auto">
+            <h3 className="text-lg font-semibold mb-4">Hosting-Option wählen:</h3>
+            <div className="flex gap-4 justify-center">
+              <button
+                onClick={() => setHostingOption('self')}
+                className={`px-6 py-3 rounded-full font-medium transition-all ${
+                  hostingOption === 'self' 
+                    ? 'bg-pizza-red text-white' 
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                Eigenes Hosting
+              </button>
+              <button
+                onClick={() => setHostingOption('pixzeria')}
+                className={`px-6 py-3 rounded-full font-medium transition-all ${
+                  hostingOption === 'pixzeria' 
+                    ? 'bg-pizza-red text-white' 
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                PIXZERIA Hosting
+              </button>
+            </div>
+            {hostingOption === 'pixzeria' && (
+              <p className="text-sm text-gray-600 mt-3">
+                ✓ Keine technischen Sorgen ✓ Einfache Updates ✓ Professioneller Support
+              </p>
+            )}
+          </div>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
@@ -187,6 +246,12 @@ export default function Pricing() {
                 <p className="text-gray-600 mb-4">{pkg.description}</p>
                 <div className="text-4xl font-bold text-pizza-red">{pkg.price}</div>
                 <p className="text-sm text-gray-500">einmalig</p>
+                {hostingOption === 'pixzeria' && (
+                  <div className="mt-3 p-3 bg-pizza-gold/10 rounded-lg">
+                    <div className="text-2xl font-bold text-pizza-orange">+ {pkg.hostingPrice}</div>
+                    <p className="text-sm text-gray-600">PIXZERIA Hosting</p>
+                  </div>
+                )}
               </CardHeader>
               
               <CardContent>
@@ -197,6 +262,19 @@ export default function Pricing() {
                       <span className="text-sm">{feature}</span>
                     </li>
                   ))}
+                  {hostingOption === 'pixzeria' && (
+                    <>
+                      <li className="border-t pt-3 mt-3">
+                        <span className="text-sm font-semibold text-pizza-orange">+ PIXZERIA Hosting:</span>
+                      </li>
+                      {pkg.hostingFeatures.map((feature, featureIndex) => (
+                        <li key={`hosting-${featureIndex}`} className="flex items-center">
+                          <Check className="w-4 h-4 text-pizza-orange mr-3" />
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </>
+                  )}
                 </ul>
                 
                 <Button 
