@@ -6,19 +6,24 @@ import { Menu } from "lucide-react";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(`#${sectionId}`);
-    if (element) {
-      const headerHeight = 100;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+  const handleNavClick = (sectionId: string) => {
+    // Close mobile menu immediately
     setIsOpen(false);
+    
+    // Force scroll after a short delay to ensure DOM is ready
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetPosition = rect.top + scrollTop - 90;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 50);
   };
 
   const navigation = [
@@ -42,16 +47,16 @@ export default function Header() {
           
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <a
+              <button
                 key={item.id}
-                href={`#${item.id}`}
+                onClick={() => handleNavClick(item.id)}
                 className="hover:text-pizza-red transition-colors cursor-pointer text-gray-700 font-medium"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
             <Button 
-              onClick={() => scrollToSection('website-check')}
+              onClick={() => handleNavClick('website-check')}
               className="bg-pizza-red text-white px-6 py-2 rounded-full hover:bg-red-700 transition-all transform hover:scale-105"
             >
               🔍 Webseiten-Check
@@ -67,17 +72,16 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col space-y-4 mt-8">
                 {navigation.map((item) => (
-                  <a
+                  <button
                     key={item.id}
-                    href={`#${item.id}`}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => handleNavClick(item.id)}
                     className="text-left hover:text-pizza-red transition-colors py-2 cursor-pointer block w-full text-gray-700 font-medium"
                   >
                     {item.name}
-                  </a>
+                  </button>
                 ))}
                 <Button 
-                  onClick={() => scrollToSection('website-check')}
+                  onClick={() => handleNavClick('website-check')}
                   className="bg-pizza-red hover:bg-red-700 mt-4"
                 >
                   🔍 Webseiten-Check
