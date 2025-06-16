@@ -39,7 +39,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 onClick={() => scrollToSection('preise')}
-                className="bg-pizza-red text-white px-8 py-4 rounded-full font-semibold hover:bg-red-700 transition-all transform hover:scale-105 pizza-shadow"
+                className="bg-pizza-red text-white px-8 py-4 rounded-full font-semibold hover:bg-pizza-red-dark transition-all transform hover:scale-105 pizza-shadow"
               >
                 🚀 Jetzt bestellen
               </Button>

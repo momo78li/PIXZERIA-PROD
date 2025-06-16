@@ -4,6 +4,7 @@ interface PixzeriaLogoProps {
   size?: "sm" | "md" | "lg" | "xl";
   showText?: boolean;
   className?: string;
+  textColor?: string;
 }
 
 export default function PixzeriaLogo({ 

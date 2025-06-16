@@ -40,7 +40,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="mb-6">
-              <PixzeriaLogo size="md" showText={true} className="filter brightness-0 invert" />
+              <PixzeriaLogo size="md" showText={true} className="text-white" />
             </div>
             
             <p className="text-gray-300 mb-6">

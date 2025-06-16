@@ -46,7 +46,7 @@ export default function About() {
             </div>
             
             <div className="mt-8">
-              <Button className="bg-pizza-red text-white px-8 py-3 rounded-full font-semibold hover:bg-red-700 transition-colors">
+              <Button className="bg-pizza-red text-white px-8 py-3 rounded-full font-semibold hover:bg-pizza-red-dark transition-colors">
                 👥 Unser Team kennenlernen
               </Button>
             </div>

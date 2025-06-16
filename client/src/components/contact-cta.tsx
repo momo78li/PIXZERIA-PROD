@@ -85,7 +85,7 @@ export default function ContactCTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button className="bg-white text-pizza-red px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+            <Button className="bg-white text-pizza-red px-8 py-4 rounded-full font-semibold hover:bg-pizza-cream transition-all transform hover:scale-105">
               📞 Kostenlose Beratung
             </Button>
             

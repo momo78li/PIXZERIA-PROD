@@ -83,7 +83,7 @@ export default function Pricing() {
         "Impressum & Datenschutz",
         "Bei Google findbar"
       ],
-      buttonColor: "bg-pizza-gold hover:bg-yellow-500",
+      buttonColor: "bg-pizza-gold hover:bg-pizza-red-dark",
       popular: false
     },
     {
@@ -99,7 +99,7 @@ export default function Pricing() {
         "Besucherstatistiken",
         "Bessere Google-Platzierung"
       ],
-      buttonColor: "bg-pizza-red hover:bg-red-700",
+      buttonColor: "bg-pizza-red hover:bg-pizza-red-dark",
       popular: true
     },
     {
@@ -115,7 +115,7 @@ export default function Pricing() {
         "Mehrere Kontaktformulare",
         "Foto-Galerien"
       ],
-      buttonColor: "bg-pizza-orange hover:bg-orange-600",
+      buttonColor: "bg-pizza-orange hover:bg-pizza-red-dark",
       popular: false
     }
   ];
