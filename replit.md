@@ -135,6 +135,8 @@ Changelog:
 - June 16, 2025. Simplified packages to remove legal risks (no e-commerce/booking systems) and used customer-friendly language throughout
 - June 16, 2025. Fixed "unlimited changes" to limited revisions (2/5/10) to prevent scope creep and endless project cycles
 - June 16, 2025. Added Impressum & Datenschutz to all packages for DSGVO compliance and adjusted add-on pricing for consistent package value proposition
+- June 16, 2025. Removed "kostenlose Änderungen" from all packages to prevent scope creep and keep business model simple with clear deliverables
+- June 16, 2025. Repositioned packages for small businesses (Handwerker, Ärzte) with larger price gaps: Starter 699€, Professional 1.299€, Business 1.999€
 ```
 
 ## User Preferences
