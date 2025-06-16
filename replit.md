@@ -137,6 +137,7 @@ Changelog:
 - June 16, 2025. Added Impressum & Datenschutz to all packages for DSGVO compliance and adjusted add-on pricing for consistent package value proposition
 - June 16, 2025. Removed "kostenlose Änderungen" from all packages to prevent scope creep and keep business model simple with clear deliverables
 - June 16, 2025. Repositioned packages for small businesses (Handwerker, Ärzte) with larger price gaps: Starter 699€, Professional 1.299€, Business 1.999€
+- June 16, 2025. Implemented DSGVO-compliant double-opt-in email verification with SendGrid integration and automated business notifications to info@pixzeria.de
 ```
 
 ## User Preferences
