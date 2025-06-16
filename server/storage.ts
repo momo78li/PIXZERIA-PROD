@@ -59,13 +59,36 @@ export class MemStorage implements IStorage {
 
   async createContactRequest(insertRequest: InsertContactRequest): Promise<ContactRequest> {
     const id = this.currentContactRequestId++;
+    const confirmationToken = Math.random().toString(36).substring(2) + Date.now().toString(36);
     const request: ContactRequest = {
       ...insertRequest,
       id,
+      confirmed: false,
+      confirmationToken,
       createdAt: new Date(),
     };
     this.contactRequests.set(id, request);
     return request;
+  }
+
+  async confirmContactRequest(token: string): Promise<ContactRequest | undefined> {
+    for (const [id, request] of this.contactRequests.entries()) {
+      if (request.confirmationToken === token) {
+        const updatedRequest = { ...request, confirmed: true };
+        this.contactRequests.set(id, updatedRequest);
+        return updatedRequest;
+      }
+    }
+    return undefined;
+  }
+
+  async getContactRequestByToken(token: string): Promise<ContactRequest | undefined> {
+    for (const request of this.contactRequests.values()) {
+      if (request.confirmationToken === token) {
+        return request;
+      }
+    }
+    return undefined;
   }
 
   async getAllWebsiteChecks(): Promise<WebsiteCheck[]> {

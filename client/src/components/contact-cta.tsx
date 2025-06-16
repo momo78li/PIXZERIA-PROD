@@ -26,8 +26,8 @@ export default function ContactCTA() {
     },
     onSuccess: () => {
       toast({
-        title: "Nachricht gesendet!",
-        description: "Wir melden uns innerhalb von 24 Stunden bei Ihnen zurück.",
+        title: "Bestätigungs-E-Mail gesendet!",
+        description: "Bitte prüfen Sie Ihr E-Mail-Postfach und bestätigen Sie Ihre Anfrage.",
       });
       setFormData({
         name: "",

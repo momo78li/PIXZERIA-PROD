@@ -28,8 +28,8 @@ export default function Pricing() {
     },
     onSuccess: () => {
       toast({
-        title: "Anfrage gesendet!",
-        description: "Wir melden uns innerhalb von 24 Stunden bei Ihnen zurück.",
+        title: "Bestätigungs-E-Mail gesendet!",
+        description: "Bitte prüfen Sie Ihr E-Mail-Postfach und bestätigen Sie Ihre Anfrage.",
       });
       setFormData({ name: "", email: "", company: "", message: "" });
       setSelectedAddOns([]);
@@ -312,10 +312,11 @@ export default function Pricing() {
                 <strong>Nächste Schritte:</strong>
               </p>
               <ol className="text-sm text-gray-600 space-y-1">
-                <li>1. Wir melden uns innerhalb von 24 Stunden bei Ihnen</li>
-                <li>2. Kostenlose Beratung und Projektplanung</li>
-                <li>3. Verbindliche Kostenvoranschlag</li>
-                <li>4. Umsetzung nach Ihrer Freigabe</li>
+                <li>1. Bestätigungs-E-Mail in Ihrem Postfach öffnen</li>
+                <li>2. Link in der E-Mail anklicken (DSGVO-Bestätigung)</li>
+                <li>3. Wir melden uns innerhalb von 24 Stunden bei Ihnen</li>
+                <li>4. Kostenlose Beratung und verbindlicher Kostenvoranschlag</li>
+                <li>5. Umsetzung nach Ihrer Freigabe</li>
               </ol>
             </div>
 
