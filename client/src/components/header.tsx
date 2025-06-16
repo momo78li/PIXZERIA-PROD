@@ -7,23 +7,14 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    console.log(`Scrolling to ${sectionId}:`, element);
-    
-    if (element) {
-      const headerHeight = 100;
-      const elementPosition = element.offsetTop;
-      const offsetPosition = elementPosition - headerHeight;
-      
-      console.log(`Element position: ${elementPosition}, Offset: ${offsetPosition}`);
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    } else {
-      console.error(`Element with id '${sectionId}' not found`);
-    }
+    // Simple, reliable scrolling without debugging
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const y = element.offsetTop - 90;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 100);
     
     setIsOpen(false);
   };

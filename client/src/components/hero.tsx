@@ -2,23 +2,13 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    console.log(`Hero scrolling to ${sectionId}:`, element);
-    
-    if (element) {
-      const headerHeight = 100;
-      const elementPosition = element.offsetTop;
-      const offsetPosition = elementPosition - headerHeight;
-      
-      console.log(`Hero - Element position: ${elementPosition}, Offset: ${offsetPosition}`);
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    } else {
-      console.error(`Hero - Element with id '${sectionId}' not found`);
-    }
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const y = element.offsetTop - 90;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   return (
