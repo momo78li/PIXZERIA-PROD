@@ -1,0 +1,281 @@
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { Cookie, Settings, X } from "lucide-react";
+
+interface CookieConsent {
+  necessary: boolean;
+  functional: boolean;
+  analytics: boolean;
+  marketing: boolean;
+}
+
+export default function CookieBanner() {
+  const [showBanner, setShowBanner] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [consent, setConsent] = useState<CookieConsent>({
+    necessary: true, // Always required
+    functional: false,
+    analytics: false,
+    marketing: false,
+  });
+
+  useEffect(() => {
+    // Check if user has already given consent
+    const savedConsent = localStorage.getItem('cookie-consent');
+    if (!savedConsent) {
+      setShowBanner(true);
+    } else {
+      const parsedConsent = JSON.parse(savedConsent);
+      setConsent(parsedConsent);
+      // Apply consent settings
+      applyCookieSettings(parsedConsent);
+    }
+  }, []);
+
+  const applyCookieSettings = (consentSettings: CookieConsent) => {
+    // Apply Google Analytics or other tracking based on consent
+    if (consentSettings.analytics) {
+      // Enable analytics tracking
+      console.log('Analytics enabled');
+    } else {
+      // Disable analytics tracking
+      console.log('Analytics disabled');
+    }
+
+    if (consentSettings.marketing) {
+      // Enable marketing cookies
+      console.log('Marketing cookies enabled');
+    } else {
+      // Disable marketing cookies
+      console.log('Marketing cookies disabled');
+    }
+  };
+
+  const handleAcceptAll = () => {
+    const fullConsent: CookieConsent = {
+      necessary: true,
+      functional: true,
+      analytics: true,
+      marketing: true,
+    };
+    setConsent(fullConsent);
+    localStorage.setItem('cookie-consent', JSON.stringify(fullConsent));
+    applyCookieSettings(fullConsent);
+    setShowBanner(false);
+    setShowSettings(false);
+  };
+
+  const handleRejectAll = () => {
+    const minimalConsent: CookieConsent = {
+      necessary: true,
+      functional: false,
+      analytics: false,
+      marketing: false,
+    };
+    setConsent(minimalConsent);
+    localStorage.setItem('cookie-consent', JSON.stringify(minimalConsent));
+    applyCookieSettings(minimalConsent);
+    setShowBanner(false);
+    setShowSettings(false);
+  };
+
+  const handleSaveSettings = () => {
+    localStorage.setItem('cookie-consent', JSON.stringify(consent));
+    applyCookieSettings(consent);
+    setShowBanner(false);
+    setShowSettings(false);
+  };
+
+  const handleConsentChange = (type: keyof CookieConsent, checked: boolean) => {
+    if (type === 'necessary') return; // Cannot disable necessary cookies
+    setConsent(prev => ({ ...prev, [type]: checked }));
+  };
+
+  if (!showBanner) return null;
+
+  return (
+    <>
+      {/* Cookie Banner */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-red-600 shadow-lg">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
+            <div className="flex items-center gap-3 flex-1">
+              <Cookie className="h-6 w-6 text-red-600 flex-shrink-0" />
+              <div className="flex-1">
+                <h3 className="font-semibold text-gray-900 mb-1">
+                  Cookies & Datenschutz
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Wir verwenden Cookies, um Ihnen die beste Erfahrung auf unserer Website zu bieten. 
+                  Notwendige Cookies sind für die Funktion der Website erforderlich. 
+                  Sie können Ihre Einstellungen jederzeit anpassen.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-2 lg:flex-shrink-0">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowSettings(true)}
+                className="flex items-center gap-2"
+              >
+                <Settings className="h-4 w-4" />
+                Einstellungen
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleRejectAll}
+              >
+                Nur Notwendige
+              </Button>
+              <Button
+                size="sm"
+                onClick={handleAcceptAll}
+                className="bg-red-600 hover:bg-red-700"
+              >
+                Alle Akzeptieren
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Cookie Settings Dialog */}
+      <Dialog open={showSettings} onOpenChange={setShowSettings}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Cookie className="h-5 w-5 text-red-600" />
+              Cookie-Einstellungen
+            </DialogTitle>
+            <DialogDescription>
+              Verwalten Sie Ihre Cookie-Präferenzen. Sie können Ihre Auswahl jederzeit ändern.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4">
+            {/* Necessary Cookies */}
+            <Card>
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-base">Notwendige Cookies</CardTitle>
+                  <Badge variant="secondary">Immer Aktiv</Badge>
+                </div>
+                <CardDescription>
+                  Diese Cookies sind für die grundlegende Funktionalität der Website erforderlich.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    checked={true}
+                    disabled={true}
+                    id="necessary"
+                  />
+                  <label htmlFor="necessary" className="text-sm">
+                    Session-Management, Sicherheit, Formular-Funktionalität
+                  </label>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Functional Cookies */}
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-base">Funktionale Cookies</CardTitle>
+                <CardDescription>
+                  Ermöglichen erweiterte Funktionen wie Kontaktformulare und Website-Checks.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    checked={consent.functional}
+                    onCheckedChange={(checked) => handleConsentChange('functional', checked as boolean)}
+                    id="functional"
+                  />
+                  <label htmlFor="functional" className="text-sm">
+                    Kontaktformular-Speicherung, Website-Check-Funktionen
+                  </label>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Analytics Cookies */}
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-base">Analyse Cookies</CardTitle>
+                <CardDescription>
+                  Helfen uns zu verstehen, wie Besucher unsere Website nutzen.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    checked={consent.analytics}
+                    onCheckedChange={(checked) => handleConsentChange('analytics', checked as boolean)}
+                    id="analytics"
+                  />
+                  <label htmlFor="analytics" className="text-sm">
+                    Website-Statistiken, Besucherverhalten (anonymisiert)
+                  </label>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Marketing Cookies */}
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-base">Marketing Cookies</CardTitle>
+                <CardDescription>
+                  Werden verwendet, um Werbung relevanter zu gestalten.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    checked={consent.marketing}
+                    onCheckedChange={(checked) => handleConsentChange('marketing', checked as boolean)}
+                    id="marketing"
+                  />
+                  <label htmlFor="marketing" className="text-sm">
+                    Personalisierte Werbung, Social Media Integration
+                  </label>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="flex justify-between gap-2 pt-4">
+            <Button
+              variant="outline"
+              onClick={handleRejectAll}
+            >
+              Nur Notwendige
+            </Button>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                onClick={() => setShowSettings(false)}
+              >
+                Abbrechen
+              </Button>
+              <Button
+                onClick={handleSaveSettings}
+                className="bg-red-600 hover:bg-red-700"
+              >
+                Einstellungen Speichern
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
