@@ -128,7 +128,7 @@ export default function ContactCTA() {
                     <SelectContent>
                       <SelectItem value="starter">Starter Pizza (699€)</SelectItem>
                       <SelectItem value="professional">Professional Pizza (1.299€)</SelectItem>
-                      <SelectItem value="enterprise">Enterprise Pizza (1.999€)</SelectItem>
+                      <SelectItem value="business">Business Pizza (1.999€)</SelectItem>
                       <SelectItem value="consultation">Kostenlose Beratung</SelectItem>
                     </SelectContent>
                   </Select>
