@@ -16,7 +16,7 @@ export default function Blog() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">
-              <span className="text-pizza-red font-fredoka">Website-Wissen</span> für KMU
+              <span className="text-pizza-red font-fredoka">Website-Wissen</span> für Unternehmen
             </h2>
             <p className="text-xl text-gray-600">Praktische Tipps und Insights aus der digitalen Küche</p>
           </div>
@@ -43,7 +43,7 @@ export default function Blog() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">
-              <span className="text-pizza-red font-fredoka">Website-Wissen</span> für KMU
+              <span className="text-pizza-red font-fredoka">Website-Wissen</span> für Unternehmen
             </h2>
             <p className="text-xl text-gray-600 mb-8">Praktische Tipps und Insights aus der digitalen Küche</p>
             <p className="text-gray-500">Bald finden Sie hier hilfreiche Artikel rund um Webdesign und Online-Marketing.</p>
@@ -58,7 +58,7 @@ export default function Blog() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">
-            <span className="text-pizza-red font-fredoka">Website-Wissen</span> für KMU
+            <span className="text-pizza-red font-fredoka">Website-Wissen</span> für Unternehmen
           </h2>
           <p className="text-xl text-gray-600">Praktische Tipps und Insights aus der digitalen Küche</p>
         </div>
