@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { Phone, Mail, Clock, Handshake, Trophy, Send } from "lucide-react";
 
 export default function ContactCTA() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,17 +57,17 @@ export default function ContactCTA() {
 
   const features = [
     {
-      icon: "⏱️",
+      icon: Clock,
       title: "Schnelle Antwort",
       description: "Innerhalb von 24 Stunden"
     },
     {
-      icon: "🤝",
+      icon: Handshake,
       title: "Unverbindlich",
       description: "Kostenlose Erstberatung"
     },
     {
-      icon: "🏆",
+      icon: Trophy,
       title: "Garantiert",
       description: "100% Zufriedenheitsgarantie"
     }
@@ -86,7 +87,8 @@ export default function ContactCTA() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button className="bg-white text-pizza-red px-8 py-4 rounded-full font-semibold hover:bg-pizza-cream transition-all transform hover:scale-105">
-              📞 Kostenlose Beratung
+              <Phone className="w-4 h-4 mr-2" />
+              Kostenlose Beratung
             </Button>
             
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -95,7 +97,8 @@ export default function ContactCTA() {
                   variant="outline"
                   className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-pizza-red transition-all"
                 >
-                  ✉️ Nachricht senden
+                  <Mail className="w-4 h-4 mr-2" />
+                  Nachricht senden
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[500px]">

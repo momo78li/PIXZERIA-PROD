@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { Search, Settings, Shield, Send } from "lucide-react";
+import { Search, Settings, Shield, Send, Clock, Plane } from "lucide-react";
 
 export default function WebsiteCheck() {
   const [url, setUrl] = useState("");
@@ -107,11 +107,22 @@ export default function WebsiteCheck() {
               {submitCheckMutation.isPending ? (
                 "Wird gesendet..."
               ) : (
-                <>✈️ Jetzt prüfen</>
+                <>
+                  <Send className="w-4 h-4 mr-2" />
+                  Jetzt prüfen
+                </>
               )}
             </Button>
-            <p className="text-sm opacity-70">
-              ⏱️ Ergebnis in 48 Stunden • 🛡️ 100% DSGVO-konform
+            <p className="text-sm opacity-70 flex items-center justify-center gap-4">
+              <span className="flex items-center">
+                <Clock className="w-3 h-3 mr-1" />
+                Ergebnis in 48 Stunden
+              </span>
+              •
+              <span className="flex items-center">
+                <Shield className="w-3 h-3 mr-1" />
+                100% DSGVO-konform
+              </span>
             </p>
           </form>
         </div>
