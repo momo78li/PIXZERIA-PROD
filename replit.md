@@ -144,6 +144,7 @@ Changelog:
 - June 16, 2025. Integrated authentic PIXZERIA logo throughout website, updated color palette to match logo design, removed redundant text labels, and changed delivery time from "maximal 4 weeks" to "ab 1 Woche"
 - June 16, 2025. Replaced all emojis with modern Lucide React icons for professional appearance across all components (services, hero, pricing, about, contact, case studies)
 - June 16, 2025. Updated case studies with authentic client examples (Müller Bau, Praxis Dr. Schneider, Mustermann & Kollegen) and replaced "KMU" terminology with clearer language targeting businesses wanting cool digital presence without agency complications
+- June 16, 2025. Fixed image display issues in case studies by properly importing attached reference project screenshots using @assets/ import syntax
 ```
 
 ## User Preferences

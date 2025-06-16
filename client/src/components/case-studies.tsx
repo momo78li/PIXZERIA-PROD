@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { TrendingUp, Zap, Scale, ExternalLink, ShoppingCart } from "lucide-react";
+import constructionImage from "@assets/reference-construction_1750095930778.png";
+import doctorImage from "@assets/reference-doctor_1750095930778.png";
+import lawyerImage from "@assets/reference-lawyer_1750095930778.png";
 
 export default function CaseStudies() {
   const caseStudies = [
@@ -9,7 +12,7 @@ export default function CaseStudies() {
       subtitle: "Handwerksbetrieb aus München",
       package: "Professional",
       timeline: "1 Woche",
-      image: "/assets/reference-construction.png",
+      image: constructionImage,
       alt: "Müller Bau - Professionelle Handwerker-Website",
       badge: "+40%",
       badgeIcon: TrendingUp,
@@ -22,7 +25,7 @@ export default function CaseStudies() {
       subtitle: "Arztpraxis aus Hamburg",
       package: "Starter",
       timeline: "1 Woche",
-      image: "/assets/reference-doctor.png",
+      image: doctorImage,
       alt: "Praxis Dr. Schneider - Moderne Arztpraxis-Website",
       badge: "Online-Termine",
       badgeIcon: Zap,
@@ -35,7 +38,7 @@ export default function CaseStudies() {
       subtitle: "Rechtsanwaltskanzlei aus Berlin",
       package: "Business",
       timeline: "1 Woche",
-      image: "/assets/reference-lawyer.png",
+      image: lawyerImage,
       alt: "Mustermann & Kollegen - Professionelle Kanzlei-Website",
       badge: "Vertrauen",
       badgeIcon: Scale,
