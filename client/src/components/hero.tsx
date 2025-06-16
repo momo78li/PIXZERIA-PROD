@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import PixzeriaLogo from "@/components/pixzeria-logo";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {

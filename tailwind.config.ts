@@ -61,6 +61,14 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
+        // PIXZERIA Logo colors
+        'pizza-red': 'var(--pizza-red)',
+        'pizza-red-dark': 'var(--pizza-red-dark)',
+        'pizza-red-light': 'var(--pizza-red-light)',
+        'pizza-orange': 'var(--pizza-orange)',
+        'pizza-gold': 'var(--pizza-gold)',
+        'pizza-cream': 'var(--pizza-cream)',
+        'pizza-dark': 'var(--pizza-dark)',
       },
       keyframes: {
         "accordion-down": {

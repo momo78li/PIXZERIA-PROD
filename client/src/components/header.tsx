@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import PixzeriaLogo from "@/components/pixzeria-logo";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,12 +46,7 @@ export default function Header() {
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 gradient-pizza rounded-full flex items-center justify-center">
-              <span className="text-white text-lg">🍕</span>
-            </div>
-            <span className="text-2xl font-fredoka text-pizza-red">PIXZERIA</span>
-          </div>
+          <PixzeriaLogo size="md" showText={true} />
           
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (

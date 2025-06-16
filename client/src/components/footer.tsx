@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import PixzeriaLogo from "@/components/pixzeria-logo";
 
 export default function Footer() {
   const services = [
@@ -38,11 +39,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 gradient-pizza rounded-full flex items-center justify-center">
-                <span className="text-white">🍕</span>
-              </div>
-              <span className="text-2xl font-fredoka text-white">PIXZERIA</span>
+            <div className="mb-6">
+              <PixzeriaLogo size="md" showText={true} className="filter brightness-0 invert" />
             </div>
             
             <p className="text-gray-300 mb-6">
