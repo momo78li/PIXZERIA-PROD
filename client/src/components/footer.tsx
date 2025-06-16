@@ -1,3 +1,5 @@
+import { Link } from "wouter";
+
 export default function Footer() {
   const services = [
     "Starter Pizza (699€)",
@@ -111,11 +113,26 @@ export default function Footer() {
             </div>
             
             <div className="flex flex-wrap gap-6">
-              {legal.map((item, index) => (
-                <a key={index} href="#" className="text-gray-300 hover:text-white transition-colors">
-                  {item}
-                </a>
-              ))}
+              <Link href="/impressum" className="text-gray-300 hover:text-white transition-colors">
+                Impressum
+              </Link>
+              <Link href="/datenschutz" className="text-gray-300 hover:text-white transition-colors">
+                Datenschutz
+              </Link>
+              <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                AGB
+              </a>
+              <button 
+                onClick={() => {
+                  // Reset cookie consent to show banner again
+                  localStorage.removeItem('pixzeria-cookie-consent');
+                  localStorage.removeItem('pixzeria-cookie-timestamp');
+                  window.location.reload();
+                }}
+                className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+              >
+                Cookie-Einstellungen
+              </button>
             </div>
           </div>
         </div>

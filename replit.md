@@ -140,6 +140,7 @@ Changelog:
 - June 16, 2025. Implemented DSGVO-compliant double-opt-in email verification with SendGrid integration and automated business notifications to info@pixzeria.de
 - June 16, 2025. Extended email verification to website checks with user-friendly URL normalization (auto-adds https:// and www.) and professional confirmation pages
 - June 16, 2025. Implemented complete dynamic blog system with admin panel for content management, individual blog post pages, and CRUD operations via REST API
+- June 16, 2025. Added DSGVO-compliant cookie banner with opt-in functionality, four cookie categories (necessary, functional, analytics, marketing), and persistent storage with 6-month expiration
 ```
 
 ## User Preferences

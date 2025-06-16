@@ -17,6 +17,7 @@ function Router() {
       <Route path="/admin" component={Admin} />
       <Route path="/blog/:id" component={BlogPost} />
       <Route path="/datenschutz" component={Datenschutz} />
+      <Route path="/impressum" component={Impressum} />
       <Route component={NotFound} />
     </Switch>
   );
