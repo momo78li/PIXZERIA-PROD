@@ -10,7 +10,8 @@ interface PixzeriaLogoProps {
 export default function PixzeriaLogo({ 
   size = "md", 
   showText = true, 
-  className = "" 
+  className = "",
+  textColor = "text-pizza-red"
 }: PixzeriaLogoProps) {
   const sizeClasses = {
     sm: "w-8 h-8",
@@ -36,7 +37,7 @@ export default function PixzeriaLogo({
         />
       </div>
       {showText && (
-        <span className={`font-fredoka text-pizza-red font-bold ${textSizeClasses[size]}`}>
+        <span className={`font-fredoka ${textColor} font-bold ${textSizeClasses[size]}`}>
           PIXZERIA
         </span>
       )}
