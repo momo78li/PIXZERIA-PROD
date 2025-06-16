@@ -40,13 +40,17 @@ export default function Header() {
           
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <button
+              <a
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="hover:text-pizza-red transition-colors cursor-pointer"
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.id);
+                }}
+                className="hover:text-pizza-red transition-colors cursor-pointer text-gray-700 font-medium"
               >
                 {item.name}
-              </button>
+              </a>
             ))}
             <Button 
               onClick={() => scrollToSection('website-check')}
@@ -65,13 +69,17 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col space-y-4 mt-8">
                 {navigation.map((item) => (
-                  <button
+                  <a
                     key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="text-left hover:text-pizza-red transition-colors py-2 cursor-pointer block w-full"
+                    href={`#${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.id);
+                    }}
+                    className="text-left hover:text-pizza-red transition-colors py-2 cursor-pointer block w-full text-gray-700 font-medium"
                   >
                     {item.name}
-                  </button>
+                  </a>
                 ))}
                 <Button 
                   onClick={() => scrollToSection('website-check')}
