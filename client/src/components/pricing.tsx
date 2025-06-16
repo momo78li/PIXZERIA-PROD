@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { FileText, Palette, PenTool, Zap, Search, Rocket, Users, Crown, Star } from "lucide-react";
 
 export default function Pricing() {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
@@ -74,7 +75,8 @@ export default function Pricing() {
       name: "Starter Pizza",
       price: "699€",
       description: "Perfekt für Handwerker & Praxen",
-      badge: "🔥 Starter",
+      badge: "Starter",
+      badgeIcon: Rocket,
       badgeColor: "bg-pizza-gold",
       features: [
         "Bis zu 5 Seiten",
@@ -90,7 +92,8 @@ export default function Pricing() {
       name: "Professional Pizza",
       price: "1.299€",
       description: "Für etablierte Betriebe",
-      badge: "⭐ Beliebt",
+      badge: "Beliebt",
+      badgeIcon: Star,
       badgeColor: "bg-pizza-red",
       features: [
         "Alles aus Starter",
@@ -106,7 +109,8 @@ export default function Pricing() {
       name: "Business Pizza",
       price: "1.999€",
       description: "Für wachsende Unternehmen",
-      badge: "👑 Business",
+      badge: "Business",
+      badgeIcon: Crown,
       badgeColor: "bg-pizza-orange",
       features: [
         "Alles aus Professional",
@@ -124,27 +128,27 @@ export default function Pricing() {
     {
       name: "Extra Seiten",
       price: "89€/Seite",
-      icon: "📄"
+      icon: FileText
     },
     {
       name: "Logo erstellen",
       price: "199€",
-      icon: "🎨"
+      icon: Palette
     },
     {
       name: "Texte schreiben",
       price: "99€/Seite",
-      icon: "✍️"
+      icon: PenTool
     },
     {
       name: "Schneller fertig",
       price: "+299€",
-      icon: "⚡"
+      icon: Zap
     },
     {
       name: "Google-Optimierung",
       price: "299€",
-      icon: "🔍"
+      icon: Search
     }
   ];
 
@@ -169,7 +173,8 @@ export default function Pricing() {
               }`}
             >
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className={`${pkg.badgeColor} px-4 py-1 rounded-full text-sm font-semibold text-white`}>
+                <div className={`${pkg.badgeColor} px-4 py-1 rounded-full text-sm font-semibold text-white flex items-center gap-1`}>
+                  {pkg.badgeIcon && <pkg.badgeIcon className="w-3 h-3" />}
                   {pkg.badge}
                 </div>
               </div>
@@ -214,15 +219,18 @@ export default function Pricing() {
           </CardHeader>
           <CardContent>
             <div className="grid md:grid-cols-3 gap-6">
-              {addOns.map((addon, index) => (
-                <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                  <div>
-                    <h4 className="font-semibold">{addon.name}</h4>
-                    <p className="text-sm text-gray-600">{addon.price}</p>
+              {addOns.map((addon, index) => {
+                const IconComponent = addon.icon;
+                return (
+                  <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div>
+                      <h4 className="font-semibold">{addon.name}</h4>
+                      <p className="text-sm text-gray-600">{addon.price}</p>
+                    </div>
+                    <IconComponent className="w-5 h-5 text-pizza-red" />
                   </div>
-                  <span className="text-pizza-red text-xl">{addon.icon}</span>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </CardContent>
         </Card>

@@ -70,15 +70,18 @@ export default function Services() {
         </div>
         
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <div key={index} className="text-center group">
-              <div className={`w-16 h-16 ${service.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all`}>
-                <service.icon className="w-6 h-6" />
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            return (
+              <div key={index} className="text-center group">
+                <div className={`w-16 h-16 ${service.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all`}>
+                  <IconComponent className="w-6 h-6" />
+                </div>
+                <h3 className="font-semibold mb-2">{service.title}</h3>
+                <p className="text-sm text-gray-600">{service.description}</p>
               </div>
-              <h3 className="font-semibold mb-2">{service.title}</h3>
-              <p className="text-sm text-gray-600">{service.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
