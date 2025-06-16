@@ -130,7 +130,8 @@ Changelog:
 - June 15, 2025. Initial setup with complete German PIXZERIA website
 - June 15, 2025. Fixed navigation functionality and CSS import order
 - June 15, 2025. Added Website-Refresh service to offerings
-- June 16, 2025. Fixed navigation with robust JavaScript implementation using getBoundingClientRect for accurate positioning and mobile menu auto-close
+- June 16, 2025. Fixed navigation with viewport-aware implementation for mobile portrait/landscape modes with dynamic header offsets and CSS media queries
+- June 16, 2025. Updated pricing packages to realistic AI-assisted development services with one-time add-ons instead of recurring maintenance contracts
 ```
 
 ## User Preferences

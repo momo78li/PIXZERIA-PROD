@@ -5,51 +5,51 @@ export default function Pricing() {
   const packages = [
     {
       name: "Starter Pizza",
-      price: "699€",
-      description: "Perfekt für den Einstieg",
+      price: "499€",
+      description: "Perfekt für kleine Unternehmen",
       badge: "🔥 Starter",
       badgeColor: "bg-pizza-gold",
       features: [
+        "Moderne Website (bis 5 Seiten)",
         "Responsives Design",
-        "Bis zu 5 Seiten",
         "Kontaktformular",
         "DSGVO-konform",
         "SEO-Grundlagen",
-        "1 Design-Revision"
+        "2 Design-Anpassungen"
       ],
       buttonColor: "bg-pizza-gold hover:bg-yellow-500",
       popular: false
     },
     {
       name: "Professional Pizza",
-      price: "1.299€",
-      description: "Für anspruchsvolle Unternehmen",
+      price: "899€",
+      description: "Für wachsende Unternehmen",
       badge: "⭐ Beliebt",
       badgeColor: "bg-pizza-red",
       features: [
         "Alles aus Starter",
         "Bis zu 10 Seiten",
         "Blog-System",
+        "Google Analytics",
         "Erweiterte SEO",
-        "Analytics Setup",
-        "Premium Support"
+        "5 Design-Anpassungen"
       ],
       buttonColor: "bg-pizza-red hover:bg-red-700",
       popular: true
     },
     {
-      name: "Enterprise Pizza",
-      price: "1.999€",
-      description: "Für große Projekte",
-      badge: "👑 Enterprise",
+      name: "Business Pizza",
+      price: "1.299€",
+      description: "Für etablierte Unternehmen",
+      badge: "👑 Business",
       badgeColor: "bg-pizza-orange",
       features: [
         "Alles aus Professional",
-        "Unbegrenzte Seiten",
-        "E-Commerce Integration",
-        "Custom Features",
-        "Priority Support",
-        "3 Monate Wartung"
+        "Bis zu 20 Seiten",
+        "Einfacher Online-Shop",
+        "Buchungssystem",
+        "API-Integrationen",
+        "Unbegrenzte Anpassungen"
       ],
       buttonColor: "bg-pizza-orange hover:bg-orange-600",
       popular: false
@@ -58,19 +58,34 @@ export default function Pricing() {
 
   const addOns = [
     {
-      name: "Content-Pflege",
-      price: "Ab 99€/Monat",
+      name: "Zusätzliche Seiten",
+      price: "49€/Seite",
+      icon: "📄"
+    },
+    {
+      name: "Logo-Design",
+      price: "199€",
+      icon: "🎨"
+    },
+    {
+      name: "Inhalt schreiben",
+      price: "99€/Seite",
       icon: "✍️"
     },
     {
-      name: "Technischer Support",
-      price: "Ab 49€/Stunde",
-      icon: "🎧"
+      name: "Express-Lieferung",
+      price: "+299€",
+      icon: "⚡"
     },
     {
-      name: "Wartungs-Abo",
-      price: "49-149€/Monat",
-      icon: "🔧"
+      name: "SEO-Optimierung",
+      price: "249€",
+      icon: "🔍"
+    },
+    {
+      name: "Social Media Setup",
+      price: "149€",
+      icon: "📱"
     }
   ];
 
