@@ -8,7 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { FileText, Palette, PenTool, Zap, Search, Rocket, Users, Crown, Star } from "lucide-react";
+import { FileText, Palette, PenTool, Zap, Search, Rocket, Users, Crown, Star, Pizza, ShoppingCart, Check } from "lucide-react";
 
 export default function Pricing() {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
@@ -180,8 +180,8 @@ export default function Pricing() {
               </div>
               
               <CardHeader className="text-center pb-2">
-                <div className="w-20 h-20 bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">🍕</span>
+                <div className="w-20 h-20 bg-pizza-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Pizza className="w-8 h-8 text-pizza-red" />
                 </div>
                 <h3 className="text-2xl font-bold mb-2">{pkg.name}</h3>
                 <p className="text-gray-600 mb-4">{pkg.description}</p>
@@ -193,7 +193,7 @@ export default function Pricing() {
                 <ul className="space-y-3 mb-8">
                   {pkg.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center">
-                      <span className="text-green-500 mr-3">✅</span>
+                      <Check className="w-4 h-4 text-green-500 mr-3" />
                       <span className="text-sm">{feature}</span>
                     </li>
                   ))}
@@ -203,7 +203,8 @@ export default function Pricing() {
                   onClick={() => handleOrderClick(pkg)}
                   className={`w-full ${pkg.buttonColor} text-white py-3 rounded-full font-semibold transition-colors`}
                 >
-                  🛒 Bestellen
+                  <ShoppingCart className="w-4 h-4 mr-2" />
+                  Bestellen
                 </Button>
               </CardContent>
             </Card>
@@ -256,7 +257,7 @@ export default function Pricing() {
               <ul className="mt-3 space-y-1 text-sm text-gray-600">
                 {selectedPackage?.features.map((feature: string, index: number) => (
                   <li key={index} className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
+                    <Check className="w-3 h-3 text-green-500 mr-2" />
                     {feature}
                   </li>
                 ))}
@@ -267,22 +268,25 @@ export default function Pricing() {
             <div>
               <h3 className="font-semibold text-lg mb-3">Zusätzliche Leistungen (optional):</h3>
               <div className="space-y-3">
-                {addOns.map((addon, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
-                    <div className="flex items-center space-x-3">
-                      <Checkbox 
-                        id={`addon-${index}`}
-                        checked={selectedAddOns.includes(addon.name)}
-                        onCheckedChange={() => handleAddOnToggle(addon.name)}
-                      />
-                      <label htmlFor={`addon-${index}`} className="flex items-center space-x-2 cursor-pointer">
-                        <span>{addon.icon}</span>
-                        <span>{addon.name}</span>
-                      </label>
+                {addOns.map((addon, index) => {
+                  const IconComponent = addon.icon;
+                  return (
+                    <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
+                      <div className="flex items-center space-x-3">
+                        <Checkbox 
+                          id={`addon-${index}`}
+                          checked={selectedAddOns.includes(addon.name)}
+                          onCheckedChange={() => handleAddOnToggle(addon.name)}
+                        />
+                        <label htmlFor={`addon-${index}`} className="flex items-center space-x-2 cursor-pointer">
+                          <IconComponent className="w-4 h-4" />
+                          <span>{addon.name}</span>
+                        </label>
+                      </div>
+                      <span className="font-semibold text-pizza-red">{addon.price}</span>
                     </div>
-                    <span className="font-semibold text-pizza-red">{addon.price}</span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 

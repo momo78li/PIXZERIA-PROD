@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Zap, Heart, Star } from "lucide-react";
+import { Zap, Heart, Star, Users } from "lucide-react";
 
 export default function About() {
   const values = [
@@ -51,7 +51,8 @@ export default function About() {
             
             <div className="mt-8">
               <Button className="bg-pizza-red text-white px-8 py-3 rounded-full font-semibold hover:bg-pizza-red-dark transition-colors">
-                👥 Unser Team kennenlernen
+                <Users className="w-4 h-4 mr-2" />
+                Unser Team kennenlernen
               </Button>
             </div>
           </div>
