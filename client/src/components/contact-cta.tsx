@@ -155,15 +155,18 @@ export default function ContactCTA() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            {features.map((feature, index) => (
-              <div key={index}>
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">{feature.icon}</span>
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <div key={index}>
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <IconComponent className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-sm opacity-80">{feature.description}</p>
                 </div>
-                <h3 className="font-semibold mb-2">{feature.title}</h3>
-                <p className="text-sm opacity-80">{feature.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { TrendingUp, Zap, ShoppingCart, ExternalLink } from "lucide-react";
 
 export default function CaseStudies() {
   const caseStudies = [
@@ -10,7 +11,8 @@ export default function CaseStudies() {
       timeline: "1 Woche",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
       alt: "Professional business website example",
-      badge: "📈 +30%",
+      badge: "+30%",
+      badgeIcon: TrendingUp,
       badgeColor: "bg-green-500",
       result: "+30% mehr Anfragen in den ersten 3 Monaten nach Launch",
       resultColor: "bg-green-50 text-green-700"
@@ -22,7 +24,8 @@ export default function CaseStudies() {
       timeline: "1 Woche",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
       alt: "Modern medical practice website",
-      badge: "⚡ 50% schneller",
+      badge: "50% schneller",
+      badgeIcon: Zap,
       badgeColor: "bg-blue-500",
       result: "50% bessere Ladezeiten und deutlich mehr Online-Termine",
       resultColor: "bg-blue-50 text-blue-700"
@@ -34,7 +37,8 @@ export default function CaseStudies() {
       timeline: "1 Woche",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
       alt: "E-commerce website example",
-      badge: "🛒 +200%",
+      badge: "+200%",
+      badgeIcon: ShoppingCart,
       badgeColor: "bg-pizza-red",
       result: "+200% Umsatzsteigerung durch neuen Online-Shop",
       resultColor: "bg-red-50 text-red-700"
