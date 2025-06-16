@@ -1,59 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { Cookie, Settings, X } from "lucide-react";
-
-interface CookieConsent {
-  necessary: boolean;
-  functional: boolean;
-  analytics: boolean;
-  marketing: boolean;
-}
+import { Cookie, Settings } from "lucide-react";
+import { useCookieConsent, type CookieConsent } from "@/hooks/use-cookies";
 
 export default function CookieBanner() {
-  const [showBanner, setShowBanner] = useState(false);
+  const { consent, hasConsent, updateConsent } = useCookieConsent();
   const [showSettings, setShowSettings] = useState(false);
-  const [consent, setConsent] = useState<CookieConsent>({
-    necessary: true, // Always required
-    functional: false,
-    analytics: false,
-    marketing: false,
-  });
+  const [tempConsent, setTempConsent] = useState<CookieConsent>(consent);
 
-  useEffect(() => {
-    // Check if user has already given consent
-    const savedConsent = localStorage.getItem('cookie-consent');
-    if (!savedConsent) {
-      setShowBanner(true);
-    } else {
-      const parsedConsent = JSON.parse(savedConsent);
-      setConsent(parsedConsent);
-      // Apply consent settings
-      applyCookieSettings(parsedConsent);
-    }
-  }, []);
-
-  const applyCookieSettings = (consentSettings: CookieConsent) => {
-    // Apply Google Analytics or other tracking based on consent
-    if (consentSettings.analytics) {
-      // Enable analytics tracking
-      console.log('Analytics enabled');
-    } else {
-      // Disable analytics tracking
-      console.log('Analytics disabled');
-    }
-
-    if (consentSettings.marketing) {
-      // Enable marketing cookies
-      console.log('Marketing cookies enabled');
-    } else {
-      // Disable marketing cookies
-      console.log('Marketing cookies disabled');
-    }
-  };
+  // Don't show banner if user has already given consent
+  if (hasConsent) return null;
 
   const handleAcceptAll = () => {
     const fullConsent: CookieConsent = {
@@ -62,10 +22,7 @@ export default function CookieBanner() {
       analytics: true,
       marketing: true,
     };
-    setConsent(fullConsent);
-    localStorage.setItem('cookie-consent', JSON.stringify(fullConsent));
-    applyCookieSettings(fullConsent);
-    setShowBanner(false);
+    updateConsent(fullConsent);
     setShowSettings(false);
   };
 
@@ -76,26 +33,24 @@ export default function CookieBanner() {
       analytics: false,
       marketing: false,
     };
-    setConsent(minimalConsent);
-    localStorage.setItem('cookie-consent', JSON.stringify(minimalConsent));
-    applyCookieSettings(minimalConsent);
-    setShowBanner(false);
+    updateConsent(minimalConsent);
     setShowSettings(false);
   };
 
   const handleSaveSettings = () => {
-    localStorage.setItem('cookie-consent', JSON.stringify(consent));
-    applyCookieSettings(consent);
-    setShowBanner(false);
+    updateConsent(tempConsent);
     setShowSettings(false);
   };
 
   const handleConsentChange = (type: keyof CookieConsent, checked: boolean) => {
     if (type === 'necessary') return; // Cannot disable necessary cookies
-    setConsent(prev => ({ ...prev, [type]: checked }));
+    setTempConsent(prev => ({ ...prev, [type]: checked }));
   };
 
-  if (!showBanner) return null;
+  const handleOpenSettings = () => {
+    setTempConsent(consent);
+    setShowSettings(true);
+  };
 
   return (
     <>
@@ -121,7 +76,7 @@ export default function CookieBanner() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setShowSettings(true)}
+                onClick={handleOpenSettings}
                 className="flex items-center gap-2"
               >
                 <Settings className="h-4 w-4" />
@@ -196,7 +151,7 @@ export default function CookieBanner() {
               <CardContent>
                 <div className="flex items-center space-x-2">
                   <Checkbox
-                    checked={consent.functional}
+                    checked={tempConsent.functional}
                     onCheckedChange={(checked) => handleConsentChange('functional', checked as boolean)}
                     id="functional"
                   />
@@ -218,7 +173,7 @@ export default function CookieBanner() {
               <CardContent>
                 <div className="flex items-center space-x-2">
                   <Checkbox
-                    checked={consent.analytics}
+                    checked={tempConsent.analytics}
                     onCheckedChange={(checked) => handleConsentChange('analytics', checked as boolean)}
                     id="analytics"
                   />
@@ -240,7 +195,7 @@ export default function CookieBanner() {
               <CardContent>
                 <div className="flex items-center space-x-2">
                   <Checkbox
-                    checked={consent.marketing}
+                    checked={tempConsent.marketing}
                     onCheckedChange={(checked) => handleConsentChange('marketing', checked as boolean)}
                     id="marketing"
                   />
