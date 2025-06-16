@@ -142,6 +142,8 @@ Changelog:
 - June 16, 2025. Implemented complete dynamic blog system with admin panel for content management, individual blog post pages, and CRUD operations via REST API
 - June 16, 2025. Added DSGVO-compliant cookie banner with opt-in functionality, four cookie categories (necessary, functional, analytics, marketing), and persistent storage with 6-month expiration
 - June 16, 2025. Integrated authentic PIXZERIA logo throughout website, updated color palette to match logo design, removed redundant text labels, and changed delivery time from "maximal 4 weeks" to "ab 1 Woche"
+- June 16, 2025. Replaced all emojis with modern Lucide React icons for professional appearance across all components (services, hero, pricing, about, contact, case studies)
+- June 16, 2025. Updated case studies with authentic client examples (Müller Bau, Praxis Dr. Schneider, Mustermann & Kollegen) and replaced "KMU" terminology with clearer language targeting businesses wanting cool digital presence without agency complications
 ```
 
 ## User Preferences
