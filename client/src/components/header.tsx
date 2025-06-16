@@ -10,20 +10,27 @@ export default function Header() {
     // Close mobile menu immediately
     setIsOpen(false);
     
-    // Force scroll after a short delay to ensure DOM is ready
+    // Wait longer for mobile menu to close and viewport to stabilize
     setTimeout(() => {
       const element = document.getElementById(sectionId);
       if (element) {
+        // Get viewport dimensions to adjust for mobile portrait mode
+        const viewportHeight = window.innerHeight;
+        const isPortraitMobile = viewportHeight > window.innerWidth && window.innerWidth < 768;
+        
+        // Adjust header offset based on device orientation
+        const headerOffset = isPortraitMobile ? 120 : 90;
+        
         const rect = element.getBoundingClientRect();
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const targetPosition = rect.top + scrollTop - 90;
+        const targetPosition = rect.top + scrollTop - headerOffset;
         
         window.scrollTo({
-          top: targetPosition,
+          top: Math.max(0, targetPosition),
           behavior: 'smooth'
         });
       }
-    }, 50);
+    }, 200);
   };
 
   const navigation = [
