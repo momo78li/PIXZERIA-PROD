@@ -139,6 +139,7 @@ Changelog:
 - June 16, 2025. Repositioned packages for small businesses (Handwerker, Ärzte) with larger price gaps: Starter 699€, Professional 1.299€, Business 1.999€
 - June 16, 2025. Implemented DSGVO-compliant double-opt-in email verification with SendGrid integration and automated business notifications to info@pixzeria.de
 - June 16, 2025. Extended email verification to website checks with user-friendly URL normalization (auto-adds https:// and www.) and professional confirmation pages
+- June 16, 2025. Implemented complete dynamic blog system with admin panel for content management, individual blog post pages, and CRUD operations via REST API
 ```
 
 ## User Preferences
