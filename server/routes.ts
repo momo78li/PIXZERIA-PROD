@@ -2,17 +2,51 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertWebsiteCheckSchema, insertContactRequestSchema } from "@shared/schema";
-import { sendEmail, createCustomerConfirmationEmail, createBusinessNotificationEmail } from "./sendgrid";
+import { sendEmail, createCustomerConfirmationEmail, createBusinessNotificationEmail, createWebsiteCheckConfirmationEmail, createWebsiteCheckNotificationEmail } from "./sendgrid";
+import { normalizeUrl, isValidUrl } from "./utils";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Website check endpoint
   app.post("/api/website-check", async (req, res) => {
     try {
-      const validatedData = insertWebsiteCheckSchema.parse(req.body);
+      // Normalize and validate URL
+      const normalizedUrl = normalizeUrl(req.body.url);
+      if (!isValidUrl(normalizedUrl)) {
+        return res.status(400).json({ error: "Ungültige URL. Bitte geben Sie eine gültige Website-Adresse ein." });
+      }
+
+      const validatedData = insertWebsiteCheckSchema.parse({
+        ...req.body,
+        url: normalizedUrl
+      });
+      
       const websiteCheck = await storage.createWebsiteCheck(validatedData);
-      res.json({ success: true, id: websiteCheck.id });
+      
+      // Send confirmation email to customer
+      const confirmationLink = `${req.protocol}://${req.get('host')}/confirm-website-check?token=${websiteCheck.confirmationToken}`;
+      const customerEmail = createWebsiteCheckConfirmationEmail(
+        websiteCheck.email,
+        websiteCheck.url,
+        confirmationLink
+      );
+      
+      const emailSent = await sendEmail(customerEmail);
+      
+      if (emailSent) {
+        res.json({ 
+          success: true, 
+          id: websiteCheck.id,
+          message: "Bestätigungs-E-Mail wurde gesendet",
+          normalizedUrl: normalizedUrl
+        });
+      } else {
+        res.status(500).json({ 
+          error: "E-Mail konnte nicht gesendet werden. Bitte versuchen Sie es erneut." 
+        });
+      }
     } catch (error) {
-      res.status(400).json({ error: "Invalid data provided" });
+      console.error('Website check error:', error);
+      res.status(400).json({ error: "Ungültige Daten oder E-Mail-Fehler" });
     }
   });
 

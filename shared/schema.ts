@@ -12,6 +12,8 @@ export const websiteChecks = pgTable("website_checks", {
   id: serial("id").primaryKey(),
   url: text("url").notNull(),
   email: text("email").notNull(),
+  confirmed: boolean("confirmed").default(false),
+  confirmationToken: text("confirmation_token"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

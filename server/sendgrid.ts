@@ -108,6 +108,130 @@ export function createCustomerConfirmationEmail(
   };
 }
 
+export function createWebsiteCheckConfirmationEmail(
+  customerEmail: string,
+  websiteUrl: string,
+  confirmationLink: string
+) {
+  const subject = "Bestätigen Sie Ihre Website-Analyse bei PIXZERIA";
+  
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #B91C1C, #FB923C); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .content { background: white; padding: 30px; border: 1px solid #ddd; }
+        .footer { background: #f8f9fa; padding: 20px; text-align: center; font-size: 12px; color: #666; border-radius: 0 0 10px 10px; }
+        .button { display: inline-block; background: #B91C1C; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 20px 0; }
+        .website-details { background: #fef2f2; padding: 20px; border-radius: 8px; margin: 20px 0; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>🍕 PIXZERIA</h1>
+          <p>Kostenlose Website-Analyse</p>
+        </div>
+        
+        <div class="content">
+          <h2>Bestätigen Sie Ihre Website-Analyse</h2>
+          <p>Hallo,</p>
+          <p>vielen Dank für Ihr Interesse an unserer kostenlosen Website-Analyse! Um Ihre Anfrage zu bestätigen und DSGVO-konform zu bearbeiten, klicken Sie bitte auf den folgenden Link:</p>
+          
+          <div style="text-align: center;">
+            <a href="${confirmationLink}" class="button">Website-Analyse bestätigen</a>
+          </div>
+          
+          <div class="website-details">
+            <h3>Ihre Website:</h3>
+            <p><strong>${websiteUrl}</strong></p>
+            <p>Nach der Bestätigung analysieren wir Ihre Website kostenlos und senden Ihnen einen detaillierten Bericht mit Verbesserungsvorschlägen.</p>
+          </div>
+          
+          <p><strong>Was Sie erhalten:</strong></p>
+          <ul>
+            <li>Kostenlose Analyse Ihrer aktuellen Website</li>
+            <li>Detaillierte Verbesserungsvorschläge</li>
+            <li>Unverbindliche Beratung</li>
+            <li>Individuelle Lösungsempfehlungen</li>
+          </ul>
+        </div>
+        
+        <div class="footer">
+          <p>PIXZERIA - Webdesign für kleine Unternehmen</p>
+          <p>info@pixzeria.de</p>
+          <p>Diese E-Mail wurde automatisch generiert. Bei Fragen antworten Sie einfach auf diese E-Mail.</p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+
+  return {
+    to: customerEmail,
+    from: 'info@pixzeria.de',
+    subject,
+    html
+  };
+}
+
+export function createWebsiteCheckNotificationEmail(
+  websiteCheck: any
+) {
+  const subject = `Neue Website-Analyse: ${websiteCheck.url}`;
+  
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: #B91C1C; color: white; padding: 20px; text-align: center; }
+        .content { background: white; padding: 20px; border: 1px solid #ddd; }
+        .website-info { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>🍕 Neue Website-Analyse Anfrage</h1>
+        </div>
+        
+        <div class="content">
+          <h2>Kundendaten:</h2>
+          <div class="website-info">
+            <p><strong>E-Mail:</strong> ${websiteCheck.email}</p>
+            <p><strong>Website:</strong> ${websiteCheck.url}</p>
+            <p><strong>Datum:</strong> ${new Date(websiteCheck.createdAt).toLocaleDateString('de-DE')}</p>
+          </div>
+          
+          <p><strong>Nächste Schritte:</strong></p>
+          <ol>
+            <li>Website analysieren</li>
+            <li>Verbesserungsvorschläge erstellen</li>
+            <li>Bericht an Kunden senden</li>
+            <li>Bei Interesse Beratungstermin anbieten</li>
+          </ol>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+
+  return {
+    to: 'info@pixzeria.de',
+    from: 'info@pixzeria.de',
+    subject,
+    html
+  };
+}
+
 export function createBusinessNotificationEmail(
   customerData: any,
   packageName: string,

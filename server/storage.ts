@@ -5,6 +5,8 @@ export interface IStorage {
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
   createWebsiteCheck(check: InsertWebsiteCheck): Promise<WebsiteCheck>;
+  confirmWebsiteCheck(token: string): Promise<WebsiteCheck | undefined>;
+  getWebsiteCheckByToken(token: string): Promise<WebsiteCheck | undefined>;
   createContactRequest(request: InsertContactRequest): Promise<ContactRequest>;
   confirmContactRequest(token: string): Promise<ContactRequest | undefined>;
   getContactRequestByToken(token: string): Promise<ContactRequest | undefined>;
@@ -48,13 +50,36 @@ export class MemStorage implements IStorage {
 
   async createWebsiteCheck(insertCheck: InsertWebsiteCheck): Promise<WebsiteCheck> {
     const id = this.currentWebsiteCheckId++;
+    const confirmationToken = Math.random().toString(36).substring(2) + Date.now().toString(36);
     const check: WebsiteCheck = {
       ...insertCheck,
       id,
+      confirmed: false,
+      confirmationToken,
       createdAt: new Date(),
     };
     this.websiteChecks.set(id, check);
     return check;
+  }
+
+  async confirmWebsiteCheck(token: string): Promise<WebsiteCheck | undefined> {
+    for (const [id, check] of this.websiteChecks.entries()) {
+      if (check.confirmationToken === token && !check.confirmed) {
+        const updatedCheck = { ...check, confirmed: true };
+        this.websiteChecks.set(id, updatedCheck);
+        return updatedCheck;
+      }
+    }
+    return undefined;
+  }
+
+  async getWebsiteCheckByToken(token: string): Promise<WebsiteCheck | undefined> {
+    for (const check of this.websiteChecks.values()) {
+      if (check.confirmationToken === token) {
+        return check;
+      }
+    }
+    return undefined;
   }
 
   async createContactRequest(insertRequest: InsertContactRequest): Promise<ContactRequest> {
