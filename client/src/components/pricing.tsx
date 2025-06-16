@@ -13,7 +13,7 @@ export default function Pricing() {
         "Bis zu 5 Seiten",
         "Funktioniert auf Handy & Computer",
         "Kontaktformular",
-        "Datenschutz-konform",
+        "Impressum & Datenschutz",
         "Bei Google findbar",
         "2 kostenlose Änderungen"
       ],
@@ -49,7 +49,7 @@ export default function Pricing() {
         "Produktübersicht",
         "Mehrere Kontaktformulare",
         "Foto-Galerien",
-        "Unbegrenzte Änderungen"
+        "10 kostenlose Änderungen"
       ],
       buttonColor: "bg-pizza-orange hover:bg-orange-600",
       popular: false
@@ -59,7 +59,7 @@ export default function Pricing() {
   const addOns = [
     {
       name: "Extra Seiten",
-      price: "39€/Seite",
+      price: "59€/Seite",
       icon: "📄"
     },
     {
@@ -69,7 +69,7 @@ export default function Pricing() {
     },
     {
       name: "Texte schreiben",
-      price: "69€/Seite",
+      price: "79€/Seite",
       icon: "✍️"
     },
     {
@@ -83,9 +83,9 @@ export default function Pricing() {
       icon: "🔍"
     },
     {
-      name: "Impressum & Datenschutz",
-      price: "99€",
-      icon: "⚖️"
+      name: "Extra Änderungen",
+      price: "49€/Änderung",
+      icon: "🔄"
     }
   ];
 

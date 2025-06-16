@@ -133,6 +133,8 @@ Changelog:
 - June 16, 2025. Fixed navigation with viewport-aware implementation for mobile portrait/landscape modes with dynamic header offsets and CSS media queries
 - June 16, 2025. Updated pricing packages to realistic AI-assisted development services with one-time add-ons instead of recurring maintenance contracts
 - June 16, 2025. Simplified packages to remove legal risks (no e-commerce/booking systems) and used customer-friendly language throughout
+- June 16, 2025. Fixed "unlimited changes" to limited revisions (2/5/10) to prevent scope creep and endless project cycles
+- June 16, 2025. Added Impressum & Datenschutz to all packages for DSGVO compliance and adjusted add-on pricing for consistent package value proposition
 ```
 
 ## User Preferences
