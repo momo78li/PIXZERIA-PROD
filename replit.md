@@ -147,6 +147,7 @@ Changelog:
 - June 16, 2025. Fixed image display issues in case studies by properly importing attached reference project screenshots using @assets/ import syntax
 - June 16, 2025. Replaced "Schnickschnack" with "unnötige Extras" and removed all "KMU" references, using "Unternehmen" instead for clearer business targeting
 - June 16, 2025. Updated pricing structure to premium positioning: Starter €999, Professional €1,699, Business €2,499 for better market positioning
+- June 16, 2025. Added optional PIXZERIA Hosting service to packages (€29/€49/€79 monthly) with professional hosting features, automated updates, and complete customer management system
 ```
 
 ## User Preferences
