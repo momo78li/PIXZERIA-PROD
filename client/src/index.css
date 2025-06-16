@@ -63,7 +63,12 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* Account for fixed header */
+    scroll-padding-top: 120px; /* Account for fixed header */
+  }
+
+  /* Ensure sections are properly targeted by anchor links */
+  section[id] {
+    scroll-margin-top: 120px;
   }
 
   body {

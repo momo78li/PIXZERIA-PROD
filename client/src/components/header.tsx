@@ -7,16 +7,16 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    const element = document.querySelector(`#${sectionId}`);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start'
+      const headerHeight = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
       });
-      // Adjust for fixed header
-      setTimeout(() => {
-        window.scrollBy(0, -90);
-      }, 300);
     }
     setIsOpen(false);
   };
@@ -45,10 +45,6 @@ export default function Header() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(item.id);
-                }}
                 className="hover:text-pizza-red transition-colors cursor-pointer text-gray-700 font-medium"
               >
                 {item.name}
@@ -74,10 +70,7 @@ export default function Header() {
                   <a
                     key={item.id}
                     href={`#${item.id}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.id);
-                    }}
+                    onClick={() => setIsOpen(false)}
                     className="text-left hover:text-pizza-red transition-colors py-2 cursor-pointer block w-full text-gray-700 font-medium"
                   >
                     {item.name}
