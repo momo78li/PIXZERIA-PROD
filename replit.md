@@ -132,6 +132,7 @@ Changelog:
 - June 15, 2025. Added Website-Refresh service to offerings
 - June 16, 2025. Fixed navigation with viewport-aware implementation for mobile portrait/landscape modes with dynamic header offsets and CSS media queries
 - June 16, 2025. Updated pricing packages to realistic AI-assisted development services with one-time add-ons instead of recurring maintenance contracts
+- June 16, 2025. Simplified packages to remove legal risks (no e-commerce/booking systems) and used customer-friendly language throughout
 ```
 
 ## User Preferences

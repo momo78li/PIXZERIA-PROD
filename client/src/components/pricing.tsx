@@ -10,12 +10,12 @@ export default function Pricing() {
       badge: "🔥 Starter",
       badgeColor: "bg-pizza-gold",
       features: [
-        "Moderne Website (bis 5 Seiten)",
-        "Responsives Design",
+        "Bis zu 5 Seiten",
+        "Funktioniert auf Handy & Computer",
         "Kontaktformular",
-        "DSGVO-konform",
-        "SEO-Grundlagen",
-        "2 Design-Anpassungen"
+        "Datenschutz-konform",
+        "Bei Google findbar",
+        "2 kostenlose Änderungen"
       ],
       buttonColor: "bg-pizza-gold hover:bg-yellow-500",
       popular: false
@@ -29,27 +29,27 @@ export default function Pricing() {
       features: [
         "Alles aus Starter",
         "Bis zu 10 Seiten",
-        "Blog-System",
-        "Google Analytics",
-        "Erweiterte SEO",
-        "5 Design-Anpassungen"
+        "Blog für Neuigkeiten",
+        "Besucherstatistiken",
+        "Bessere Google-Platzierung",
+        "5 kostenlose Änderungen"
       ],
       buttonColor: "bg-pizza-red hover:bg-red-700",
       popular: true
     },
     {
       name: "Business Pizza",
-      price: "1.299€",
-      description: "Für etablierte Unternehmen",
+      price: "1.199€",
+      description: "Für größere Unternehmen",
       badge: "👑 Business",
       badgeColor: "bg-pizza-orange",
       features: [
         "Alles aus Professional",
-        "Bis zu 20 Seiten",
-        "Einfacher Online-Shop",
-        "Buchungssystem",
-        "API-Integrationen",
-        "Unbegrenzte Anpassungen"
+        "Bis zu 15 Seiten",
+        "Produktübersicht",
+        "Mehrere Kontaktformulare",
+        "Foto-Galerien",
+        "Unbegrenzte Änderungen"
       ],
       buttonColor: "bg-pizza-orange hover:bg-orange-600",
       popular: false
@@ -58,34 +58,34 @@ export default function Pricing() {
 
   const addOns = [
     {
-      name: "Zusätzliche Seiten",
-      price: "49€/Seite",
+      name: "Extra Seiten",
+      price: "39€/Seite",
       icon: "📄"
     },
     {
-      name: "Logo-Design",
-      price: "199€",
+      name: "Logo erstellen",
+      price: "149€",
       icon: "🎨"
     },
     {
-      name: "Inhalt schreiben",
-      price: "99€/Seite",
+      name: "Texte schreiben",
+      price: "69€/Seite",
       icon: "✍️"
     },
     {
-      name: "Express-Lieferung",
-      price: "+299€",
+      name: "Schneller fertig",
+      price: "+199€",
       icon: "⚡"
     },
     {
-      name: "SEO-Optimierung",
-      price: "249€",
+      name: "Google-Optimierung",
+      price: "199€",
       icon: "🔍"
     },
     {
-      name: "Social Media Setup",
-      price: "149€",
-      icon: "📱"
+      name: "Impressum & Datenschutz",
+      price: "99€",
+      icon: "⚖️"
     }
   ];
 
