@@ -46,7 +46,7 @@ export default function Header() {
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <PixzeriaLogo size="md" showText={true} />
+          <PixzeriaLogo size="lg" showText={false} />
           
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (

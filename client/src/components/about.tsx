@@ -5,7 +5,7 @@ export default function About() {
     {
       icon: "🚀",
       title: "Pizza-Speed",
-      description: "Schnelle Lieferung ohne Qualitätsverlust – in maximal 4 Wochen ist Ihre Website online.",
+      description: "Schnelle Lieferung ohne Qualitätsverlust – ab 1 Woche ist Ihre Website online.",
       color: "bg-pizza-red/10 text-pizza-red"
     },
     {

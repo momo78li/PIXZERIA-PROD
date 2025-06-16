@@ -65,7 +65,7 @@ export default function Hero() {
             </div>
             
             <div className="absolute -bottom-4 -left-4 bg-pizza-gold text-white px-4 py-2 rounded-full font-semibold">
-              ⏱️ ≤ 4 Wochen
+              ⏱️ Ab 1 Woche
             </div>
           </div>
         </div>
