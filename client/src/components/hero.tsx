@@ -61,7 +61,7 @@ export default function Hero() {
             />
             
             <div className="absolute -top-4 -right-4 bg-white rounded-full p-4 shadow-lg animate-spin-slow">
-              <span className="text-pizza-red text-2xl">🍕</span>
+              <PixzeriaLogo size="sm" showText={false} />
             </div>
             
             <div className="absolute -bottom-4 -left-4 bg-pizza-gold text-white px-4 py-2 rounded-full font-semibold">
@@ -72,8 +72,8 @@ export default function Hero() {
       </div>
       
       {/* Background decoration */}
-      <div className="absolute top-20 right-10 opacity-10">
-        <span className="text-pizza-red text-8xl transform rotate-12">🍕</span>
+      <div className="absolute top-20 right-10 opacity-20 transform rotate-12">
+        <PixzeriaLogo size="xl" showText={false} />
       </div>
       <div className="absolute bottom-20 left-10 opacity-10">
         <span className="text-pizza-orange text-6xl">💻</span>

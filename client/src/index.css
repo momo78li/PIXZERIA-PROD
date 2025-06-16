@@ -164,7 +164,18 @@
   }
   
   .gradient-pizza {
-    background: linear-gradient(45deg, var(--pizza-red), var(--pizza-orange));
+    background: var(--pizza-gradient);
+  }
+  
+  .bg-pizza-gradient {
+    background: var(--pizza-gradient);
+  }
+  
+  .text-gradient {
+    background: var(--pizza-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
   .animate-float {
