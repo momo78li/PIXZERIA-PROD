@@ -30,6 +30,22 @@ export const contactRequests = pgTable("contact_requests", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+export const blogPosts = pgTable("blog_posts", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  content: text("content").notNull(),
+  category: text("category").notNull(),
+  categoryColor: text("category_color").default("bg-pizza-red/10 text-pizza-red"),
+  readTime: text("read_time").default("5 Min. Lesezeit"),
+  image: text("image"),
+  alt: text("alt"),
+  published: boolean("published").default(false),
+  publishedAt: timestamp("published_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
@@ -49,9 +65,22 @@ export const insertContactRequestSchema = createInsertSchema(contactRequests).pi
   addOns: true,
 });
 
+export const insertBlogPostSchema = createInsertSchema(blogPosts).pick({
+  title: true,
+  description: true,
+  content: true,
+  category: true,
+  categoryColor: true,
+  readTime: true,
+  image: true,
+  alt: true,
+});
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 export type InsertWebsiteCheck = z.infer<typeof insertWebsiteCheckSchema>;
 export type WebsiteCheck = typeof websiteChecks.$inferSelect;
 export type InsertContactRequest = z.infer<typeof insertContactRequestSchema>;
 export type ContactRequest = typeof contactRequests.$inferSelect;
+export type InsertBlogPost = z.infer<typeof insertBlogPostSchema>;
+export type BlogPost = typeof blogPosts.$inferSelect;

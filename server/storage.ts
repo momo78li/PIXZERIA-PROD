@@ -1,4 +1,4 @@
-import { users, websiteChecks, contactRequests, type User, type InsertUser, type WebsiteCheck, type InsertWebsiteCheck, type ContactRequest, type InsertContactRequest } from "@shared/schema";
+import { users, websiteChecks, contactRequests, blogPosts, type User, type InsertUser, type WebsiteCheck, type InsertWebsiteCheck, type ContactRequest, type InsertContactRequest, type BlogPost, type InsertBlogPost } from "@shared/schema";
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -12,23 +12,34 @@ export interface IStorage {
   getContactRequestByToken(token: string): Promise<ContactRequest | undefined>;
   getAllWebsiteChecks(): Promise<WebsiteCheck[]>;
   getAllContactRequests(): Promise<ContactRequest[]>;
+  createBlogPost(post: InsertBlogPost): Promise<BlogPost>;
+  getAllBlogPosts(): Promise<BlogPost[]>;
+  getPublishedBlogPosts(): Promise<BlogPost[]>;
+  getBlogPost(id: number): Promise<BlogPost | undefined>;
+  updateBlogPost(id: number, post: Partial<BlogPost>): Promise<BlogPost | undefined>;
+  deleteBlogPost(id: number): Promise<boolean>;
+  publishBlogPost(id: number): Promise<BlogPost | undefined>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
   private websiteChecks: Map<number, WebsiteCheck>;
   private contactRequests: Map<number, ContactRequest>;
+  private blogPosts: Map<number, BlogPost>;
   private currentUserId: number;
   private currentWebsiteCheckId: number;
   private currentContactRequestId: number;
+  private currentBlogPostId: number;
 
   constructor() {
     this.users = new Map();
     this.websiteChecks = new Map();
     this.contactRequests = new Map();
+    this.blogPosts = new Map();
     this.currentUserId = 1;
     this.currentWebsiteCheckId = 1;
     this.currentContactRequestId = 1;
+    this.currentBlogPostId = 1;
   }
 
   async getUser(id: number): Promise<User | undefined> {
@@ -122,6 +133,70 @@ export class MemStorage implements IStorage {
 
   async getAllContactRequests(): Promise<ContactRequest[]> {
     return Array.from(this.contactRequests.values());
+  }
+
+  async createBlogPost(insertPost: InsertBlogPost): Promise<BlogPost> {
+    const id = this.currentBlogPostId++;
+    const post: BlogPost = { 
+      ...insertPost, 
+      id,
+      published: false,
+      publishedAt: null,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+    this.blogPosts.set(id, post);
+    return post;
+  }
+
+  async getAllBlogPosts(): Promise<BlogPost[]> {
+    return Array.from(this.blogPosts.values()).sort((a, b) => 
+      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+  }
+
+  async getPublishedBlogPosts(): Promise<BlogPost[]> {
+    return Array.from(this.blogPosts.values())
+      .filter(post => post.published)
+      .sort((a, b) => 
+        new Date(b.publishedAt || b.createdAt).getTime() - new Date(a.publishedAt || a.createdAt).getTime()
+      );
+  }
+
+  async getBlogPost(id: number): Promise<BlogPost | undefined> {
+    return this.blogPosts.get(id);
+  }
+
+  async updateBlogPost(id: number, updates: Partial<BlogPost>): Promise<BlogPost | undefined> {
+    const post = this.blogPosts.get(id);
+    if (!post) return undefined;
+    
+    const updatedPost = { 
+      ...post, 
+      ...updates, 
+      id, // Ensure ID doesn't change
+      updatedAt: new Date() 
+    };
+    this.blogPosts.set(id, updatedPost);
+    return updatedPost;
+  }
+
+  async deleteBlogPost(id: number): Promise<boolean> {
+    return this.blogPosts.delete(id);
+  }
+
+  async publishBlogPost(id: number): Promise<BlogPost | undefined> {
+    const post = this.blogPosts.get(id);
+    if (!post) return undefined;
+    
+    const publishedPost = { 
+      ...post, 
+      published: true, 
+      publishedAt: new Date(),
+      updatedAt: new Date()
+    };
+    this.blogPosts.set(id, publishedPost);
+    return publishedPost;
   }
 }
 
