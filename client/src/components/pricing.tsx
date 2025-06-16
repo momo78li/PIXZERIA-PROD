@@ -73,7 +73,7 @@ export default function Pricing() {
   const packages = [
     {
       name: "Starter Pizza",
-      price: "699€",
+      price: "999€",
       description: "Perfekt für kleine Unternehmen",
       badge: "Starter",
       badgeIcon: Rocket,
@@ -90,7 +90,7 @@ export default function Pricing() {
     },
     {
       name: "Professional Pizza",
-      price: "1.299€",
+      price: "1.699€",
       description: "Für wachsende Unternehmen",
       badge: "Beliebt",
       badgeIcon: Star,
@@ -107,7 +107,7 @@ export default function Pricing() {
     },
     {
       name: "Business Pizza",
-      price: "1.999€",
+      price: "2.499€",
       description: "Für erfolgreiche Unternehmen",
       badge: "Business",
       badgeIcon: Crown,
