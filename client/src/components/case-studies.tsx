@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { TrendingUp, Zap, ShoppingCart, ExternalLink } from "lucide-react";
+import { TrendingUp, Zap, Scale, ExternalLink, ShoppingCart } from "lucide-react";
 
 export default function CaseStudies() {
   const caseStudies = [
@@ -38,7 +38,7 @@ export default function CaseStudies() {
       image: "/assets/reference-lawyer.png",
       alt: "Mustermann & Kollegen - Professionelle Kanzlei-Website",
       badge: "Vertrauen",
-      badgeIcon: ShoppingCart,
+      badgeIcon: Scale,
       badgeColor: "bg-pizza-red",
       result: "Professioneller Auftritt stärkt Vertrauen bei Mandanten",
       resultColor: "bg-red-50 text-red-700"

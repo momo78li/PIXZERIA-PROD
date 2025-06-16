@@ -2,7 +2,7 @@
 
 ## Overview
 
-PIXZERIA is a German web design agency website built with a modern full-stack architecture. The application positions itself as "web design as easy as ordering pizza" and targets small to medium businesses (KMU) with fixed pricing packages, transparent costs, and GDPR compliance.
+PIXZERIA is a German web design agency website built with a modern full-stack architecture. The application positions itself as "web design as easy as ordering pizza" and targets businesses that need a cool digital presence without complications and expensive agencies - simple and fast solutions.
 
 ## System Architecture
 

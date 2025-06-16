@@ -74,7 +74,7 @@ export default function Pricing() {
     {
       name: "Starter Pizza",
       price: "699€",
-      description: "Perfekt für Handwerker & Praxen",
+      description: "Perfekt für kleine Unternehmen",
       badge: "Starter",
       badgeIcon: Rocket,
       badgeColor: "bg-pizza-gold",
@@ -91,7 +91,7 @@ export default function Pricing() {
     {
       name: "Professional Pizza",
       price: "1.299€",
-      description: "Für etablierte Betriebe",
+      description: "Für wachsende Unternehmen",
       badge: "Beliebt",
       badgeIcon: Star,
       badgeColor: "bg-pizza-red",
@@ -108,7 +108,7 @@ export default function Pricing() {
     {
       name: "Business Pizza",
       price: "1.999€",
-      description: "Für wachsende Unternehmen",
+      description: "Für erfolgreiche Unternehmen",
       badge: "Business",
       badgeIcon: Crown,
       badgeColor: "bg-pizza-orange",

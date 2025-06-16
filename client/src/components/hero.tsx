@@ -34,7 +34,7 @@ export default function Hero() {
             </h1>
             
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Feste Pakete, transparente Preise, schnelle Lieferung. Ihre moderne, DSGVO-konforme Website für KMU – ohne versteckte Kosten, ohne Komplikationen.
+              Feste Pakete, transparente Preise, schnelle Lieferung. Ihre moderne Website ohne Schnickschnack – direkt von echten Entwicklern, nicht von teuren Agenturen.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
