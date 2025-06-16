@@ -15,10 +15,10 @@ export default function WebsiteCheck() {
       const response = await apiRequest("POST", "/api/website-check", data);
       return response.json();
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
       toast({
-        title: "Vielen Dank!",
-        description: "Wir senden Ihnen das Ergebnis innerhalb von 48 Stunden per E-Mail.",
+        title: "Bestätigungs-E-Mail gesendet!",
+        description: "Bitte prüfen Sie Ihr E-Mail-Postfach und bestätigen Sie Ihre Anfrage.",
       });
       setUrl("");
       setEmail("");
@@ -82,8 +82,8 @@ export default function WebsiteCheck() {
           <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-4">
             <div className="flex flex-col md:flex-row gap-4">
               <Input
-                type="url"
-                placeholder="Ihre Website-URL eingeben..."
+                type="text"
+                placeholder="z.B. meine-firma.de (ohne http:// oder www.)"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 className="flex-1 px-4 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50"

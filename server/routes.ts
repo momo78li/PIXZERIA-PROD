@@ -225,6 +225,142 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Website check confirmation endpoint
+  app.get("/confirm-website-check", async (req, res) => {
+    try {
+      const token = req.query.token as string;
+      if (!token) {
+        return res.status(400).send(`
+          <html>
+            <head><title>Ungültiger Link</title></head>
+            <body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
+              <h1>❌ Ungültiger Bestätigungslink</h1>
+              <p>Der Link ist nicht gültig oder abgelaufen.</p>
+            </body>
+          </html>
+        `);
+      }
+
+      const confirmedCheck = await storage.confirmWebsiteCheck(token);
+      const existingCheck = await storage.getWebsiteCheckByToken(token);
+      
+      if (confirmedCheck) {
+        // Send notification to business
+        const businessEmail = createWebsiteCheckNotificationEmail(confirmedCheck);
+        await sendEmail(businessEmail);
+        
+        res.send(`
+          <html>
+            <head>
+              <title>Website-Analyse bestätigt</title>
+              <style>
+                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: linear-gradient(135deg, #B91C1C, #FB923C); color: white; }
+                .container { background: white; color: #333; padding: 40px; border-radius: 10px; max-width: 500px; margin: 0 auto; }
+                .logo { font-size: 3em; margin-bottom: 20px; }
+                .button { display: inline-block; background: #B91C1C; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 20px 0; }
+              </style>
+              <script>
+                setTimeout(function() {
+                  window.location.href = '/';
+                }, 5000);
+              </script>
+            </head>
+            <body>
+              <div class="container">
+                <div class="logo">🍕</div>
+                <h1>✅ Website-Analyse bestätigt!</h1>
+                <p>Vielen Dank für Ihr Interesse an PIXZERIA.</p>
+                <p><strong>Wir analysieren Ihre Website und senden Ihnen den Bericht per E-Mail.</strong></p>
+                <p>Website: <strong>${confirmedCheck.url}</strong></p>
+                <hr style="margin: 30px 0;">
+                <p><small>Sie werden automatisch in 5 Sekunden zur Hauptseite weitergeleitet...</small></p>
+                <a href="/" class="button">Zur Hauptseite</a>
+                <hr style="margin: 30px 0;">
+                <p><small>PIXZERIA - Webdesign so einfach wie Pizza bestellen</small></p>
+              </div>
+            </body>
+          </html>
+        `);
+      } else if (existingCheck && existingCheck.confirmed) {
+        // Link already used
+        res.send(`
+          <html>
+            <head>
+              <title>Bereits bestätigt</title>
+              <style>
+                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: linear-gradient(135deg, #B91C1C, #FB923C); color: white; }
+                .container { background: white; color: #333; padding: 40px; border-radius: 10px; max-width: 500px; margin: 0 auto; }
+                .logo { font-size: 3em; margin-bottom: 20px; }
+                .button { display: inline-block; background: #B91C1C; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 20px 0; }
+              </style>
+              <script>
+                setTimeout(function() {
+                  window.location.href = '/';
+                }, 5000);
+              </script>
+            </head>
+            <body>
+              <div class="container">
+                <div class="logo">🍕</div>
+                <h1>✅ Website-Analyse bereits bestätigt!</h1>
+                <p>Ihre Website-Analyse wurde bereits erfolgreich bestätigt.</p>
+                <p><strong>Wir haben Ihre Anfrage erhalten und arbeiten daran.</strong></p>
+                <hr style="margin: 30px 0;">
+                <p><small>Sie werden automatisch in 5 Sekunden zur Hauptseite weitergeleitet...</small></p>
+                <a href="/" class="button">Zur Hauptseite</a>
+                <hr style="margin: 30px 0;">
+                <p><small>PIXZERIA - Webdesign so einfach wie Pizza bestellen</small></p>
+              </div>
+            </body>
+          </html>
+        `);
+      } else {
+        res.status(404).send(`
+          <html>
+            <head>
+              <title>Link nicht gefunden</title>
+              <style>
+                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: linear-gradient(135deg, #B91C1C, #FB923C); color: white; }
+                .container { background: white; color: #333; padding: 40px; border-radius: 10px; max-width: 500px; margin: 0 auto; }
+                .logo { font-size: 3em; margin-bottom: 20px; }
+                .button { display: inline-block; background: #B91C1C; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 20px 0; }
+              </style>
+              <script>
+                setTimeout(function() {
+                  window.location.href = '/';
+                }, 5000);
+              </script>
+            </head>
+            <body>
+              <div class="container">
+                <div class="logo">🍕</div>
+                <h1>❌ Bestätigungslink nicht gefunden</h1>
+                <p>Der Link ist ungültig oder abgelaufen.</p>
+                <p>Bitte fordern Sie eine neue Website-Analyse an.</p>
+                <hr style="margin: 30px 0;">
+                <p><small>Sie werden automatisch in 5 Sekunden zur Hauptseite weitergeleitet...</small></p>
+                <a href="/" class="button">Zur Hauptseite</a>
+                <hr style="margin: 30px 0;">
+                <p><small>PIXZERIA - Webdesign so einfach wie Pizza bestellen</small></p>
+              </div>
+            </body>
+          </html>
+        `);
+      }
+    } catch (error) {
+      console.error('Website check confirmation error:', error);
+      res.status(500).send(`
+        <html>
+          <head><title>Fehler</title></head>
+          <body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
+            <h1>❌ Ein Fehler ist aufgetreten</h1>
+            <p>Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.</p>
+          </body>
+        </html>
+      `);
+    }
+  });
+
   // Get all website checks (for admin purposes)
   app.get("/api/website-checks", async (req, res) => {
     try {
