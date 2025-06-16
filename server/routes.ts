@@ -68,6 +68,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const confirmedRequest = await storage.confirmContactRequest(token);
       
+      const existingRequest = await storage.getContactRequestByToken(token);
+      
       if (confirmedRequest) {
         // Send notification to business
         const businessEmail = createBusinessNotificationEmail(
@@ -85,7 +87,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
                 body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: linear-gradient(135deg, #B91C1C, #FB923C); color: white; }
                 .container { background: white; color: #333; padding: 40px; border-radius: 10px; max-width: 500px; margin: 0 auto; }
                 .logo { font-size: 3em; margin-bottom: 20px; }
+                .button { display: inline-block; background: #B91C1C; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 20px 0; }
               </style>
+              <script>
+                setTimeout(function() {
+                  window.location.href = '/';
+                }, 5000);
+              </script>
             </head>
             <body>
               <div class="container">
@@ -95,6 +103,42 @@ export async function registerRoutes(app: Express): Promise<Server> {
                 <p><strong>Wir melden uns innerhalb von 24 Stunden bei Ihnen zurück.</strong></p>
                 <p>Ihr gewähltes Paket: <strong>${confirmedRequest.package}</strong></p>
                 <hr style="margin: 30px 0;">
+                <p><small>Sie werden automatisch in 5 Sekunden zur Hauptseite weitergeleitet...</small></p>
+                <a href="/" class="button">Zur Hauptseite</a>
+                <hr style="margin: 30px 0;">
+                <p><small>PIXZERIA - Webdesign so einfach wie Pizza bestellen</small></p>
+              </div>
+            </body>
+          </html>
+        `);
+      } else if (existingRequest && existingRequest.confirmed) {
+        // Link already used
+        res.send(`
+          <html>
+            <head>
+              <title>Bereits bestätigt</title>
+              <style>
+                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: linear-gradient(135deg, #B91C1C, #FB923C); color: white; }
+                .container { background: white; color: #333; padding: 40px; border-radius: 10px; max-width: 500px; margin: 0 auto; }
+                .logo { font-size: 3em; margin-bottom: 20px; }
+                .button { display: inline-block; background: #B91C1C; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 20px 0; }
+              </style>
+              <script>
+                setTimeout(function() {
+                  window.location.href = '/';
+                }, 5000);
+              </script>
+            </head>
+            <body>
+              <div class="container">
+                <div class="logo">🍕</div>
+                <h1>✅ E-Mail bereits bestätigt!</h1>
+                <p>Ihre Anfrage wurde bereits erfolgreich bestätigt.</p>
+                <p><strong>Wir haben Ihre Anfrage erhalten und melden uns bei Ihnen.</strong></p>
+                <hr style="margin: 30px 0;">
+                <p><small>Sie werden automatisch in 5 Sekunden zur Hauptseite weitergeleitet...</small></p>
+                <a href="/" class="button">Zur Hauptseite</a>
+                <hr style="margin: 30px 0;">
                 <p><small>PIXZERIA - Webdesign so einfach wie Pizza bestellen</small></p>
               </div>
             </body>
@@ -103,10 +147,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         res.status(404).send(`
           <html>
-            <head><title>Link nicht gefunden</title></head>
-            <body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
-              <h1>❌ Bestätigungslink nicht gefunden</h1>
-              <p>Der Link ist bereits verwendet oder ungültig.</p>
+            <head>
+              <title>Link nicht gefunden</title>
+              <style>
+                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: linear-gradient(135deg, #B91C1C, #FB923C); color: white; }
+                .container { background: white; color: #333; padding: 40px; border-radius: 10px; max-width: 500px; margin: 0 auto; }
+                .logo { font-size: 3em; margin-bottom: 20px; }
+                .button { display: inline-block; background: #B91C1C; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 20px 0; }
+              </style>
+              <script>
+                setTimeout(function() {
+                  window.location.href = '/';
+                }, 5000);
+              </script>
+            </head>
+            <body>
+              <div class="container">
+                <div class="logo">🍕</div>
+                <h1>❌ Bestätigungslink nicht gefunden</h1>
+                <p>Der Link ist ungültig oder abgelaufen.</p>
+                <p>Bitte füllen Sie das Kontaktformular erneut aus.</p>
+                <hr style="margin: 30px 0;">
+                <p><small>Sie werden automatisch in 5 Sekunden zur Hauptseite weitergeleitet...</small></p>
+                <a href="/" class="button">Zur Hauptseite</a>
+                <hr style="margin: 30px 0;">
+                <p><small>PIXZERIA - Webdesign so einfach wie Pizza bestellen</small></p>
+              </div>
             </body>
           </html>
         `);

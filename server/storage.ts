@@ -73,7 +73,7 @@ export class MemStorage implements IStorage {
 
   async confirmContactRequest(token: string): Promise<ContactRequest | undefined> {
     for (const [id, request] of this.contactRequests.entries()) {
-      if (request.confirmationToken === token) {
+      if (request.confirmationToken === token && !request.confirmed) {
         const updatedRequest = { ...request, confirmed: true };
         this.contactRequests.set(id, updatedRequest);
         return updatedRequest;
