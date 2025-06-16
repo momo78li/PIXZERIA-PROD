@@ -1,4 +1,4 @@
-import { pgTable, text, serial, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, timestamp, boolean } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -22,6 +22,9 @@ export const contactRequests = pgTable("contact_requests", {
   company: text("company"),
   message: text("message").notNull(),
   package: text("package"),
+  addOns: text("add_ons").array(),
+  confirmed: boolean("confirmed").default(false),
+  confirmationToken: text("confirmation_token"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
@@ -41,6 +44,7 @@ export const insertContactRequestSchema = createInsertSchema(contactRequests).pi
   company: true,
   message: true,
   package: true,
+  addOns: true,
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;

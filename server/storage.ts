@@ -6,6 +6,8 @@ export interface IStorage {
   createUser(user: InsertUser): Promise<User>;
   createWebsiteCheck(check: InsertWebsiteCheck): Promise<WebsiteCheck>;
   createContactRequest(request: InsertContactRequest): Promise<ContactRequest>;
+  confirmContactRequest(token: string): Promise<ContactRequest | undefined>;
+  getContactRequestByToken(token: string): Promise<ContactRequest | undefined>;
   getAllWebsiteChecks(): Promise<WebsiteCheck[]>;
   getAllContactRequests(): Promise<ContactRequest[]>;
 }
