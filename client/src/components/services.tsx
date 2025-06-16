@@ -1,57 +1,60 @@
+import React from "react";
+import { Palette, Monitor, Camera, Search, Shield, GraduationCap, Headphones, RotateCcw, Zap } from "lucide-react";
+
 export default function Services() {
   const services = [
     {
-      icon: "🎨",
+      icon: Palette,
       title: "Design",
       description: "Modernes, ansprechendes Webdesign",
       color: "bg-pizza-red/10 group-hover:bg-pizza-red text-pizza-red group-hover:text-white"
     },
     {
-      icon: "💻",
+      icon: Monitor,
       title: "Technik",
       description: "Next.js & moderne Technologien",
       color: "bg-pizza-orange/10 group-hover:bg-pizza-orange text-pizza-orange group-hover:text-white"
     },
     {
-      icon: "📸",
+      icon: Camera,
       title: "Bildmaterial",
       description: "Professionelle Fotos inklusive",
       color: "bg-pizza-gold/10 group-hover:bg-pizza-gold text-pizza-gold group-hover:text-white"
     },
     {
-      icon: "🔍",
+      icon: Search,
       title: "SEO-Grundlagen",
       description: "Optimiert für Suchmaschinen",
       color: "bg-green-500/10 group-hover:bg-green-500 text-green-500 group-hover:text-white"
     },
     {
-      icon: "🛡️",
+      icon: Shield,
       title: "DSGVO-Konform",
       description: "Rechtssicher und compliant",
       color: "bg-blue-500/10 group-hover:bg-blue-500 text-blue-500 group-hover:text-white"
     },
     {
-      icon: "🎓",
+      icon: GraduationCap,
       title: "Schulung",
       description: "Video-Tutorial für Sie",
       color: "bg-purple-500/10 group-hover:bg-purple-500 text-purple-500 group-hover:text-white"
     },
     {
-      icon: "🎧",
+      icon: Headphones,
       title: "Support",
       description: "Technischer Support verfügbar",
       color: "bg-indigo-500/10 group-hover:bg-indigo-500 text-indigo-500 group-hover:text-white"
     },
     {
-      icon: "🔄",
+      icon: RotateCcw,
       title: "Website-Refresh",
       description: "Bestehende Seiten modernisieren",
       color: "bg-teal-500/10 group-hover:bg-teal-500 text-teal-500 group-hover:text-white"
     },
     {
-      icon: "🚀",
+      icon: Zap,
       title: "Schnell",
-      description: "Lieferung in ≤ 4 Wochen",
+      description: "Lieferung ab 1 Woche",
       color: "bg-pink-500/10 group-hover:bg-pink-500 text-pink-500 group-hover:text-white"
     }
   ];
@@ -70,7 +73,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div key={index} className="text-center group">
               <div className={`w-16 h-16 ${service.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all`}>
-                <span className="text-2xl">{service.icon}</span>
+                <service.icon className="w-6 h-6" />
               </div>
               <h3 className="font-semibold mb-2">{service.title}</h3>
               <p className="text-sm text-gray-600">{service.description}</p>

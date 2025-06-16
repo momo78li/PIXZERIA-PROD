@@ -1,21 +1,22 @@
 import { Button } from "@/components/ui/button";
+import { Zap, Heart, Star } from "lucide-react";
 
 export default function About() {
   const values = [
     {
-      icon: "🚀",
+      icon: Zap,
       title: "Pizza-Speed",
       description: "Schnelle Lieferung ohne Qualitätsverlust – ab 1 Woche ist Ihre Website online.",
       color: "bg-pizza-red/10 text-pizza-red"
     },
     {
-      icon: "❤️",
+      icon: Heart,
       title: "Einfachheit",
       description: "Klare Pakete, transparente Preise – so einfach wie Pizza bestellen.",
       color: "bg-pizza-orange/10 text-pizza-orange"
     },
     {
-      icon: "⭐",
+      icon: Star,
       title: "Qualität",
       description: "Moderne Technologien, professionelles Design und DSGVO-Konformität inklusive.",
       color: "bg-pizza-gold/10 text-pizza-gold"
@@ -32,17 +33,20 @@ export default function About() {
             </h2>
             
             <div className="space-y-6">
-              {values.map((value, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className={`w-12 h-12 ${value.color} rounded-full flex items-center justify-center flex-shrink-0`}>
-                    <span className="text-xl">{value.icon}</span>
+              {values.map((value, index) => {
+                const IconComponent = value.icon;
+                return (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className={`w-12 h-12 ${value.color} rounded-full flex items-center justify-center flex-shrink-0`}>
+                      <IconComponent className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">{value.title}</h3>
+                      <p className="text-gray-600">{value.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">{value.title}</h3>
-                    <p className="text-gray-600">{value.description}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             
             <div className="mt-8">
