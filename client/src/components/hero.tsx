@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import PixzeriaLogo from "@/components/pixzeria-logo";
+import { Flame, Rocket, Search, Clock } from "lucide-react";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -22,7 +23,7 @@ export default function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center bg-pizza-gold/20 px-4 py-2 rounded-full mb-6">
-              <span className="text-pizza-orange mr-2">🔥</span>
+              <Flame className="w-4 h-4 text-pizza-orange mr-2" />
               <span className="text-sm font-medium">Frisch aus dem digitalen Ofen</span>
             </div>
             
@@ -41,14 +42,16 @@ export default function Hero() {
                 onClick={() => scrollToSection('preise')}
                 className="bg-pizza-red text-white px-8 py-4 rounded-full font-semibold hover:bg-pizza-red-dark transition-all transform hover:scale-105 pizza-shadow"
               >
-                🚀 Jetzt bestellen
+                <Rocket className="w-4 h-4 mr-2" />
+                Jetzt bestellen
               </Button>
               <Button 
                 variant="outline"
                 onClick={() => scrollToSection('website-check')}
                 className="border-2 border-pizza-red text-pizza-red px-8 py-4 rounded-full font-semibold hover:bg-pizza-red hover:text-white transition-all"
               >
-                🔍 Kostenloser Check
+                <Search className="w-4 h-4 mr-2" />
+                Kostenloser Check
               </Button>
             </div>
           </div>
@@ -64,8 +67,9 @@ export default function Hero() {
               <PixzeriaLogo size="sm" showText={false} />
             </div>
             
-            <div className="absolute -bottom-4 -left-4 bg-pizza-gold text-white px-4 py-2 rounded-full font-semibold">
-              ⏱️ Ab 1 Woche
+            <div className="absolute -bottom-4 -left-4 bg-pizza-gold text-white px-4 py-2 rounded-full font-semibold flex items-center">
+              <Clock className="w-4 h-4 mr-2" />
+              Ab 1 Woche
             </div>
           </div>
         </div>

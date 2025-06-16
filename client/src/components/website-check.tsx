@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { Search, Settings, Shield, Send } from "lucide-react";
 
 export default function WebsiteCheck() {
   const [url, setUrl] = useState("");
@@ -55,7 +56,7 @@ export default function WebsiteCheck() {
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🔍</span>
+                  <Search className="w-6 h-6" />
                 </div>
                 <h3 className="font-semibold mb-2">Design-Analyse</h3>
                 <p className="text-sm opacity-80">Modernes Design & Benutzerfreundlichkeit</p>
@@ -63,7 +64,7 @@ export default function WebsiteCheck() {
               
               <div>
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">⚙️</span>
+                  <Settings className="w-6 h-6" />
                 </div>
                 <h3 className="font-semibold mb-2">Technik-Check</h3>
                 <p className="text-sm opacity-80">Ladezeiten, Mobile-Optimierung & SEO</p>
@@ -71,7 +72,7 @@ export default function WebsiteCheck() {
               
               <div>
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🛡️</span>
+                  <Shield className="w-6 h-6" />
                 </div>
                 <h3 className="font-semibold mb-2">DSGVO-Prüfung</h3>
                 <p className="text-sm opacity-80">Rechtssicherheit & Compliance</p>
