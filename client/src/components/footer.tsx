@@ -43,17 +43,7 @@ export default function Footer() {
               Webdesign so einfach wie Pizza bestellen. Schnell, transparent und DSGVO-konform für kleine und mittlere Unternehmen.
             </p>
             
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-pizza-red transition-colors">
-                <span>💼</span>
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-pizza-red transition-colors">
-                <span>🐦</span>
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-pizza-red transition-colors">
-                <span>📷</span>
-              </a>
-            </div>
+
           </div>
           
           {/* Services */}

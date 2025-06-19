@@ -151,6 +151,7 @@ Changelog:
 - June 19, 2025. Removed blog, career, partnership and referral sections from website and footer navigation, updated all footer links to point to correct sections, fixed section IDs for proper navigation
 - June 19, 2025. Repositioned business model as "Digital First" - removed phone consultation, emphasized online-only operations to reduce overhead and present it as modern efficiency advantage for customers
 - June 19, 2025. Added clickable logo navigation - PIXZERIA logo in header now scrolls to top/hero section when clicked
+- June 19, 2025. Removed emoji social media icons from footer for cleaner, more professional appearance
 ```
 
 ## User Preferences
