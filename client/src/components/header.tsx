@@ -39,7 +39,7 @@ export default function Header() {
     { name: "Preise", id: "preise" },
     { name: "Beispiele", id: "beispiele" },
     { name: "Über uns", id: "ueber-uns" },
-    { name: "Blog", id: "blog" },
+    { name: "Kontakt", id: "kontakt" },
   ];
 
   return (

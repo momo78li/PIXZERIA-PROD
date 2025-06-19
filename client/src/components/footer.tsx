@@ -3,25 +3,21 @@ import PixzeriaLogo from "@/components/pixzeria-logo";
 
 export default function Footer() {
   const services = [
-    "Starter Pizza (699€)",
-    "Professional Pizza (1.299€)",
-    "Enterprise Pizza (1.999€)",
+    "Starter Pizza (999€)",
+    "Professional Pizza (1.699€)",
+    "Business Pizza (2.499€)",
     "Kostenloser Website-Check",
-    "Wartung & Support"
+    "PIXZERIA Hosting"
   ];
 
   const company = [
     "Über uns",
     "Unser Team",
-    "Karriere",
-    "Referral-Programm",
-    "Partnerschaften"
+    "Kontakt"
   ];
 
   const support = [
-    "Kontakt",
     "FAQ",
-    "Blog",
     "Hilfe-Center",
     "Status"
   ];
@@ -64,13 +60,31 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6">Leistungen</h3>
             <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                    {service}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#preise" className="text-gray-300 hover:text-white transition-colors">
+                  Starter Pizza (999€)
+                </a>
+              </li>
+              <li>
+                <a href="#preise" className="text-gray-300 hover:text-white transition-colors">
+                  Professional Pizza (1.699€)
+                </a>
+              </li>
+              <li>
+                <a href="#preise" className="text-gray-300 hover:text-white transition-colors">
+                  Business Pizza (2.499€)
+                </a>
+              </li>
+              <li>
+                <a href="#website-check" className="text-gray-300 hover:text-white transition-colors">
+                  Kostenloser Website-Check
+                </a>
+              </li>
+              <li>
+                <a href="#preise" className="text-gray-300 hover:text-white transition-colors">
+                  PIXZERIA Hosting
+                </a>
+              </li>
             </ul>
           </div>
           
@@ -78,13 +92,21 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6">Unternehmen</h3>
             <ul className="space-y-3">
-              {company.map((item, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#ueber-uns" className="text-gray-300 hover:text-white transition-colors">
+                  Über uns
+                </a>
+              </li>
+              <li>
+                <a href="#ueber-uns" className="text-gray-300 hover:text-white transition-colors">
+                  Unser Team
+                </a>
+              </li>
+              <li>
+                <a href="#kontakt" className="text-gray-300 hover:text-white transition-colors">
+                  Kontakt
+                </a>
+              </li>
             </ul>
           </div>
           
@@ -92,13 +114,21 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6">Support</h3>
             <ul className="space-y-3">
-              {support.map((item, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#kontakt" className="text-gray-300 hover:text-white transition-colors">
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a href="#kontakt" className="text-gray-300 hover:text-white transition-colors">
+                  Hilfe-Center
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                  Status
+                </a>
+              </li>
             </ul>
           </div>
         </div>
