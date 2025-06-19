@@ -149,6 +149,7 @@ Changelog:
 - June 16, 2025. Updated pricing structure to premium positioning: Starter €999, Professional €1,699, Business €2,499 for better market positioning
 - June 16, 2025. Added optional PIXZERIA Hosting service to packages (€29/€49/€79 monthly) with professional hosting features, automated updates, and complete customer management system
 - June 19, 2025. Removed blog, career, partnership and referral sections from website and footer navigation, updated all footer links to point to correct sections, fixed section IDs for proper navigation
+- June 19, 2025. Repositioned business model as "Digital First" - removed phone consultation, emphasized online-only operations to reduce overhead and present it as modern efficiency advantage for customers
 ```
 
 ## User Preferences

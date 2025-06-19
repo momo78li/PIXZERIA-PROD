@@ -58,13 +58,13 @@ export default function ContactCTA() {
   const features = [
     {
       icon: Clock,
-      title: "Schnelle Antwort",
-      description: "Innerhalb von 24 Stunden"
+      title: "Schnell",
+      description: "Antwort innerhalb 24h"
     },
     {
-      icon: Handshake,
-      title: "Unverbindlich",
-      description: "Kostenlose Erstberatung"
+      icon: Mail,
+      title: "Digital",
+      description: "Alles online - keine Termine nötig"
     },
     {
       icon: Trophy,
@@ -81,22 +81,14 @@ export default function ContactCTA() {
             Bereit für Ihre neue <span className="font-fredoka">Website</span>?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Lassen Sie uns gemeinsam Ihre digitale Präsenz auf das nächste Level bringen. 
-            Schnell, transparent und zu fairen Preisen.
+            Alles läuft digital und effizient ab - Sie sparen Zeit und Kosten. 
+            Professionelle Websites, direkt online bestellt und geliefert.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button className="bg-white text-pizza-red px-8 py-4 rounded-full font-semibold hover:bg-pizza-cream transition-all transform hover:scale-105">
-              <Phone className="w-4 h-4 mr-2" />
-              Kostenlose Beratung
-            </Button>
-            
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
-                <Button 
-                  variant="outline"
-                  className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-pizza-red transition-all"
-                >
+                <Button className="bg-white text-pizza-red px-8 py-4 rounded-full font-semibold hover:bg-pizza-cream transition-all transform hover:scale-105">
                   <Mail className="w-4 h-4 mr-2" />
                   Nachricht senden
                 </Button>

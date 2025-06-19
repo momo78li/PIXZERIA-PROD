@@ -66,7 +66,7 @@ export default function Services() {
           <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">
             Unsere <span className="text-pizza-red font-fredoka">Zutaten</span> für Ihren Erfolg
           </h2>
-          <p className="text-xl text-gray-600">Alles inklusive – wie bei einer echten Pizza-Bestellung</p>
+          <p className="text-xl text-gray-600">Alles digital und effizient – moderne Websites ohne Komplikationen</p>
         </div>
         
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">

@@ -11,8 +11,8 @@ export default function About() {
     },
     {
       icon: Heart,
-      title: "Einfachheit",
-      description: "Klare Pakete, transparente Preise – so einfach wie Pizza bestellen.",
+      title: "Digital First",
+      description: "Alles läuft online ab – effizient, modern und ohne unnötige Termine.",
       color: "bg-pizza-orange/10 text-pizza-orange"
     },
     {

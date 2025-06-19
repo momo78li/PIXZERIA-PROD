@@ -34,7 +34,8 @@ export default function Hero() {
             </h1>
             
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Feste Pakete, transparente Preise, schnelle Lieferung. Ihre moderne Website ohne unnötige Extras – direkt von echten Entwicklern, nicht von teuren Agenturen.
+              Ihre professionelle Website – komplett digital und ohne Termine. 
+              Moderne Technik, faire Preise, schnelle Lieferung. Alles online.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
