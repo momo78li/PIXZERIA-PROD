@@ -24,7 +24,7 @@ export default function About() {
   ];
 
   return (
-    <section id="ueber-uns" className="py-16 bg-pizza-cream">
+    <section id="ueber-uns" className="py-16 bg-gradient-to-br from-pizza-cream to-white">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>

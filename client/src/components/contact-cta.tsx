@@ -74,7 +74,7 @@ export default function ContactCTA() {
   ];
 
   return (
-    <section className="py-16 gradient-pizza text-white">
+    <section id="kontakt" className="py-16 gradient-pizza text-white">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">
