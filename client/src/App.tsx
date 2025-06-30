@@ -9,6 +9,7 @@ import BlogPost from "@/pages/blog-post";
 import Datenschutz from "@/pages/datenschutz";
 import Impressum from "@/pages/impressum";
 import NotFound from "@/pages/not-found";
+import SEOExample from "@/pages/seo-example";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/blog/:id" component={BlogPost} />
       <Route path="/datenschutz" component={Datenschutz} />
       <Route path="/impressum" component={Impressum} />
+      <Route path="/seo-example" component={SEOExample} />
       <Route component={NotFound} />
     </Switch>
   );
