@@ -152,6 +152,7 @@ Changelog:
 - June 19, 2025. Repositioned business model as "Digital First" - removed phone consultation, emphasized online-only operations to reduce overhead and present it as modern efficiency advantage for customers
 - June 19, 2025. Added clickable logo navigation - PIXZERIA logo in header now scrolls to top/hero section when clicked
 - June 19, 2025. Removed emoji social media icons from footer for cleaner, more professional appearance
+- June 30, 2025. Updated SEO services to be only one-time offerings: "Einmalige SEO-Grundeinstellung", "Erweiterte SEO-Optimierung", and "Premium SEO-Setup" instead of ongoing SEO services
 ```
 
 ## User Preferences

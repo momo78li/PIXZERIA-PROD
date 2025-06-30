@@ -23,8 +23,8 @@ export default function Services() {
     },
     {
       icon: Search,
-      title: "SEO-Grundlagen",
-      description: "Optimiert für Suchmaschinen",
+      title: "SEO-Setup",
+      description: "Einmalige Suchmaschinen-Optimierung",
       color: "bg-green-500/10 group-hover:bg-green-500 text-green-500 group-hover:text-white"
     },
     {

@@ -87,7 +87,7 @@ export default function Pricing() {
         "Funktioniert auf Handy & Computer",
         "Kontaktformular",
         "Impressum & Datenschutz",
-        "Bei Google findbar"
+        "Einmalige SEO-Grundeinstellung"
       ],
       hostingFeatures: [
         "Professionelles Hosting",
@@ -112,7 +112,7 @@ export default function Pricing() {
         "Bis zu 10 Seiten",
         "Blog für Neuigkeiten",
         "Besucherstatistiken",
-        "Bessere Google-Platzierung"
+        "Erweiterte SEO-Optimierung"
       ],
       hostingFeatures: [
         "Alles aus Starter Hosting",
@@ -173,7 +173,7 @@ export default function Pricing() {
       icon: Zap
     },
     {
-      name: "Google-Optimierung",
+      name: "Premium SEO-Setup",
       price: "299€",
       icon: Search
     }
