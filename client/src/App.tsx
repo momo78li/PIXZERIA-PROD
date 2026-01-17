@@ -7,6 +7,7 @@ import Home from "@/pages/home";
 import Admin from "@/pages/admin";
 import BlogPost from "@/pages/blog-post";
 import Datenschutz from "@/pages/datenschutz";
+import Danke from "@/pages/danke";
 import Impressum from "@/pages/impressum";
 import NotFound from "@/pages/not-found";
 import SEOExample from "@/pages/seo-example";
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/admin" component={Admin} />
       <Route path="/blog/:id" component={BlogPost} />
       <Route path="/datenschutz" component={Datenschutz} />
+      <Route path="/danke" component={Danke} />
       <Route path="/impressum" component={Impressum} />
       <Route path="/seo-example" component={SEOExample} />
       <Route component={NotFound} />
