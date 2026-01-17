@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Header />
+      <main id="main">
       <Hero />
       <Services />
       <Pricing />
@@ -19,6 +20,7 @@ export default function Home() {
       <CaseStudies />
       <About />
       <ContactCTA />
+      </main>
       <Footer />
     </div>
   );

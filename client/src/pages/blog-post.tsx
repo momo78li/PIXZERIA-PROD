@@ -101,6 +101,7 @@ export default function BlogPostPage() {
             src={post.image} 
             alt={post.alt || post.title}
             className="w-full h-64 md:h-96 object-cover"
+            loading="lazy"
           />
         </div>
       )}

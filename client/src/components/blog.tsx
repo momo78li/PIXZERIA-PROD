@@ -70,7 +70,8 @@ export default function Blog() {
                 <img 
                   src={post.image} 
                   alt={post.alt || post.title} 
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform" 
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                  loading="lazy"
                 />
               )}
               

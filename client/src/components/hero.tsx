@@ -61,7 +61,9 @@ export default function Hero() {
             <img 
               src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
               alt="Modern web design office workspace" 
-              className="rounded-2xl shadow-2xl w-full h-auto animate-float" 
+              className="rounded-2xl shadow-2xl w-full h-auto animate-float"
+              loading="eager"
+              fetchPriority="high"
             />
             
             <div className="absolute -top-4 -right-4 bg-white rounded-full p-4 shadow-lg animate-spin-slow">

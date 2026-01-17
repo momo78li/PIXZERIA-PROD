@@ -65,7 +65,8 @@ export default function CaseStudies() {
                 <img 
                   src={study.image} 
                   alt={study.alt} 
-                  className="w-full h-48 object-contain bg-gray-50 group-hover:scale-105 transition-transform" 
+                  className="w-full h-48 object-contain bg-gray-50 group-hover:scale-105 transition-transform"
+                  loading="lazy"
                 />
                 <div className={`absolute top-4 right-4 ${study.badgeColor} text-white px-3 py-1 rounded-full text-sm font-semibold`}>
                   {study.badge}
