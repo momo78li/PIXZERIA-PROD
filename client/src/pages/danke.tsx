@@ -1,15 +1,32 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Home } from "lucide-react";
+import { CheckCircle, Home, ArrowLeft } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 export default function Danke() {
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "/";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream via-white to-orange-50">
       <Header />
       
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-2xl mx-auto text-center">
+          <Button 
+            variant="outline" 
+            onClick={handleBack}
+            className="mb-8"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Zurück
+          </Button>
+
           <div className="flex justify-center mb-8">
             <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
               <CheckCircle className="w-12 h-12 text-green-600" />

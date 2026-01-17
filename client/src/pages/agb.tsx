@@ -1,15 +1,33 @@
-import { FileText } from "lucide-react";
+import { FileText, ArrowLeft } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 export default function AGB() {
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "/";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream via-white to-orange-50">
       <Header />
       
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
+          <Button 
+            variant="outline" 
+            onClick={handleBack}
+            className="mb-8"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Zurück
+          </Button>
+
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-6">
               <FileText className="h-10 w-10 text-red-600" />

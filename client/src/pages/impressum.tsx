@@ -1,16 +1,34 @@
-import { Building2, Mail, Phone, MapPin, Scale } from "lucide-react";
+import { Building2, Mail, Phone, MapPin, Scale, ArrowLeft } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 export default function Impressum() {
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "/";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream via-white to-orange-50">
       <Header />
       
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
+          <Button 
+            variant="outline" 
+            onClick={handleBack}
+            className="mb-8"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Zurück
+          </Button>
+
           {/* Header */}
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-6">

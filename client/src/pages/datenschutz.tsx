@@ -4,11 +4,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Cookie, Shield, Mail, Server, Globe } from "lucide-react";
+import { Cookie, Shield, Mail, Server, Globe, ArrowLeft } from "lucide-react";
 import { useCookieConsent, type CookieConsent } from "@/hooks/use-cookies";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+
+const handleBack = () => {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = "/";
+  }
+};
 
 export default function Datenschutz() {
   const { consent, hasConsent, updateConsent, revokeConsent } = useCookieConsent();
@@ -48,6 +56,15 @@ export default function Datenschutz() {
       
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
+          <Button 
+            variant="outline" 
+            onClick={handleBack}
+            className="mb-8"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Zurück
+          </Button>
+
           {/* Header */}
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-6">
