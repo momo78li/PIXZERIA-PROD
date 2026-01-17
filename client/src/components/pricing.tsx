@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { FileText, Palette, PenTool, Zap, Search, Rocket, Users, Crown, Star, Pizza, ShoppingCart, Check } from "lucide-react";
+import TrustBar from "./trust-bar";
 
 export default function Pricing() {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
@@ -185,6 +186,8 @@ export default function Pricing() {
             )}
           </div>
         </div>
+
+        <TrustBar />
         
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
           {packages.map((pkg, index) => (
