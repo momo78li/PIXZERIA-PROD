@@ -15,13 +15,15 @@ import Impressum from "@/pages/impressum";
 import NotFound from "@/pages/not-found";
 import SEOExample from "@/pages/seo-example";
 
+const isProduction = import.meta.env.MODE === "production";
+
 function Router() {
   return (
     <>
       <ScrollToTop />
       <Switch>
       <Route path="/" component={Home} />
-      <Route path="/admin" component={Admin} />
+      {!isProduction && <Route path="/admin" component={Admin} />}
       <Route path="/agb" component={AGB} />
       <Route path="/blog/:id" component={BlogPost} />
       <Route path="/datenschutz" component={Datenschutz} />
