@@ -47,7 +47,7 @@ export default function WebsiteCheck() {
           </div>
           
           <form 
-            action="https://formsubmit.co/YOUR_EMAIL_HERE" 
+            action="https://formsubmit.co/info@pixzeria.de" 
             method="POST"
             className="max-w-2xl mx-auto space-y-4"
           >

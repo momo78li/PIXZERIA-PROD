@@ -53,7 +53,7 @@ export default function ContactCTA() {
                   <DialogTitle>Kontakt aufnehmen</DialogTitle>
                 </DialogHeader>
                 <form 
-                  action="https://formsubmit.co/YOUR_EMAIL_HERE" 
+                  action="https://formsubmit.co/info@pixzeria.de" 
                   method="POST"
                   className="space-y-4"
                 >
