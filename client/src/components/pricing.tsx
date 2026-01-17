@@ -5,9 +5,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { FileText, Palette, PenTool, Zap, Search, Rocket, Users, Crown, Star, Pizza, ShoppingCart, Check } from "lucide-react";
 
 export default function Pricing() {
@@ -15,36 +12,6 @@ export default function Pricing() {
   const [selectedPackage, setSelectedPackage] = useState<any>(null);
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
   const [hostingOption, setHostingOption] = useState<'self' | 'pixzeria'>('self');
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: ""
-  });
-  const { toast } = useToast();
-
-  const contactMutation = useMutation({
-    mutationFn: async (data: any) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Bestätigungs-E-Mail gesendet!",
-        description: "Bitte prüfen Sie Ihr E-Mail-Postfach und bestätigen Sie Ihre Anfrage.",
-      });
-      setFormData({ name: "", email: "", company: "", message: "" });
-      setSelectedAddOns([]);
-      setIsOrderModalOpen(false);
-    },
-    onError: () => {
-      toast({
-        title: "Fehler",
-        description: "Es gab ein Problem beim Senden Ihrer Anfrage. Bitte versuchen Sie es erneut.",
-        variant: "destructive",
-      });
-    },
-  });
 
   const handleOrderClick = (pkg: any) => {
     setSelectedPackage(pkg);
@@ -57,21 +24,6 @@ export default function Pricing() {
         ? prev.filter(name => name !== addOnName)
         : [...prev, addOnName]
     );
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formData.name && formData.email) {
-      const hostingText = hostingOption === 'pixzeria' ? `\nHosting: PIXZERIA Hosting (${selectedPackage?.hostingPrice})` : '\nHosting: Eigenes Hosting';
-      const orderData = {
-        ...formData,
-        package: selectedPackage?.name,
-        addOns: selectedAddOns,
-        hosting: hostingOption,
-        message: `${formData.message}\n\nGewähltes Paket: ${selectedPackage?.name} (${selectedPackage?.price})${hostingText}\nGewählte Add-Ons: ${selectedAddOns.length > 0 ? selectedAddOns.join(', ') : 'Keine'}`
-      };
-      contactMutation.mutate(orderData);
-    }
   };
   const packages = [
     {
@@ -324,7 +276,18 @@ export default function Pricing() {
             </DialogTitle>
           </DialogHeader>
           
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form 
+            action="https://formsubmit.co/YOUR_EMAIL_HERE" 
+            method="POST"
+            className="space-y-6"
+          >
+            <input type="hidden" name="_subject" value={`Neue Bestellung: ${selectedPackage?.name}`} />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="" />
+            <input type="hidden" name="package" value={`${selectedPackage?.name} (${selectedPackage?.price})`} />
+            <input type="hidden" name="hosting" value={hostingOption === 'pixzeria' ? `PIXZERIA Hosting (${selectedPackage?.hostingPrice})` : 'Eigenes Hosting'} />
+            <input type="hidden" name="addons" value={selectedAddOns.length > 0 ? selectedAddOns.join(', ') : 'Keine'} />
+            
             {/* Package Summary */}
             <div className="bg-pizza-cream/20 p-4 rounded-lg">
               <h3 className="font-semibold text-lg mb-2">Gewähltes Paket:</h3>
@@ -372,27 +335,23 @@ export default function Pricing() {
             <div className="space-y-4">
               <h3 className="font-semibold text-lg">Ihre Kontaktdaten:</h3>
               <Input
+                name="name"
                 placeholder="Ihr Name *"
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
                 required
               />
               <Input
                 type="email"
+                name="email"
                 placeholder="Ihre E-Mail-Adresse *"
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
                 required
               />
               <Input
+                name="company"
                 placeholder="Ihr Unternehmen"
-                value={formData.company}
-                onChange={(e) => setFormData({...formData, company: e.target.value})}
               />
               <Textarea
+                name="message"
                 placeholder="Beschreiben Sie kurz Ihr Projekt oder besondere Wünsche..."
-                value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
                 rows={3}
               />
             </div>
@@ -402,20 +361,18 @@ export default function Pricing() {
                 <strong>Nächste Schritte:</strong>
               </p>
               <ol className="text-sm text-gray-600 space-y-1">
-                <li>1. Bestätigungs-E-Mail in Ihrem Postfach öffnen</li>
-                <li>2. Link in der E-Mail anklicken (DSGVO-Bestätigung)</li>
-                <li>3. Wir melden uns innerhalb von 24 Stunden bei Ihnen</li>
-                <li>4. Kostenlose Beratung und verbindlicher Kostenvoranschlag</li>
-                <li>5. Umsetzung nach Ihrer Freigabe</li>
+                <li>1. Wir erhalten Ihre Anfrage direkt per E-Mail</li>
+                <li>2. Wir melden uns innerhalb von 24 Stunden bei Ihnen</li>
+                <li>3. Kostenlose Beratung und verbindlicher Kostenvoranschlag</li>
+                <li>4. Umsetzung nach Ihrer Freigabe</li>
               </ol>
             </div>
 
             <Button
               type="submit"
-              disabled={contactMutation.isPending}
               className="w-full bg-pizza-red hover:bg-red-700 text-white py-3 text-lg font-semibold"
             >
-              {contactMutation.isPending ? "Wird gesendet..." : "Unverbindliche Anfrage senden"}
+              Unverbindliche Anfrage senden
             </Button>
           </form>
         </DialogContent>
