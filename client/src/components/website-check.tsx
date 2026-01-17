@@ -51,9 +51,10 @@ export default function WebsiteCheck() {
             method="POST"
             className="max-w-2xl mx-auto space-y-4"
           >
-            <input type="hidden" name="_subject" value="Neue Website-Analyse Anfrage" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="" />
+            <input type="hidden" name="_subject" value="Neuer kostenloser Website-Check" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_blacklist" value="viagra, casino, crypto, seo service" />
+            <input type="text" name="_honey" style={{ display: 'none' }} />
             
             <div className="flex flex-col md:flex-row gap-4">
               <Input

@@ -281,9 +281,10 @@ export default function Pricing() {
             method="POST"
             className="space-y-6"
           >
-            <input type="hidden" name="_subject" value={`Neue Bestellung: ${selectedPackage?.name}`} />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="" />
+            <input type="hidden" name="_subject" value={`Neue Paket-Bestellung: ${selectedPackage?.name}`} />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_blacklist" value="viagra, casino, crypto, seo service" />
+            <input type="text" name="_honey" style={{ display: 'none' }} />
             <input type="hidden" name="package" value={`${selectedPackage?.name} (${selectedPackage?.price})`} />
             <input type="hidden" name="hosting" value={hostingOption === 'pixzeria' ? `PIXZERIA Hosting (${selectedPackage?.hostingPrice})` : 'Eigenes Hosting'} />
             <input type="hidden" name="addons" value={selectedAddOns.length > 0 ? selectedAddOns.join(', ') : 'Keine'} />

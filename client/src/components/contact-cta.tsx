@@ -57,9 +57,10 @@ export default function ContactCTA() {
                   method="POST"
                   className="space-y-4"
                 >
-                  <input type="hidden" name="_subject" value="Neue PIXZERIA Anfrage" />
-                  <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_next" value="" />
+                  <input type="hidden" name="_subject" value="Neue PIXZERIA Kontaktanfrage" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_blacklist" value="viagra, casino, crypto, seo service" />
+                  <input type="text" name="_honey" style={{ display: 'none' }} />
                   <input type="hidden" name="package" value={selectedPackage} />
                   
                   <Input
