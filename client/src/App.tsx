@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import Admin from "@/pages/admin";
 import BlogPost from "@/pages/blog-post";
+import AGB from "@/pages/agb";
 import Datenschutz from "@/pages/datenschutz";
 import Danke from "@/pages/danke";
 import Impressum from "@/pages/impressum";
@@ -17,6 +18,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/admin" component={Admin} />
+      <Route path="/agb" component={AGB} />
       <Route path="/blog/:id" component={BlogPost} />
       <Route path="/datenschutz" component={Datenschutz} />
       <Route path="/danke" component={Danke} />

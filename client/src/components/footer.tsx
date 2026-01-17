@@ -137,9 +137,9 @@ export default function Footer() {
               <Link href="/datenschutz" className="text-gray-300 hover:text-white transition-colors">
                 Datenschutz
               </Link>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors">
+              <Link href="/agb" className="text-gray-300 hover:text-white transition-colors">
                 AGB
-              </a>
+              </Link>
               <button 
                 onClick={() => {
                   // Reset cookie consent to show banner again
