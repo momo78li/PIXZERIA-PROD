@@ -201,9 +201,9 @@ export default function Datenschutz() {
                 <div>
                   <h4 className="font-semibold mb-2">Kontaktformulare</h4>
                   <p className="text-sm text-gray-600">
-                    Wenn Sie uns über unsere Kontaktformulare kontaktieren, speichern wir Ihre Angaben 
-                    (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung Ihrer Anfrage. Diese Daten werden 
-                    nicht an Dritte weitergegeben.
+                    Wenn Sie uns über unsere Kontaktformulare kontaktieren, werden Ihre Angaben 
+                    (Name, E-Mail-Adresse, Nachricht) über den Dienst FormSubmit an uns weitergeleitet. 
+                    Details zur Datenverarbeitung durch FormSubmit finden Sie weiter unten.
                   </p>
                 </div>
                 <Separator />
@@ -276,7 +276,7 @@ export default function Datenschutz() {
 
             {/* Letzte Aktualisierung */}
             <div className="text-center text-sm text-gray-500 pt-8">
-              <p>Diese Datenschutzerklärung wurde zuletzt am 16. Juni 2025 aktualisiert.</p>
+              <p>Diese Datenschutzerklärung wurde zuletzt am 17. Januar 2026 aktualisiert.</p>
             </div>
           </div>
         </div>
