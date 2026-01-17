@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -9,6 +9,19 @@ import { Mail, Clock, Trophy } from "lucide-react";
 export default function ContactCTA() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState("");
+  const loadTime = useRef(Date.now());
+
+  useEffect(() => {
+    loadTime.current = Date.now();
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const elapsed = Date.now() - loadTime.current;
+    if (elapsed < 3000) {
+      e.preventDefault();
+      return false;
+    }
+  };
 
   const features = [
     {
@@ -56,11 +69,15 @@ export default function ContactCTA() {
                   action="https://formsubmit.co/Muenir.gencer@gmail.com" 
                   method="POST"
                   className="space-y-4"
+                  onSubmit={handleSubmit}
                 >
                   <input type="hidden" name="_subject" value="Neue PIXZERIA Kontaktanfrage" />
                   <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_next" value={`${window.location.origin}/danke`} />
                   <input type="hidden" name="_blacklist" value="viagra, casino, crypto, seo service" />
                   <input type="text" name="_honey" style={{ display: 'none' }} />
+                  <input type="text" name="_fax" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                   <input type="hidden" name="package" value={selectedPackage} />
                   
                   <Input

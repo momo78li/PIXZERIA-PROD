@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,6 +12,19 @@ export default function Pricing() {
   const [selectedPackage, setSelectedPackage] = useState<any>(null);
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
   const [hostingOption, setHostingOption] = useState<'self' | 'pixzeria'>('self');
+  const loadTime = useRef(Date.now());
+
+  useEffect(() => {
+    loadTime.current = Date.now();
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const elapsed = Date.now() - loadTime.current;
+    if (elapsed < 3000) {
+      e.preventDefault();
+      return false;
+    }
+  };
 
   const handleOrderClick = (pkg: any) => {
     setSelectedPackage(pkg);
@@ -280,11 +293,15 @@ export default function Pricing() {
             action="https://formsubmit.co/Muenir.gencer@gmail.com" 
             method="POST"
             className="space-y-6"
+            onSubmit={handleSubmit}
           >
             <input type="hidden" name="_subject" value={`Neue Paket-Bestellung: ${selectedPackage?.name}`} />
             <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value={`${window.location.origin}/danke`} />
             <input type="hidden" name="_blacklist" value="viagra, casino, crypto, seo service" />
             <input type="text" name="_honey" style={{ display: 'none' }} />
+            <input type="text" name="_fax" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
             <input type="hidden" name="package" value={`${selectedPackage?.name} (${selectedPackage?.price})`} />
             <input type="hidden" name="hosting" value={hostingOption === 'pixzeria' ? `PIXZERIA Hosting (${selectedPackage?.hostingPrice})` : 'Eigenes Hosting'} />
             <input type="hidden" name="addons" value={selectedAddOns.length > 0 ? selectedAddOns.join(', ') : 'Keine'} />

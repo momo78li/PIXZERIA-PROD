@@ -1,10 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Settings, Shield, Send, Clock } from "lucide-react";
 
 export default function WebsiteCheck() {
   const [url, setUrl] = useState("");
+  const loadTime = useRef(Date.now());
+
+  useEffect(() => {
+    loadTime.current = Date.now();
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const elapsed = Date.now() - loadTime.current;
+    if (elapsed < 3000) {
+      e.preventDefault();
+      return false;
+    }
+  };
 
   return (
     <section id="website-check" className="py-16 gradient-pizza text-white">
@@ -50,11 +63,15 @@ export default function WebsiteCheck() {
             action="https://formsubmit.co/Muenir.gencer@gmail.com" 
             method="POST"
             className="max-w-2xl mx-auto space-y-4"
+            onSubmit={handleSubmit}
           >
             <input type="hidden" name="_subject" value="Neuer kostenloser Website-Check" />
             <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value={`${window.location.origin}/danke`} />
             <input type="hidden" name="_blacklist" value="viagra, casino, crypto, seo service" />
             <input type="text" name="_honey" style={{ display: 'none' }} />
+            <input type="text" name="company" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
             
             <div className="flex flex-col md:flex-row gap-4">
               <Input
