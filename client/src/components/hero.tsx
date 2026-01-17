@@ -57,11 +57,13 @@ export default function Hero() {
             </div>
           </div>
           
-          <div className="relative">
+          <div className="relative aspect-[4/3]">
             <img 
-              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+              src="/assets/hero.jpg" 
               alt="Modern web design office workspace" 
-              className="rounded-2xl shadow-2xl w-full h-auto animate-float"
+              className="rounded-2xl shadow-2xl w-full h-full object-cover animate-float"
+              width={800}
+              height={600}
               loading="eager"
               fetchPriority="high"
             />
