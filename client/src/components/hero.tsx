@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import PixzeriaLogo from "@/components/pixzeria-logo";
 import { Flame, Rocket, Search, Clock } from "lucide-react";
 
 export default function Hero() {
+  const [imgError, setImgError] = useState(false);
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.querySelector(`#${sectionId}`);
     if (element) {
@@ -59,13 +62,16 @@ export default function Hero() {
           
           <div className="relative aspect-[4/3]">
             <img 
-              src="/assets/hero.jpg" 
-              alt="Modern web design office workspace" 
+              src={imgError ? "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop&q=80" : "/assets/hero.jpg"}
+              alt="Modernes Webdesign Arbeitsplatz" 
               className="rounded-2xl shadow-2xl w-full h-full object-cover animate-float"
               width={800}
               height={600}
               loading="eager"
-              fetchPriority="high"
+              onError={() => {
+                console.warn("Hero image failed to load, using fallback");
+                setImgError(true);
+              }}
             />
             
             <div className="absolute -top-4 -right-4 bg-white rounded-full p-4 shadow-lg animate-spin-slow">

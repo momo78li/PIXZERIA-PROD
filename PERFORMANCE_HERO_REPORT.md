@@ -33,7 +33,7 @@ https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=Mn
 
 ## Nachher
 
-**Neue Datei:** `public/assets/hero.jpg`
+**Neue Datei:** `client/public/assets/hero.jpg`
 
 **Dateigröße:** 60 KB (optimiert durch Unsplash-Parameter `q=80`)
 
@@ -70,7 +70,7 @@ https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=Mn
 
 | Datei | Größe | Format |
 |-------|-------|--------|
-| `public/assets/hero.jpg` | 60 KB | JPEG |
+| `client/public/assets/hero.jpg` | 60 KB | JPEG |
 
 ---
 
@@ -139,7 +139,7 @@ cwebp -q 80 public/assets/hero.jpg -o public/assets/hero.webp
 | Download-Parameter | `w=800&h=600&q=80&auto=format&fit=crop` |
 | Finale Größe | 60,823 Bytes |
 | Seitenverhältnis | 4:3 (800x600) |
-| Speicherort | `public/assets/` (Vercel statisches Hosting) |
+| Speicherort | `client/public/assets/` (Vite public folder) |
 
 ---
 
