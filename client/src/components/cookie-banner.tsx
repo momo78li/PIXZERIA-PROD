@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -12,8 +12,15 @@ export default function CookieBanner() {
   const [showSettings, setShowSettings] = useState(false);
   const [tempConsent, setTempConsent] = useState<CookieConsent>(consent);
 
-  // Don't show banner if user has already given consent
-  if (hasConsent) return null;
+  useEffect(() => {
+    const handleOpenSettings = () => {
+      setTempConsent(consent);
+      setShowSettings(true);
+    };
+    
+    window.addEventListener("open-cookie-settings", handleOpenSettings);
+    return () => window.removeEventListener("open-cookie-settings", handleOpenSettings);
+  }, [consent]);
 
   const handleAcceptAll = () => {
     const fullConsent: CookieConsent = {
@@ -54,7 +61,8 @@ export default function CookieBanner() {
 
   return (
     <>
-      {/* Cookie Banner */}
+      {/* Cookie Banner - only show if no consent yet */}
+      {!hasConsent && (
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-red-600 shadow-lg">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
@@ -100,8 +108,9 @@ export default function CookieBanner() {
           </div>
         </div>
       </div>
+      )}
 
-      {/* Cookie Settings Dialog */}
+      {/* Cookie Settings Dialog - always available */}
       <Dialog open={showSettings} onOpenChange={setShowSettings}>
         <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
           <DialogHeader>

@@ -141,11 +141,9 @@ export default function Footer() {
                 AGB
               </Link>
               <button 
+                type="button"
                 onClick={() => {
-                  // Reset cookie consent to show banner again
-                  localStorage.removeItem('pixzeria-cookie-consent');
-                  localStorage.removeItem('pixzeria-cookie-timestamp');
-                  window.location.reload();
+                  window.dispatchEvent(new CustomEvent("open-cookie-settings"));
                 }}
                 className="text-gray-300 hover:text-white transition-colors cursor-pointer"
               >

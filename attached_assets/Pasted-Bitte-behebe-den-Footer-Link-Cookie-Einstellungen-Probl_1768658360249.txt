@@ -1,0 +1,42 @@
+Bitte behebe den Footer-Link "Cookie Einstellungen".
+
+Problem:
+- Beim Klick auf "Cookie Einstellungen" wird fälschlich auf die AGB-Seite navigiert.
+- Es existiert bereits ein Cookie-Banner/Consent-Tool. Der Footer-Link soll die Einstellungen/Preferences dieses Tools öffnen (kein Routing auf /agb).
+
+Vorgehen:
+1) Finde die Footer-Komponente (suche nach Text: "Cookie", "Cookie Einstellungen", "Datenschutz", "Impressum", "AGB").
+2) Identifiziere genau, warum es auf AGB geht:
+   - falsches href/to (z.B. "/agb")
+   - falscher onClick Handler (navigate("/agb"))
+   - Copy/Paste Fehler im Link-Array
+
+3) Finde im Projekt die Cookie-Banner Implementierung:
+   - suche nach: "cookie", "consent", "cookieconsent", "klaro", "cookiebot", "iubenda", "usercentrics", "termly", "borlabs", "OneTrust", "vanilla-cookieconsent"
+   - finde die Stelle, wo das Banner initialisiert/gerendert wird.
+
+4) Implementiere eine saubere "openCookieSettings()" Funktion, die die Einstellungen öffnet:
+   - Wenn die verwendete Library eine direkte Methode hat (z.B. showPreferences/openSettings/...): nutze diese.
+   - Wenn keine öffentliche Methode vorhanden ist: triggere das Banner/Modal über den existierenden Mechanismus (z.B. per globalem Event oder State), aber ohne neue Libraries.
+
+Empfohlene Umsetzung (robust, library-agnostisch):
+A) Erstelle eine kleine Utility, z.B. client/src/lib/cookie-settings.ts mit:
+   export function openCookieSettings() { ... }
+   Diese Funktion:
+   - versucht nacheinander bekannte globale APIs (falls vorhanden)
+   - fallback: dispatchEvent(new CustomEvent("open-cookie-settings"))
+
+B) In der Cookie-Banner-Komponente:
+   - höre auf das Event "open-cookie-settings" und öffne das Preferences/Modal wie intern üblich.
+
+C) Im Footer:
+   - "Cookie Einstellungen" wird ein <button type="button"> oder <a href="#"> mit preventDefault
+   - onClick ruft openCookieSettings() auf
+   - und navigiert NICHT.
+
+5) Test:
+- Klick im Footer auf "Cookie Einstellungen" öffnet das Cookie-Settings/Preferences UI
+- Klick auf Datenschutz/Impressum/AGB navigiert korrekt
+- Keine Navigation auf /agb beim Cookie-Link mehr
+
+Am Ende: Liste die geänderten Dateien und beschreibe kurz die Ursache (z.B. href war /agb).
