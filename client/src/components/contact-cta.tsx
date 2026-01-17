@@ -4,56 +4,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { Phone, Mail, Clock, Handshake, Trophy, Send } from "lucide-react";
+import { Mail, Clock, Trophy } from "lucide-react";
 
 export default function ContactCTA() {
   const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-    package: ""
-  });
-  const { toast } = useToast();
-
-  const contactMutation = useMutation({
-    mutationFn: async (data: typeof formData) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Bestätigungs-E-Mail gesendet!",
-        description: "Bitte prüfen Sie Ihr E-Mail-Postfach und bestätigen Sie Ihre Anfrage.",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        message: "",
-        package: ""
-      });
-      setIsOpen(false);
-    },
-    onError: () => {
-      toast({
-        title: "Fehler",
-        description: "Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es erneut.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formData.name && formData.email && formData.message) {
-      contactMutation.mutate(formData);
-    }
-  };
+  const [selectedPackage, setSelectedPackage] = useState("");
 
   const features = [
     {
@@ -97,26 +52,32 @@ export default function ContactCTA() {
                 <DialogHeader>
                   <DialogTitle>Kontakt aufnehmen</DialogTitle>
                 </DialogHeader>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form 
+                  action="https://formsubmit.co/YOUR_EMAIL_HERE" 
+                  method="POST"
+                  className="space-y-4"
+                >
+                  <input type="hidden" name="_subject" value="Neue PIXZERIA Anfrage" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_next" value="" />
+                  <input type="hidden" name="package" value={selectedPackage} />
+                  
                   <Input
+                    name="name"
                     placeholder="Ihr Name *"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
                     required
                   />
                   <Input
                     type="email"
+                    name="email"
                     placeholder="Ihre E-Mail-Adresse *"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
                     required
                   />
                   <Input
+                    name="company"
                     placeholder="Ihr Unternehmen"
-                    value={formData.company}
-                    onChange={(e) => setFormData({...formData, company: e.target.value})}
                   />
-                  <Select onValueChange={(value) => setFormData({...formData, package: value})}>
+                  <Select onValueChange={(value) => setSelectedPackage(value)}>
                     <SelectTrigger>
                       <SelectValue placeholder="Interessantes Paket auswählen" />
                     </SelectTrigger>
@@ -128,18 +89,16 @@ export default function ContactCTA() {
                     </SelectContent>
                   </Select>
                   <Textarea
+                    name="message"
                     placeholder="Ihre Nachricht *"
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
                     rows={4}
                     required
                   />
                   <Button
                     type="submit"
-                    disabled={contactMutation.isPending}
                     className="w-full bg-pizza-red hover:bg-red-700"
                   >
-                    {contactMutation.isPending ? "Wird gesendet..." : "Nachricht senden"}
+                    Nachricht senden
                   </Button>
                 </form>
               </DialogContent>

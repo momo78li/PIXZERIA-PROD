@@ -1,44 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { Search, Settings, Shield, Send, Clock, Plane } from "lucide-react";
+import { Search, Settings, Shield, Send, Clock } from "lucide-react";
 
 export default function WebsiteCheck() {
   const [url, setUrl] = useState("");
-  const [email, setEmail] = useState("");
-  const { toast } = useToast();
-
-  const submitCheckMutation = useMutation({
-    mutationFn: async (data: { url: string; email: string }) => {
-      const response = await apiRequest("POST", "/api/website-check", data);
-      return response.json();
-    },
-    onSuccess: (data) => {
-      toast({
-        title: "Bestätigungs-E-Mail gesendet!",
-        description: "Bitte prüfen Sie Ihr E-Mail-Postfach und bestätigen Sie Ihre Anfrage.",
-      });
-      setUrl("");
-      setEmail("");
-    },
-    onError: () => {
-      toast({
-        title: "Fehler",
-        description: "Es gab ein Problem beim Senden Ihrer Anfrage. Bitte versuchen Sie es erneut.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (url && email) {
-      submitCheckMutation.mutate({ url, email });
-    }
-  };
 
   return (
     <section id="website-check" className="py-16 gradient-pizza text-white">
@@ -80,10 +46,19 @@ export default function WebsiteCheck() {
             </div>
           </div>
           
-          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-4">
+          <form 
+            action="https://formsubmit.co/YOUR_EMAIL_HERE" 
+            method="POST"
+            className="max-w-2xl mx-auto space-y-4"
+          >
+            <input type="hidden" name="_subject" value="Neue Website-Analyse Anfrage" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="" />
+            
             <div className="flex flex-col md:flex-row gap-4">
               <Input
                 type="text"
+                name="website_url"
                 placeholder="z.B. meine-firma.de (ohne http:// oder www.)"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
@@ -92,26 +67,18 @@ export default function WebsiteCheck() {
               />
               <Input
                 type="email"
+                name="email"
                 placeholder="Ihre E-Mail-Adresse..."
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 px-4 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50"
                 required
               />
             </div>
             <Button
               type="submit"
-              disabled={submitCheckMutation.isPending}
-              className="bg-white text-pizza-red px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors disabled:opacity-50"
+              className="bg-white text-pizza-red px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
             >
-              {submitCheckMutation.isPending ? (
-                "Wird gesendet..."
-              ) : (
-                <>
-                  <Send className="w-4 h-4 mr-2" />
-                  Jetzt prüfen
-                </>
-              )}
+              <Send className="w-4 h-4 mr-2" />
+              Jetzt prüfen
             </Button>
             <p className="text-sm opacity-70 flex items-center justify-center gap-4">
               <span className="flex items-center">

@@ -231,20 +231,20 @@ export default function Datenschutz() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Mail className="h-5 w-5 text-red-600" />
-                  E-Mail-Versand mit SendGrid
+                  E-Mail-Versand
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-600 mb-4">
-                  Für den Versand von E-Mails (Bestätigungen, Antworten auf Anfragen) nutzen wir 
-                  den Dienst SendGrid der Twilio Inc., USA. Dabei werden Ihre E-Mail-Adresse und 
-                  der Nachrichteninhalt an SendGrid übertragen.
+                  Für die Übermittlung von Kontaktformularen nutzen wir den Dienst FormSubmit. 
+                  Dabei werden Ihre eingegebenen Daten (Name, E-Mail-Adresse, Nachricht) 
+                  direkt an unsere E-Mail-Adresse weitergeleitet.
                 </p>
                 <p className="text-sm text-gray-600">
-                  SendGrid ist EU-DSGVO-konform und verarbeitet Daten nur in unserem Auftrag. 
+                  FormSubmit verarbeitet Daten DSGVO-konform. 
                   Weitere Informationen finden Sie in der 
-                  <a href="https://sendgrid.com/policies/privacy/" className="text-red-600 hover:underline ml-1" target="_blank" rel="noopener noreferrer">
-                    Datenschutzerklärung von SendGrid
+                  <a href="https://formsubmit.co/privacy.pdf" className="text-red-600 hover:underline ml-1" target="_blank" rel="noopener noreferrer">
+                    Datenschutzerklärung von FormSubmit
                   </a>.
                 </p>
               </CardContent>

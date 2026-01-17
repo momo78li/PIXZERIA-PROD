@@ -35,10 +35,13 @@ The application uses three main tables:
 - **contact_requests**: Contact form submissions (id, name, email, company, message, package, created_at)
 
 ### API Endpoints
-- `POST /api/website-check`: Submit website for free analysis
-- `POST /api/contact`: Submit contact form with package selection
+- `POST /api/website-check`: DEPRECATED (returns 410 Gone) - use FormSubmit instead
+- `POST /api/contact`: DEPRECATED (returns 410 Gone) - use FormSubmit instead
 - `GET /api/website-checks`: Retrieve all website check requests (admin)
 - `GET /api/contact-requests`: Retrieve all contact requests (admin)
+- `GET /api/blog`: Get published blog posts
+- `GET /api/blog/:id`: Get single blog post
+- `POST/PUT/DELETE /api/admin/blog`: Blog management (admin)
 
 ### Frontend Pages & Components
 - **Single Page Application** with modular components:
@@ -61,19 +64,18 @@ The application uses three main tables:
 
 ## Data Flow
 
-### Website Check Process
-1. User enters URL and email in hero or dedicated section
-2. Form validates input and submits to `/api/website-check`
-3. Server stores request in database
-4. User receives confirmation toast
-5. Business receives email notification (implied)
+### Website Check Process (via FormSubmit)
+1. User enters URL and email in website check section
+2. Form submits directly to FormSubmit service
+3. FormSubmit forwards data to business email
+4. User is redirected to confirmation page
 
-### Contact Request Process
+### Contact Request Process (via FormSubmit)
 1. User clicks contact CTA opening modal dialog
 2. Form collects name, email, company, message, and selected package
-3. Submits to `/api/contact` endpoint
-4. Server validates and stores in database
-5. User receives confirmation, business gets notification
+3. Form submits directly to FormSubmit service
+4. FormSubmit forwards data to business email
+5. User sees confirmation
 
 ### Content Management
 - Static content served from React components
@@ -99,6 +101,7 @@ The application uses three main tables:
 ### Third-Party Services
 - **Neon Database**: Serverless PostgreSQL hosting
 - **Replit**: Development and hosting platform
+- **FormSubmit**: Contact form submission handling (no backend required)
 - **Google Fonts**: Typography (Poppins, Inter, Fredoka One)
 - **Unsplash**: Stock photography for case studies and blog
 
@@ -153,6 +156,7 @@ Changelog:
 - June 19, 2025. Added clickable logo navigation - PIXZERIA logo in header now scrolls to top/hero section when clicked
 - June 19, 2025. Removed emoji social media icons from footer for cleaner, more professional appearance
 - June 30, 2025. Updated SEO services to be only one-time offerings: "Einmalige SEO-Grundeinstellung", "Erweiterte SEO-Optimierung", and "Premium SEO-Setup" instead of ongoing SEO services
+- January 17, 2026. Removed SendGrid email integration completely - contact forms now use FormSubmit (formsubmit.co) for serverless form handling, removed @sendgrid/mail dependency, deprecated API routes return 410 Gone, updated Datenschutz page
 ```
 
 ## User Preferences
