@@ -7,7 +7,6 @@ import CaseStudies from "@/components/case-studies";
 import About from "@/components/about";
 import ContactCTA from "@/components/contact-cta";
 import Footer from "@/components/footer";
-import CookieBanner from "@/components/cookie-banner";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <About />
       <ContactCTA />
       <Footer />
-      <CookieBanner />
     </div>
   );
 }

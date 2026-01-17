@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -11,7 +12,9 @@ export default function CookieBanner() {
   const { consent, hasConsent, updateConsent } = useCookieConsent();
   const [showSettings, setShowSettings] = useState(false);
   const [tempConsent, setTempConsent] = useState<CookieConsent>(consent);
+  const [location] = useLocation();
 
+  // Listen for open-cookie-settings event from footer
   useEffect(() => {
     const handleOpenSettings = () => {
       setTempConsent(consent);
@@ -21,6 +24,11 @@ export default function CookieBanner() {
     window.addEventListener("open-cookie-settings", handleOpenSettings);
     return () => window.removeEventListener("open-cookie-settings", handleOpenSettings);
   }, [consent]);
+
+  // Close modal on route change to prevent stuck overlay
+  useEffect(() => {
+    setShowSettings(false);
+  }, [location]);
 
   const handleAcceptAll = () => {
     const fullConsent: CookieConsent = {
