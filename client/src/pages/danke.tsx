@@ -16,7 +16,7 @@ export default function Danke() {
     <div className="min-h-screen bg-gradient-to-br from-cream via-white to-orange-50">
       <Header />
       
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-4 pt-28 pb-16">
         <div className="max-w-2xl mx-auto text-center">
           <Button 
             variant="outline" 

@@ -18,7 +18,7 @@ export default function Impressum() {
     <div className="min-h-screen bg-gradient-to-br from-cream via-white to-orange-50">
       <Header />
       
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-4 pt-28 pb-16">
         <div className="max-w-4xl mx-auto">
           <Button 
             variant="outline" 
