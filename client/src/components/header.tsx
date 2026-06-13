@@ -1,104 +1,113 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
-import PixzeriaLogo from "@/components/pixzeria-logo";
+import { Menu, X, MessageCircle } from "lucide-react";
+
+const PixzeriaWordmark = ({ className = "" }: { className?: string }) => (
+  <span className={`font-black tracking-tight text-2xl ${className}`} style={{ color: '#111111', letterSpacing: '-0.03em' }}>
+    PI<span style={{ color: '#E6007E' }}>X</span>ZERIA
+  </span>
+);
+
+const navItems = [
+  { label: "So funktioniert's", id: "how-it-works" },
+  { label: "Beispiele", id: "design-examples" },
+  { label: "Preis", id: "preis" },
+  { label: "Konfigurator", id: "konfigurator" },
+  { label: "Über uns", id: "ueber-uns" },
+  { label: "FAQ", id: "faq" },
+];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const handleNavClick = (sectionId: string) => {
-    // Close mobile menu immediately
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollTo = (id: string) => {
     setIsOpen(false);
-    
-    // Wait longer for mobile menu to close and viewport to stabilize
     setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        // Get viewport dimensions to adjust for mobile portrait mode
-        const viewportHeight = window.innerHeight;
-        const isPortraitMobile = viewportHeight > window.innerWidth && window.innerWidth < 768;
-        
-        // Adjust header offset based on device orientation
-        const headerOffset = isPortraitMobile ? 120 : 90;
-        
-        const rect = element.getBoundingClientRect();
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const targetPosition = rect.top + scrollTop - headerOffset;
-        
-        window.scrollTo({
-          top: Math.max(0, targetPosition),
-          behavior: 'smooth'
-        });
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 76;
+        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
       }
-    }, 200);
+    }, 100);
   };
 
-  const navigation = [
-    { name: "Leistungen", id: "leistungen" },
-    { name: "Preise", id: "preise" },
-    { name: "Beispiele", id: "beispiele" },
-    { name: "Über uns", id: "ueber-uns" },
-    { name: "Kontakt", id: "kontakt" },
-  ];
-
   return (
-    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <button 
-            onClick={() => handleNavClick('hero')}
-            className="cursor-pointer hover:opacity-80 transition-opacity"
-          >
-            <PixzeriaLogo size="lg" showText={false} />
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        scrolled ? "bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm" : "bg-white"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16">
+          <button onClick={() => scrollTo("hero")} className="hover:opacity-75 transition-opacity">
+            <PixzeriaWordmark />
           </button>
-          
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
+
+          <nav className="hidden md:flex items-center gap-7">
+            {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className="hover:text-pizza-red transition-colors cursor-pointer text-gray-700 font-medium"
+                onClick={() => scrollTo(item.id)}
+                className="text-sm font-medium text-gray-600 hover:text-black transition-colors"
               >
-                {item.name}
+                {item.label}
               </button>
             ))}
-            <Button 
-              onClick={() => handleNavClick('website-check')}
-              className="bg-pizza-red text-white px-6 py-2 rounded-full hover:bg-red-700 transition-all transform hover:scale-105"
+          </nav>
+
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="https://wa.me/4915901234567?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20von%20Pixzeria."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-pink text-sm py-2 px-5"
             >
-              🔍 Webseiten-Check
-            </Button>
+              <MessageCircle size={15} />
+              WhatsApp
+            </a>
           </div>
 
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden text-pizza-red">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col space-y-4 mt-8">
-                {navigation.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => handleNavClick(item.id)}
-                    className="text-left hover:text-pizza-red transition-colors py-2 cursor-pointer block w-full text-gray-700 font-medium"
-                  >
-                    {item.name}
-                  </button>
-                ))}
-                <Button 
-                  onClick={() => handleNavClick('website-check')}
-                  className="bg-pizza-red hover:bg-red-700 mt-4"
-                >
-                  🔍 Webseiten-Check
-                </Button>
-              </div>
-            </SheetContent>
-          </Sheet>
+          <button
+            className="md:hidden p-2 text-gray-600 hover:text-black"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Menü"
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
-      </nav>
+      </div>
+
+      {isOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+          <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="text-left py-3 text-base font-medium text-gray-700 hover:text-black border-b border-gray-50 last:border-0"
+              >
+                {item.label}
+              </button>
+            ))}
+            <a
+              href="https://wa.me/4915901234567?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20von%20Pixzeria."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-pink mt-3 text-sm justify-center"
+              onClick={() => setIsOpen(false)}
+            >
+              <MessageCircle size={15} />
+              WhatsApp Kontakt
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

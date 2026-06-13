@@ -1,0 +1,169 @@
+Überarbeite meine bestehende Pixzeria-Webseite optisch und strukturell im Stil der aktuellen Lovable-Version.
+
+Ziel:
+Die Seite soll modern, hochwertig, klar und vertrauenswürdig wirken – wie eine digitale Produktmarke für Unternehmenswebseiten.
+
+Wichtig:
+Nicht wie eine Pizzeria.
+Nicht wie eine klassische Agentur.
+Nicht verspielt.
+Business-first.
+
+Designrichtung:
+- Apple / Stripe / Linear / Framer inspiriert
+- viel Weißraum
+- große klare Typografie
+- saubere Karten
+- dezente Schatten
+- runde Ecken
+- hochwertiger Schwarz-Weiß-Look
+- E-Pink als Akzentfarbe
+- moderne Browser-Mockups
+- dezente Animationen
+- mobil sehr stark
+
+Farben:
+- Schwarz: #111111
+- Weiß: #FFFFFF
+- Hellgrau Hintergrund: #F7F7F8
+- Textgrau: #5F6368
+- E-Pink: #E6007E
+
+Branding:
+Header nur mit Wortmarke:
+PIXZERIA
+
+Das X in PIXZERIA soll E-Pink sein.
+Keine kleine Tagline unter dem Logo.
+
+Hero:
+Headline:
+Webseiten. Einfach bestellt.
+
+Subheadline:
+Professionelle Unternehmenswebseiten zum Festpreis. Einfach auswählen, bestellen und online gehen.
+
+Buttons:
+- Website konfigurieren
+- WhatsApp Kontakt
+
+Hero rechts:
+Großes modernes Browser-Mockup einer Beispiel-Website.
+Kein Stockfoto.
+Keine Pizza-Grafik.
+Es soll sofort sichtbar sein, dass Pixzeria Webseiten verkauft.
+
+Wichtig:
+Entferne direkte Zielgruppen-Aufzählungen wie „Handwerk, Sanitär, Dachdecker“ aus dem Hero.
+Stattdessen allgemein formulieren:
+Für Unternehmen, Selbstständige und lokale Anbieter, die schnell eine moderne Website brauchen.
+
+Seitenstruktur:
+1. Hero
+2. So funktioniert es
+3. Designbeispiele
+4. Produkt / Preis
+5. Optionale Zutaten
+6. Service & Pflege
+7. Konfigurator
+8. Über Pixzeria
+9. FAQ
+10. CTA/Footer
+
+Produkt:
+Eine Website.
+Ein Preis.
+
+Preis:
+999 €
+
+Enthalten:
+- bis zu 5 Seiten
+- modernes Design
+- mobil optimiert
+- Kontaktformular
+- WhatsApp-Button
+- Google Maps
+- Bildergalerie
+- SEO-Basis
+- Impressum- und Datenschutzintegration
+- Lieferung in wenigen Tagen
+
+Hinweis:
+Nicht „zzgl. MwSt.“ schreiben.
+Stattdessen:
+Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.
+
+Optionale Zutaten:
+Nur diese Extras:
+- Zusätzliche Seite: +150 €
+- Projekt- und Bildergalerie: +250 €
+- Mehrsprachigkeit: +300 €
+- SEO-Textpaket: +300 €
+- Express-Lieferung: +300 €
+
+Service & Pflege:
+49 € / Monat
+
+Enthalten:
+- kleinere Textänderungen
+- Bildaustausch
+- technische Pflege
+- Support per WhatsApp oder E-Mail
+
+Konfigurator:
+Baue einen einfachen Live-Konfigurator:
+Basispreis 999 €
+Checkboxen für die Zutaten
+Checkbox für Service & Pflege
+Live-Anzeige des einmaligen Gesamtpreises
+WhatsApp-Button, der die gewählten Optionen als Nachricht übergibt
+
+Designbeispiele:
+Zeige keine Fake-Referenzen.
+Zeige „Designbeispiele“ als fiktive Website-Mockups.
+Branchen nur hier als Beispiele zeigen:
+- Praxis
+- Gastronomie
+- Handwerk
+- Dienstleister
+
+Keine Fake-Bewertungen.
+Keine Fake-Statistiken.
+Keine erfundenen echten Kunden.
+
+Über Pixzeria:
+Nutze echte Unternehmensdaten:
+Pixzeria
+Inhaber: Münir Gencer
+45731 Waltrop, Deutschland
+Einzelunternehmen
+
+Text:
+Pixzeria wurde gegründet, um Unternehmenswebseiten so einfach bestellbar zu machen wie ein digitales Produkt. Klar definiert, transparent bepreist und schnell geliefert.
+
+Entfernen:
+- CMS
+- Kundenportal
+- Shop-Systeme
+- App-Entwicklung
+- API-Integrationen
+- komplexe Automatisierungen
+- Individualsoftware
+- Enterprise-Lösungen
+
+Technisch:
+- Sauberer React/Next.js Code
+- Responsive Design
+- Komponenten sauber strukturieren
+- Keine unnötigen Libraries
+- Performance beachten
+- Vercel-kompatibel
+- WhatsApp-Link funktional machen
+- Kontaktformular vorbereiten
+
+Ziel:
+Die Website soll aussehen wie ein hochwertiges digitales Produkt und gleichzeitig sofort verständlich sein:
+Eine professionelle Unternehmenswebsite für 999 €.
+Einfach bestellt.
+Schnell geliefert.

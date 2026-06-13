@@ -1,134 +1,70 @@
-import { FileText, ArrowLeft } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { Link } from "wouter";
+
+const sections = [
+  {
+    title: "§ 1 Geltungsbereich",
+    text: "Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen Pixzeria (Inhaber: Münir Gencer) und seinen Kunden über die Erstellung von Websites und damit verbundene Services.",
+  },
+  {
+    title: "§ 2 Vertragsschluss",
+    text: "Ein Vertrag kommt durch schriftliche Auftragsbestätigung (per E-Mail oder WhatsApp) oder durch Beginn der Leistungserbringung zustande. Angebote sind freibleibend.",
+  },
+  {
+    title: "§ 3 Leistungen",
+    text: "Der Umfang der Leistungen ergibt sich aus dem gewählten Paket und den vereinbarten Extras gemäß Bestellübersicht.",
+  },
+  {
+    title: "§ 4 Preise und Zahlung",
+    text: "Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. Die Zahlung erfolgt 50% bei Auftragserteilung, 50% bei Abnahme der fertigen Website.",
+  },
+  {
+    title: "§ 5 Mitwirkungspflichten",
+    text: "Der Auftraggeber verpflichtet sich, alle notwendigen Inhalte (Texte, Bilder, Logo) rechtzeitig zur Verfügung zu stellen. Verzögerungen seitens des Auftraggebers verlängern die Lieferzeit entsprechend.",
+  },
+  {
+    title: "§ 6 Nutzungsrechte",
+    text: "Mit vollständiger Bezahlung gehen die Nutzungsrechte an der erstellten Website auf den Kunden über. Pixzeria behält sich das Recht vor, die Website als Referenz zu nennen.",
+  },
+  {
+    title: "§ 7 Haftung",
+    text: "Die Haftung richtet sich nach den gesetzlichen Bestimmungen. Eine Haftung für Schäden durch fehlerhafte oder verspätet gelieferte Inhalte des Auftraggebers ist ausgeschlossen.",
+  },
+  {
+    title: "§ 8 Schlussbestimmungen",
+    text: "Es gilt deutsches Recht. Gerichtsstand ist Waltrop. Sollten einzelne Bestimmungen unwirksam sein, bleibt der Vertrag im Übrigen wirksam.",
+  },
+];
 
 export default function AGB() {
-  const handleBack = () => {
-    if (window.history.length > 1) {
-      window.history.back();
-    } else {
-      window.location.href = "/";
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream via-white to-orange-50">
+    <div className="min-h-screen bg-white">
       <Header />
-      
-      <main className="container mx-auto px-4 pt-28 pb-16">
-        <div className="max-w-4xl mx-auto">
-          <Button 
-            variant="outline" 
-            onClick={handleBack}
-            className="mb-8"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Zurück
-          </Button>
+      <main className="max-w-3xl mx-auto px-4 sm:px-6 pt-28 pb-20">
+        <Link href="/" className="inline-flex items-center gap-2 text-sm mb-8 hover:text-black transition-colors" style={{ color: '#5F6368' }}>
+          <ArrowLeft size={16} />
+          Zurück zur Startseite
+        </Link>
 
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <FileText className="h-10 w-10 text-red-600" />
-              <h1 className="text-4xl font-bold text-gray-900">Allgemeine Geschäftsbedingungen</h1>
-            </div>
-            <p className="text-xl text-gray-600">
-              AGB der PIXZERIA Webdesign Agentur
-            </p>
-          </div>
+        <h1 className="text-4xl font-black mb-2" style={{ color: '#111', letterSpacing: '-0.03em' }}>
+          Allgemeine Geschäftsbedingungen
+        </h1>
+        <p className="mb-12" style={{ color: '#5F6368' }}>Pixzeria · Münir Gencer · Stand: Juni 2026</p>
 
-          <div className="space-y-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>§ 1 Geltungsbereich</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen 
-                  PIXZERIA - Webdesign Agentur und ihren Kunden über die Erstellung von Websites, 
-                  Webdesign-Dienstleistungen und damit verbundene Services. (Platzhalter)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>§ 2 Vertragsschluss</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Ein Vertrag kommt durch schriftliche Auftragsbestätigung oder durch Beginn der 
-                  Leistungserbringung zustande. Angebote sind freibleibend. (Platzhalter)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>§ 3 Leistungen</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Der Umfang der Leistungen ergibt sich aus der jeweiligen Leistungsbeschreibung 
-                  bzw. dem gewählten Paket (Starter, Professional, Business). (Platzhalter)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>§ 4 Preise und Zahlung</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Alle Preise verstehen sich als Endpreise inklusive der gesetzlichen Mehrwertsteuer. 
-                  Die Zahlung erfolgt nach Rechnungsstellung. (Platzhalter)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>§ 5 Nutzungsrechte</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Mit vollständiger Bezahlung gehen die Nutzungsrechte an den erstellten Werken 
-                  auf den Kunden über. (Platzhalter)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>§ 6 Haftung</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Die Haftung richtet sich nach den gesetzlichen Bestimmungen. (Platzhalter)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>§ 7 Schlussbestimmungen</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Es gilt deutsches Recht. Gerichtsstand ist Berlin. (Platzhalter)
-                </p>
-              </CardContent>
-            </Card>
-
-            <div className="text-center text-sm text-gray-500 pt-8">
-              <p>Stand: 17. Januar 2026</p>
-            </div>
-          </div>
+        <div className="flex flex-col gap-6">
+          {sections.map((s) => (
+            <section key={s.title} className="p-6 rounded-2xl border" style={{ borderColor: '#E8E8E8' }}>
+              <h2 className="font-bold text-base mb-3" style={{ color: '#111' }}>{s.title}</h2>
+              <p className="text-sm leading-relaxed" style={{ color: '#5F6368' }}>{s.text}</p>
+            </section>
+          ))}
+          <p className="text-center text-sm" style={{ color: '#999' }}>
+            Bei Fragen: <a href="mailto:muenir.gencer@gmail.com" className="hover:underline" style={{ color: '#E6007E' }}>muenir.gencer@gmail.com</a>
+          </p>
         </div>
       </main>
-
       <Footer />
     </div>
   );

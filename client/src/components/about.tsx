@@ -1,88 +1,58 @@
-import { Button } from "@/components/ui/button";
-import { Zap, Heart, Star, Users } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 export default function About() {
-  const values = [
-    {
-      icon: Zap,
-      title: "Pizza-Speed",
-      description: "Schnelle Lieferung ohne Qualitätsverlust – ab 1 Woche ist Ihre Website online.",
-      color: "bg-pizza-red/10 text-pizza-red"
-    },
-    {
-      icon: Heart,
-      title: "Digital First",
-      description: "Alles läuft online ab – effizient, modern und ohne unnötige Termine.",
-      color: "bg-pizza-orange/10 text-pizza-orange"
-    },
-    {
-      icon: Star,
-      title: "Qualität",
-      description: "Moderne Technologien, professionelles Design und DSGVO-Konformität inklusive.",
-      color: "bg-pizza-gold/10 text-pizza-gold"
-    }
-  ];
-
   return (
-    <section id="ueber-uns" className="py-16 bg-gradient-to-br from-pizza-cream to-white overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section id="ueber-uns" className="section-padding bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6">
-              Warum <span className="text-pizza-red font-fredoka">PIXZERIA</span>?
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6"
+              style={{ background: '#F7F7F8', color: '#5F6368', border: '1px solid #E8E8E8' }}>
+              Über Pixzeria
+            </div>
+            <h2 className="heading-lg mb-6">
+              Webseiten so einfach<br />wie ein digitales Produkt.
             </h2>
-            
-            <div className="space-y-6">
-              {values.map((value, index) => {
-                const IconComponent = value.icon;
-                return (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className={`w-12 h-12 ${value.color} rounded-full flex items-center justify-center flex-shrink-0`}>
-                      <IconComponent className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">{value.title}</h3>
-                      <p className="text-gray-600">{value.description}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            
-            <div className="mt-8">
-              <Button className="bg-pizza-red text-white px-8 py-3 rounded-full font-semibold hover:bg-pizza-red-dark transition-colors">
-                <Users className="w-4 h-4 mr-2" />
-                Unser Team kennenlernen
-              </Button>
-            </div>
+            <p className="text-base mb-4" style={{ color: '#5F6368', lineHeight: 1.8 }}>
+              Pixzeria wurde gegründet, um Unternehmenswebseiten so einfach bestellbar zu machen wie ein digitales Produkt. Klar definiert, transparent bepreist und schnell geliefert.
+            </p>
+            <p className="text-base mb-8" style={{ color: '#5F6368', lineHeight: 1.8 }}>
+              Kein Agentur-Overhead, keine langen Briefings, keine versteckten Kosten. Nur eine saubere Website für einen fairen Festpreis – 100% online.
+            </p>
+            <a
+              href="https://wa.me/4915901234567?text=Hallo%2C%20ich%20m%C3%B6chte%20mehr%20%C3%BCber%20Pixzeria%20erfahren."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-pink text-sm"
+            >
+              <MessageCircle size={16} />
+              Kontakt aufnehmen
+            </a>
           </div>
-          
-          <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Happy small business owners celebrating their success" 
-              className="rounded-2xl shadow-2xl w-full h-auto"
-              loading="lazy"
-            />
-            
-            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <span className="text-green-600">👍</span>
-                </div>
-                <div>
-                  <div className="font-semibold">NPS Score</div>
-                  <div className="text-2xl font-bold text-green-600">≥ 60</div>
-                </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div
+              className="card-clean col-span-2"
+              style={{ background: '#F7F7F8' }}
+            >
+              <div className="text-3xl font-black mb-1" style={{ color: '#E6007E' }}>Münir Gencer</div>
+              <div className="font-semibold mb-3" style={{ color: '#111' }}>Inhaber & Gründer</div>
+              <div className="text-sm" style={{ color: '#5F6368', lineHeight: 1.6 }}>
+                Pixzeria · Einzelunternehmen<br />
+                45731 Waltrop, Deutschland
               </div>
             </div>
-            
-            <div className="absolute -top-6 -right-6 bg-pizza-red text-white p-4 rounded-xl shadow-lg">
-              <div className="text-center">
-                <div className="text-2xl font-bold">2.000+</div>
-                <div className="text-sm">Zufriedene Kunden</div>
+            {[
+              { value: "999 €", label: "Klarer Festpreis" },
+              { value: "ab 1 Woche", label: "Lieferzeit" },
+              { value: "100%", label: "Online-Prozess" },
+              { value: "§ 19 UStG", label: "Keine MwSt." },
+            ].map(({ value, label }) => (
+              <div key={label} className="card-clean text-center">
+                <div className="text-2xl font-black mb-1" style={{ color: '#111' }}>{value}</div>
+                <div className="text-sm" style={{ color: '#5F6368' }}>{label}</div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

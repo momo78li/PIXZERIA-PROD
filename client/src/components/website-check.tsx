@@ -1,115 +1,53 @@
-import { useState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, Settings, Shield, Send, Clock } from "lucide-react";
+import { Plus } from "lucide-react";
+
+const extras = [
+  { name: "Zusätzliche Seite", price: 150, desc: "Jede weitere Seite über 5 hinaus" },
+  { name: "Projekt- & Bildergalerie", price: 250, desc: "Erweitertes Galerie-System mit Kategorien" },
+  { name: "Mehrsprachigkeit", price: 300, desc: "Website in 2 Sprachen (z.B. DE + EN)" },
+  { name: "SEO-Textpaket", price: 300, desc: "Professionelle SEO-Texte für alle Seiten" },
+  { name: "Express-Lieferung", price: 300, desc: "Fertigstellung in 3–5 Werktagen statt 1–2 Wochen" },
+];
 
 export default function WebsiteCheck() {
-  const [url, setUrl] = useState("");
-  const loadTime = useRef(Date.now());
-
-  useEffect(() => {
-    loadTime.current = Date.now();
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    const elapsed = Date.now() - loadTime.current;
-    if (elapsed < 3000) {
-      e.preventDefault();
-      return false;
-    }
-  };
-
   return (
-    <section id="website-check" className="py-16 gradient-pizza text-white">
-      <div className="container mx-auto px-4 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">
-            <span className="font-fredoka">Kostenloser</span> Webseiten-Check
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Erfahren Sie in 48 Stunden, wo Ihre Website Verbesserungspotential hat. 
-            Design, Technik & DSGVO – komplett kostenlos!
-          </p>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Search className="w-6 h-6" />
-                </div>
-                <h3 className="font-semibold mb-2">Design-Analyse</h3>
-                <p className="text-sm opacity-80">Modernes Design & Benutzerfreundlichkeit</p>
-              </div>
-              
-              <div>
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Settings className="w-6 h-6" />
-                </div>
-                <h3 className="font-semibold mb-2">Technik-Check</h3>
-                <p className="text-sm opacity-80">Ladezeiten, Mobile-Optimierung & SEO</p>
-              </div>
-              
-              <div>
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-6 h-6" />
-                </div>
-                <h3 className="font-semibold mb-2">DSGVO-Prüfung</h3>
-                <p className="text-sm opacity-80">Rechtssicherheit & Compliance</p>
-              </div>
-            </div>
+    <section id="extras" className="section-padding bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6"
+            style={{ background: '#F7F7F8', color: '#5F6368', border: '1px solid #E8E8E8' }}>
+            Optionale Zutaten
           </div>
-          
-          <form 
-            action="https://formsubmit.co/Muenir.gencer@gmail.com" 
-            method="POST"
-            className="max-w-2xl mx-auto space-y-4"
-            onSubmit={handleSubmit}
-          >
-            <input type="hidden" name="_subject" value="Neuer kostenloser Website-Check" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value={`${window.location.origin}/danke`} />
-            <input type="hidden" name="_blacklist" value="viagra, casino, crypto, seo service" />
-            <input type="text" name="_honey" style={{ display: 'none' }} />
-            <input type="text" name="company" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-            
-            <div className="flex flex-col md:flex-row gap-4">
-              <Input
-                type="text"
-                name="website_url"
-                placeholder="z.B. meine-firma.de (ohne http:// oder www.)"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                className="flex-1 px-4 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50"
-                required
-              />
-              <Input
-                type="email"
-                name="email"
-                placeholder="Ihre E-Mail-Adresse..."
-                className="flex-1 px-4 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50"
-                required
-              />
-            </div>
-            <Button
-              type="submit"
-              className="bg-white text-pizza-red px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+          <h2 className="heading-lg mb-4">Extras nach Bedarf.</h2>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#5F6368' }}>
+            Passe deine Website mit optionalen Ergänzungen individuell an.
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto grid gap-4">
+          {extras.map((extra) => (
+            <div
+              key={extra.name}
+              className="flex items-center justify-between gap-4 p-5 rounded-2xl border transition-all duration-200"
+              style={{ borderColor: '#E8E8E8', background: '#fff' }}
             >
-              <Send className="w-4 h-4 mr-2" />
-              Jetzt prüfen
-            </Button>
-            <p className="text-sm opacity-70 flex items-center justify-center gap-4">
-              <span className="flex items-center">
-                <Clock className="w-3 h-3 mr-1" />
-                Ergebnis in 48 Stunden
-              </span>
-              •
-              <span className="flex items-center">
-                <Shield className="w-3 h-3 mr-1" />
-                100% DSGVO-konform
-              </span>
-            </p>
-          </form>
+              <div className="flex items-start gap-4">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: '#FFF0F8' }}
+                >
+                  <Plus size={18} style={{ color: '#E6007E' }} />
+                </div>
+                <div>
+                  <div className="font-semibold" style={{ color: '#111' }}>{extra.name}</div>
+                  <div className="text-sm mt-0.5" style={{ color: '#5F6368' }}>{extra.desc}</div>
+                </div>
+              </div>
+              <div className="text-right flex-shrink-0">
+                <div className="font-black text-xl" style={{ color: '#111' }}>+{extra.price} €</div>
+                <div className="text-xs" style={{ color: '#5F6368' }}>einmalig</div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

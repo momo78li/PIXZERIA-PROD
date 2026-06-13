@@ -6,6 +6,8 @@ import WebsiteCheck from "@/components/website-check";
 import CaseStudies from "@/components/case-studies";
 import About from "@/components/about";
 import ContactCTA from "@/components/contact-cta";
+import TrustBar from "@/components/trust-bar";
+import FAQ from "@/components/faq";
 import Footer from "@/components/footer";
 import StructuredData from "@/components/structured-data";
 
@@ -15,13 +17,15 @@ export default function Home() {
       <StructuredData type="ProfessionalService" />
       <Header />
       <main id="main">
-      <Hero />
-      <Services />
-      <Pricing />
-      <WebsiteCheck />
-      <CaseStudies />
-      <About />
-      <ContactCTA />
+        <Hero />
+        <Services />
+        <CaseStudies />
+        <Pricing />
+        <WebsiteCheck />
+        <ContactCTA />
+        <TrustBar />
+        <About />
+        <FAQ />
       </main>
       <Footer />
     </div>
