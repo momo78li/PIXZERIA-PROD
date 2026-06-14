@@ -9,42 +9,61 @@ const BrowserMockup = () => (
         <div className="browser-dot" style={{ background: '#FEBC2E' }} />
         <div className="browser-dot" style={{ background: '#28C840' }} />
       </div>
-      <div className="browser-url">www.meine-firma.de</div>
+      <div className="browser-url">www.deine-firma.de</div>
     </div>
     <div style={{ background: '#fff', overflow: 'hidden' }}>
-      <div style={{ background: '#111', padding: '12px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div style={{ color: '#fff', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em' }}>
-          MEISTER<span style={{ color: '#E6007E' }}>BAU</span>
+      {/* Nav */}
+      <div style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', padding: '11px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #F0F0F0' }}>
+        <div style={{ color: '#111', fontWeight: 900, fontSize: '13px', letterSpacing: '0.04em' }}>
+          STUDIO<span style={{ color: '#E6007E' }}>•</span>
         </div>
-        <div style={{ display: 'flex', gap: '16px' }}>
-          {['Leistungen', 'Referenzen', 'Kontakt'].map(t => (
-            <div key={t} style={{ color: '#999', fontSize: '10px' }}>{t}</div>
+        <div style={{ display: 'flex', gap: '14px' }}>
+          {['Leistungen', 'Über uns', 'Kontakt'].map(t => (
+            <div key={t} style={{ color: '#888', fontSize: '9px', fontWeight: 500 }}>{t}</div>
           ))}
         </div>
-        <div style={{ background: '#E6007E', color: '#fff', padding: '5px 12px', borderRadius: '20px', fontSize: '10px', fontWeight: 600 }}>Anfragen</div>
+        <div style={{ background: '#111', color: '#fff', padding: '5px 12px', borderRadius: '20px', fontSize: '9px', fontWeight: 600 }}>Termin buchen</div>
       </div>
-      <div style={{ padding: '24px 20px 20px', background: 'linear-gradient(160deg, #F8F8F8 0%, #fff 100%)' }}>
-        <div style={{ fontSize: '10px', color: '#E6007E', fontWeight: 700, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Ihr verlässlicher Partner</div>
-        <div style={{ fontSize: '19px', fontWeight: 900, color: '#111', lineHeight: 1.2, marginBottom: '10px' }}>
-          Qualität, die<br />überzeugt.
+
+      {/* Hero with photographic gradient */}
+      <div style={{ position: 'relative', padding: '26px 20px 24px', background: 'linear-gradient(135deg, #1A1A1A 0%, #2D1020 55%, #4A0E32 100%)', overflow: 'hidden' }}>
+        {/* glow accents */}
+        <div style={{ position: 'absolute', top: -30, right: -20, width: 120, height: 120, borderRadius: '50%', background: 'radial-gradient(circle, rgba(230,0,126,0.45) 0%, transparent 70%)' }} />
+        <div style={{ position: 'absolute', bottom: -40, left: -10, width: 100, height: 100, borderRadius: '50%', background: 'radial-gradient(circle, rgba(230,0,126,0.2) 0%, transparent 70%)' }} />
+
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          {/* rating pill */}
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.18)', padding: '4px 10px', borderRadius: '20px', marginBottom: '12px' }}>
+            <span style={{ color: '#FFC83D', fontSize: '9px', letterSpacing: '1px' }}>★★★★★</span>
+            <span style={{ color: '#fff', fontSize: '8px', fontWeight: 600 }}>5,0 · Top bewertet</span>
+          </div>
+
+          <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', lineHeight: 1.12, marginBottom: '9px', letterSpacing: '-0.02em' }}>
+            Dein Auftritt,<br />
+            der <span style={{ color: '#E6007E' }}>begeistert.</span>
+          </div>
+          <div style={{ fontSize: '9.5px', color: 'rgba(255,255,255,0.7)', marginBottom: '16px', lineHeight: 1.6, maxWidth: '85%' }}>
+            Modern, schnell und für deine Kunden gemacht. Heute bestellt, in Tagen online.
+          </div>
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            <div style={{ background: '#E6007E', color: '#fff', padding: '8px 16px', borderRadius: '22px', fontSize: '9.5px', fontWeight: 700, boxShadow: '0 6px 18px rgba(230,0,126,0.4)' }}>Jetzt starten →</div>
+            <div style={{ color: 'rgba(255,255,255,0.85)', padding: '8px 4px', fontSize: '9.5px', fontWeight: 500 }}>Portfolio ansehen</div>
+          </div>
         </div>
-        <div style={{ fontSize: '10px', color: '#666', marginBottom: '14px', lineHeight: 1.6 }}>
-          Professionelle Arbeit zu fairen Preisen – pünktlich und zuverlässig.
-        </div>
-        <div style={{ display: 'flex', gap: '8px', marginBottom: '18px' }}>
-          <div style={{ background: '#111', color: '#fff', padding: '7px 14px', borderRadius: '20px', fontSize: '10px', fontWeight: 600 }}>Jetzt anfragen</div>
-          <div style={{ border: '1.5px solid #ddd', padding: '7px 14px', borderRadius: '20px', fontSize: '10px', color: '#555' }}>Referenzen</div>
-        </div>
+      </div>
+
+      {/* Feature cards row */}
+      <div style={{ padding: '16px 20px 20px', background: '#fff' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
           {[
-            { emoji: '⭐', title: 'Qualität', text: 'Geprüfte Materialien' },
-            { emoji: '⚡', title: 'Schnell', text: 'Termingerecht' },
-            { emoji: '✓', title: 'Fair', text: 'Klare Preise' },
+            { icon: '⚡', title: 'Blitzschnell', text: 'In Tagen online' },
+            { icon: '◆', title: 'Premium', text: 'Maßgeschneidert' },
+            { icon: '✓', title: 'Festpreis', text: 'Keine Überraschung' },
           ].map(c => (
-            <div key={c.title} style={{ background: '#fff', border: '1px solid #eee', borderRadius: '8px', padding: '10px', boxShadow: '0 1px 6px rgba(0,0,0,0.04)' }}>
-              <div style={{ fontSize: '13px', marginBottom: '3px' }}>{c.emoji}</div>
-              <div style={{ fontSize: '10px', fontWeight: 700, color: '#111', marginBottom: '2px' }}>{c.title}</div>
-              <div style={{ fontSize: '9px', color: '#999' }}>{c.text}</div>
+            <div key={c.title} style={{ background: '#FAFAFA', border: '1px solid #F0F0F0', borderRadius: '10px', padding: '11px 9px' }}>
+              <div style={{ fontSize: '12px', marginBottom: '5px', color: '#E6007E' }}>{c.icon}</div>
+              <div style={{ fontSize: '9.5px', fontWeight: 800, color: '#111', marginBottom: '2px' }}>{c.title}</div>
+              <div style={{ fontSize: '8px', color: '#999' }}>{c.text}</div>
             </div>
           ))}
         </div>
