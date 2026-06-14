@@ -1,4 +1,5 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
+import PizzaIcon from "./pizza-icon";
 
 const BrowserMockup = () => (
   <div className="browser-mockup w-full">
@@ -63,21 +64,20 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
-            <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, lineHeight: 1.1, color: '#111', letterSpacing: '-0.03em', marginBottom: '1.5rem' }}>
-              Professionelle Webseiten zum Festpreis.
+            <h1 style={{ fontSize: 'clamp(2.4rem, 5.5vw, 3.8rem)', fontWeight: 900, lineHeight: 1.08, color: '#111', letterSpacing: '-0.03em', marginBottom: '1.25rem' }}>
+              Webseiten.<br />Einfach bestellt.
             </h1>
 
-            <p className="text-xl font-semibold mb-3" style={{ color: '#111', lineHeight: 1.4 }}>
-              Einfach bestellt. Schnell geliefert.
-            </p>
-
-            <p className="text-base mb-10" style={{ color: '#5F6368', lineHeight: 1.8 }}>
-              Moderne Unternehmenswebseiten ohne Agenturchaos,
-              ohne Überraschungen und ohne endlose Meetings.
+            <p className="text-lg mb-10" style={{ color: '#5F6368', lineHeight: 1.75 }}>
+              Professionelle Unternehmenswebseiten zum Festpreis.<br />
+              Einfach auswählen, bestellen und online gehen.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => scrollTo("konfigurator")} className="btn-pink text-base py-4 px-8">
+              <button
+                onClick={() => scrollTo("konfigurator")}
+                className="btn-pink text-base py-4 px-8"
+              >
                 Website konfigurieren
                 <ArrowRight size={18} />
               </button>
@@ -90,6 +90,14 @@ export default function Hero() {
                 <MessageCircle size={18} />
                 WhatsApp Kontakt
               </a>
+            </div>
+
+            {/* Subtle pizza icon accent */}
+            <div className="flex items-center gap-3 mt-6">
+              <PizzaIcon size={18} />
+              <span className="text-sm" style={{ color: '#999' }}>
+                So einfach wie eine Pizza bestellen.
+              </span>
             </div>
 
             <div className="flex items-center gap-8 mt-10 pt-10 border-t" style={{ borderColor: '#EFEFEF' }}>

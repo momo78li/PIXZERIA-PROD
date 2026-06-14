@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 
-const PixzeriaWordmark = ({ className = "" }: { className?: string }) => (
-  <span className={`font-black tracking-tight text-2xl ${className}`} style={{ color: '#111111', letterSpacing: '-0.03em' }}>
+const PixzeriaWordmark = ({ dark = false }: { dark?: boolean }) => (
+  <span
+    className="font-black tracking-tight text-2xl"
+    style={{ color: dark ? '#fff' : '#111111', letterSpacing: '-0.03em' }}
+  >
     PI<span style={{ color: '#E6007E' }}>X</span>ZERIA
   </span>
 );
@@ -62,15 +65,13 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="https://wa.me/4915901234567?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20von%20Pixzeria."
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => scrollTo("konfigurator")}
               className="btn-pink text-sm py-2 px-5"
             >
-              <MessageCircle size={15} />
-              WhatsApp
-            </a>
+              Website konfigurieren
+              <ArrowRight size={15} />
+            </button>
           </div>
 
           <button
@@ -95,16 +96,13 @@ export default function Header() {
                 {item.label}
               </button>
             ))}
-            <a
-              href="https://wa.me/4915901234567?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20von%20Pixzeria."
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => scrollTo("konfigurator")}
               className="btn-pink mt-3 text-sm justify-center"
-              onClick={() => setIsOpen(false)}
             >
-              <MessageCircle size={15} />
-              WhatsApp Kontakt
-            </a>
+              Website konfigurieren
+              <ArrowRight size={15} />
+            </button>
           </div>
         </div>
       )}

@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { MessageCircle, ArrowRight, Mail } from "lucide-react";
+import PizzaIcon from "./pizza-icon";
 
 const PixzeriaWordmark = () => (
   <span className="font-black tracking-tight text-2xl text-white" style={{ letterSpacing: '-0.03em' }}>
@@ -18,11 +19,13 @@ export default function Footer() {
       {/* ── FINAL CTA – only dark section on the page ── */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24 border-b" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
         <div className="max-w-2xl mx-auto text-center">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8"
-            style={{ background: 'rgba(255,255,255,0.08)', color: '#aaa', border: '1px solid rgba(255,255,255,0.12)' }}
-          >
-            Bereit loszulegen?
+          <div className="flex justify-center mb-6">
+            <div
+              className="w-16 h-16 rounded-2xl flex items-center justify-center"
+              style={{ background: 'rgba(230,0,126,0.15)', border: '1px solid rgba(230,0,126,0.25)' }}
+            >
+              <PizzaIcon size={32} variant="pink" />
+            </div>
           </div>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em', lineHeight: 1.1 }}>
             Bereit für deine<br />neue Website?

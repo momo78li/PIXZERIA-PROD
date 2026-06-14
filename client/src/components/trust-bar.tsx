@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MessageCircle, ArrowRight, ArrowLeft, Check } from "lucide-react";
+import PizzaIcon from "./pizza-icon";
 
 const BUSINESS_TYPES = ["Dienstleister", "Praxis", "Gastronomie", "Handwerk", "Sonstiges"];
 const EXTRAS = [
@@ -287,8 +288,11 @@ export default function TrustBar() {
               <span className="font-medium" style={{ color: '#E6007E' }}>+49 €/Monat</span>
             </div>
           )}
-          <div className="border-t mt-2 pt-3 flex justify-between font-black text-base">
-            <span style={{ color: '#111' }}>Gesamtpreis einmalig</span>
+          <div className="border-t mt-2 pt-3 flex justify-between items-center font-black text-base">
+            <div className="flex items-center gap-2">
+              <PizzaIcon size={18} />
+              <span style={{ color: '#111' }}>Gesamtpreis einmalig</span>
+            </div>
             <span style={{ color: '#111' }}>{total} €</span>
           </div>
         </div>

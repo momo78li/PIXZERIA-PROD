@@ -1,0 +1,184 @@
+Setze das Pixzeria-Branding neu um.
+
+WICHTIG:
+Das Logo bleibt seriös und professionell.
+Die Pizza-Idee wird nur als Icon/Designelement genutzt, nicht als Hauptlogo.
+
+BRANDING
+
+1. Header-Logo:
+Verwende ausschließlich die Wortmarke:
+
+PIXZERIA
+
+- Großbuchstaben
+- moderne geometrische Sans-Serif
+- schwarz auf hellem Hintergrund
+- weiß auf dunklem Hintergrund
+- das X in E-Pink (#E6007E)
+- keine Tagline unter dem Logo
+- kein Icon direkt im Logo
+
+2. Pizza-Icon:
+Erstelle ein minimalistisches Pizza-Slice-Icon als separates Designelement.
+
+Stil:
+- einfach
+- modern
+- klar verständlich
+- nicht comicartig
+- nicht kindlich
+- nicht restaurantmäßig
+- schwarz/weiß mit E-Pink
+- flach, clean, vektorartig
+
+Das Icon darf verwendet werden für:
+- Favicon
+- Ladeanimation
+- kleine Akzente im Konfigurator
+- CTA-Bereich
+- Prozess-Schritte
+- Button-Icon
+- leere Zustände
+- kleine Micro-Animationen
+
+Das Icon darf NICHT:
+- Teil der Hauptwortmarke sein
+- größer wirken als die Marke
+- die Website wie eine Pizzeria aussehen lassen
+- verspielt oder albern wirken
+
+3. Designprinzip:
+Die Pizza-Metapher steht für:
+- einfach auswählen
+- bestellen
+- geliefert bekommen
+
+Nicht für Essen/Restaurant.
+
+SEITENANPASSUNGEN
+
+Header:
+- links PIXZERIA Wortmarke
+- rechts Navigation
+- CTA Button „Website konfigurieren“
+- kein Claim unter dem Logo
+
+Hero:
+Headline:
+Webseiten. Einfach bestellt.
+
+Subheadline:
+Professionelle Unternehmenswebseiten zum Festpreis.
+Einfach auswählen, bestellen und online gehen.
+
+Buttons:
+- Website konfigurieren
+- WhatsApp Kontakt
+
+Hero-Visual:
+Großes Browser-Mockup einer modernen Beispiel-Website.
+Keine Stockfotos.
+Keine Pizza-Fotos.
+Das Produkt Website muss sofort sichtbar sein.
+
+Pizza-Icon nur dezent im Hero einsetzen, z. B. als kleines Bewegungs-/Akzent-Element neben dem CTA oder im Konfigurator-Teaser.
+
+Konfigurator:
+Baue das Pizza-Icon als kleines visuelles Element ein.
+Beispiel:
+- neben dem Gesamtpreis
+- als kleines Icon bei „Weiter zu WhatsApp“
+- als dezente Ladeanimation beim Berechnen
+
+CTA-Bereich:
+Der finale CTA darf dunkel sein.
+Dort kann das Pizza-Icon größer als Akzent verwendet werden.
+
+Beispiel:
+
+Bereit für deine neue Website?
+Professionelle Webseiten zum Festpreis.
+
+[Website konfigurieren]
+[WhatsApp Kontakt]
+
+Design:
+- 90 % helle Website
+- nur finaler CTA dunkel
+- viel Weißraum
+- moderne Karten
+- dezente Schatten
+- klare Typografie
+- E-Pink nur als Akzent
+- keine unnötigen schwarzen Sektionen
+
+Farben:
+Schwarz: #111111
+Weiß: #FFFFFF
+Hellgrau: #F7F7F8
+Textgrau: #5F6368
+E-Pink: #E6007E
+
+Referenzen:
+Verwende echte Projekte:
+- Wärme Pur: https://www.waermepur.com
+- BK Finanzkonzepte: https://bk-finanzkonzepte.com
+
+Darstellung:
+„Ausgewählte Projekte“
+
+Keine Fake-Referenzen.
+Keine Fake-Statistiken.
+Keine erfundenen Bewertungen.
+
+Preis:
+Ein Hauptprodukt:
+
+Website
+999 €
+
+Enthalten:
+- bis zu 5 Seiten
+- modernes Design
+- mobil optimiert
+- Kontaktformular
+- WhatsApp Button
+- Google Maps
+- Bildergalerie
+- SEO-Basis
+- Impressum
+- Datenschutz
+- Lieferung in wenigen Tagen
+
+Hinweis:
+Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.
+
+Optionale Zutaten:
+- Zusätzliche Seite: +150 €
+- Projekt- und Bildergalerie: +250 €
+- Mehrsprachigkeit: +300 €
+- SEO-Textpaket: +300 €
+- Express-Lieferung: +300 €
+
+Service & Pflege:
+49 € / Monat
+
+Über Pixzeria:
+Nutze echte Daten:
+
+Pixzeria
+Inhaber: Münir Gencer
+45731 Waltrop
+Deutschland
+Einzelunternehmen
+
+Ziel:
+Die Website soll seriös, modern und vertrauenswürdig wirken.
+
+Der Besucher soll sofort verstehen:
+Hier bekomme ich eine professionelle Website für 999 €.
+
+Die Wortmarke schafft Seriosität.
+Das Pizza-Icon schafft Wiedererkennung.
+Die Website verkauft Klarheit.
