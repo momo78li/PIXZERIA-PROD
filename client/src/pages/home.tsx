@@ -15,6 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <StructuredData type="ProfessionalService" />
+      <PromoBanner />
       <Header />
       <main id="main">
         {/* 1. Hero – white */}
