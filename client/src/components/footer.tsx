@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { MessageCircle, Mail } from "lucide-react";
+import { MessageCircle, ArrowRight, Mail } from "lucide-react";
 
 const PixzeriaWordmark = () => (
   <span className="font-black tracking-tight text-2xl text-white" style={{ letterSpacing: '-0.03em' }}>
@@ -10,77 +10,90 @@ const PixzeriaWordmark = () => (
 export default function Footer() {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-    }
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
   };
 
   return (
-    <footer style={{ background: '#111', color: '#fff' }}>
-      {/* CTA Bar */}
-      <div style={{ background: '#E6007E', padding: '40px 24px', textAlign: 'center' }}>
-        <h2 className="text-2xl md:text-3xl font-black text-white mb-3">
-          Bereit für deine neue Website?
-        </h2>
-        <p className="text-white mb-6 opacity-80">Einmal konfigurieren. Per WhatsApp bestellen. Fertig.</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={() => scrollTo("konfigurator")}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold bg-white transition-all hover:bg-gray-100"
-            style={{ color: '#E6007E' }}
+    <footer style={{ background: '#111' }}>
+      {/* ── FINAL CTA – only dark section on the page ── */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24 border-b" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8"
+            style={{ background: 'rgba(255,255,255,0.08)', color: '#aaa', border: '1px solid rgba(255,255,255,0.12)' }}
           >
-            Website konfigurieren
-          </button>
-          <a
-            href="https://wa.me/4915901234567?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20von%20Pixzeria."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold border-2 border-white text-white transition-all hover:bg-white/10"
-          >
-            <MessageCircle size={16} />
-            WhatsApp Kontakt
-          </a>
+            Bereit loszulegen?
+          </div>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+            Bereit für deine<br />neue Website?
+          </h2>
+          <p className="text-lg mb-10" style={{ color: '#888', lineHeight: 1.7 }}>
+            Professionelle Unternehmenswebseiten zum Festpreis.<br />
+            Einfach bestellt. Schnell geliefert.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => scrollTo("konfigurator")}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-base transition-all"
+              style={{ background: '#E6007E', color: '#fff' }}
+              onMouseEnter={e => (e.currentTarget.style.background = '#c9006e')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#E6007E')}
+            >
+              Website konfigurieren
+              <ArrowRight size={18} />
+            </button>
+            <a
+              href="https://wa.me/4915901234567?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20von%20Pixzeria."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-base border-2 border-white/20 text-white transition-all hover:bg-white/10"
+            >
+              <MessageCircle size={18} />
+              WhatsApp Kontakt
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Main footer */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      {/* ── Footer links ── */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
             <PixzeriaWordmark />
-            <p className="mt-4 text-sm leading-relaxed" style={{ color: '#888' }}>
-              Professionelle Unternehmenswebseiten zum Festpreis. 100% digital, transparent bepreist, schnell geliefert.
+            <p className="mt-4 text-sm leading-relaxed" style={{ color: '#666' }}>
+              Professionelle Unternehmenswebseiten zum Festpreis.<br />
+              100% digital. Transparent bepreist. Schnell geliefert.
             </p>
-            <div className="mt-6 flex flex-col gap-2">
-              <div className="text-sm" style={{ color: '#666' }}>Münir Gencer · Einzelunternehmen</div>
-              <div className="text-sm" style={{ color: '#666' }}>45731 Waltrop, Deutschland</div>
+            <div className="mt-5 flex flex-col gap-1.5">
+              <div className="text-sm" style={{ color: '#555' }}>Münir Gencer · Einzelunternehmen</div>
+              <div className="text-sm" style={{ color: '#555' }}>45731 Waltrop, Deutschland</div>
               <a
                 href="mailto:muenir.gencer@gmail.com"
-                className="text-sm flex items-center gap-2 hover:text-white transition-colors mt-1"
-                style={{ color: '#888' }}
+                className="text-sm flex items-center gap-2 transition-colors hover:text-white mt-1"
+                style={{ color: '#666' }}
               >
-                <Mail size={14} />
+                <Mail size={13} />
                 muenir.gencer@gmail.com
               </a>
             </div>
           </div>
 
           <div>
-            <h3 className="font-bold text-sm mb-4 uppercase tracking-widest" style={{ color: '#E6007E' }}>Website</h3>
+            <h3 className="font-bold text-xs mb-5 uppercase tracking-widest" style={{ color: '#E6007E' }}>Navigation</h3>
             <ul className="flex flex-col gap-3">
               {[
                 { label: "So funktioniert's", id: "how-it-works" },
-                { label: "Designbeispiele", id: "design-examples" },
+                { label: "Referenzen", id: "design-examples" },
                 { label: "Preis", id: "preis" },
-                { label: "Extras", id: "extras" },
                 { label: "Konfigurator", id: "konfigurator" },
+                { label: "Über uns", id: "ueber-uns" },
+                { label: "FAQ", id: "faq" },
               ].map((item) => (
                 <li key={item.id}>
                   <button
                     onClick={() => scrollTo(item.id)}
                     className="text-sm transition-colors hover:text-white"
-                    style={{ color: '#888' }}
+                    style={{ color: '#666' }}
                   >
                     {item.label}
                   </button>
@@ -90,29 +103,17 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-sm mb-4 uppercase tracking-widest" style={{ color: '#E6007E' }}>Rechtliches</h3>
+            <h3 className="font-bold text-xs mb-5 uppercase tracking-widest" style={{ color: '#E6007E' }}>Rechtliches</h3>
             <ul className="flex flex-col gap-3">
-              <li>
-                <Link href="/impressum" className="text-sm transition-colors hover:text-white" style={{ color: '#888' }}>
-                  Impressum
-                </Link>
-              </li>
-              <li>
-                <Link href="/datenschutz" className="text-sm transition-colors hover:text-white" style={{ color: '#888' }}>
-                  Datenschutz
-                </Link>
-              </li>
-              <li>
-                <Link href="/agb" className="text-sm transition-colors hover:text-white" style={{ color: '#888' }}>
-                  AGB
-                </Link>
-              </li>
+              <li><Link href="/impressum" className="text-sm transition-colors hover:text-white" style={{ color: '#666' }}>Impressum</Link></li>
+              <li><Link href="/datenschutz" className="text-sm transition-colors hover:text-white" style={{ color: '#666' }}>Datenschutz</Link></li>
+              <li><Link href="/agb" className="text-sm transition-colors hover:text-white" style={{ color: '#666' }}>AGB</Link></li>
               <li>
                 <button
                   type="button"
                   onClick={() => window.dispatchEvent(new CustomEvent("open-cookie-settings"))}
                   className="text-sm transition-colors hover:text-white"
-                  style={{ color: '#888' }}
+                  style={{ color: '#666' }}
                 >
                   Cookie-Einstellungen
                 </button>
@@ -121,11 +122,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
-          <div className="text-sm" style={{ color: '#555' }}>
+        <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderColor: 'rgba(255,255,255,0.07)' }}>
+          <div className="text-sm" style={{ color: '#444' }}>
             © 2026 PIXZERIA · Münir Gencer · Alle Rechte vorbehalten.
           </div>
-          <div className="text-xs" style={{ color: '#444' }}>
+          <div className="text-xs" style={{ color: '#3a3a3a' }}>
             Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.
           </div>
         </div>

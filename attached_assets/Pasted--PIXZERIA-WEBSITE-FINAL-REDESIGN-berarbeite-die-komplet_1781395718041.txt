@@ -1,0 +1,396 @@
+# PIXZERIA WEBSITE - FINAL REDESIGN
+
+Überarbeite die komplette Website strategisch, visuell und inhaltlich.
+
+WICHTIG:
+
+Die aktuelle Website wirkt stellenweise zu stark wie ein Designprojekt.
+
+Das Ziel ist nicht, eine Design-Auszeichnung zu gewinnen.
+
+Das Ziel ist, Vertrauen aufzubauen und Kundenanfragen zu generieren.
+
+Pixzeria verkauft moderne Unternehmenswebseiten zum Festpreis.
+
+---
+
+# DESIGN-GRUNDSATZ
+
+Weniger Design.
+Mehr Klarheit.
+
+Die Website soll wirken wie:
+
+* Apple
+* Stripe
+* Linear
+
+Nicht wie:
+
+* eine Agentur
+* ein Startup-Experiment
+* eine Pizzeria
+* eine Designstudie
+
+---
+
+# HINTERGRÜNDE
+
+Aktuell wechseln sich zu viele weiße und schwarze Bereiche ab.
+
+Das erzeugt Unruhe.
+
+Neue Regel:
+
+90 % der Website auf hellem Hintergrund.
+
+Verwenden:
+
+* Weiß
+* sehr helles Grau
+
+Schwarze Bereiche nur gezielt einsetzen.
+
+Nur ein großer schwarzer Bereich am Ende der Seite:
+
+FINAL CTA SECTION
+
+Dadurch erhält der dunkle Bereich mehr Wirkung.
+
+---
+
+# LOGO
+
+Verwende ausschließlich die Wortmarke:
+
+PIXZERIA
+
+Das X bleibt E-Pink.
+
+Keine Icons.
+Keine Kartons.
+Keine Pixel.
+Keine Pizza.
+
+Die Tagline unter dem Logo entfernen.
+
+Keine zweite Zeile.
+
+Nur:
+
+PIXZERIA
+
+---
+
+# HERO
+
+Komplett überarbeiten.
+
+Headline:
+
+Professionelle Webseiten zum Festpreis.
+
+Subheadline:
+
+Einfach bestellt.
+Schnell geliefert.
+
+Moderne Unternehmenswebseiten ohne Agenturchaos, ohne Überraschungen und ohne endlose Meetings.
+
+Buttons:
+
+[ Website konfigurieren ]
+
+[ WhatsApp Kontakt ]
+
+---
+
+# HERO VISUAL
+
+Rechte Seite:
+
+Großes Browser-Mockup.
+
+Keine abstrakten Grafiken.
+
+Keine Stockfotos.
+
+Keine Pizza-Elemente.
+
+Zeige eine hochwertige moderne Unternehmenswebsite.
+
+Der Besucher muss innerhalb von 3 Sekunden verstehen:
+
+Pixzeria erstellt Websites.
+
+---
+
+# POSITIONIERUNG
+
+Keine Branchenlisten.
+
+NICHT:
+
+* Handwerker
+* Dachdecker
+* Sanitär
+* Elektriker
+
+Diese Listen grenzen Besucher aus.
+
+Stattdessen:
+
+Für Unternehmen, Selbstständige und lokale Anbieter, die schnell eine moderne Website benötigen.
+
+Probleme statt Branchen kommunizieren.
+
+---
+
+# SO FUNKTIONIERT ES
+
+Schritt 1
+
+Website konfigurieren
+
+Schritt 2
+
+Inhalte senden
+
+Schritt 3
+
+Website wird erstellt
+
+Schritt 4
+
+Online gehen
+
+Einfach.
+Klar.
+Visuell.
+
+---
+
+# DESIGNBEISPIELE
+
+Die aktuellen Platzhalter ersetzen.
+
+KEINE Fake-Projekte.
+
+KEINE erfundenen Referenzen.
+
+KEINE Beispielkarten mit Fantasienamen.
+
+Verwende stattdessen echte Projekte.
+
+Projekt 1:
+
+Wärme Pur
+https://www.waermepur.com
+
+Projekt 2:
+
+BK Finanzkonzepte
+https://bk-finanzkonzepte.com
+
+Diese Projekte dürfen als Referenz dargestellt werden.
+
+Zusätzlich können weitere Designkonzepte als "Designbeispiele" dargestellt werden.
+
+Kennzeichnung:
+
+"Ausgewählte Projekte"
+
+Nicht:
+
+"218 Kunden"
+
+Nicht:
+
+"4,9 Sterne"
+
+Nicht:
+
+erfundene Statistiken
+
+---
+
+# PREISMODELL
+
+Radikal einfach.
+
+## Website
+
+999 €
+
+Enthalten:
+
+* bis zu 5 Seiten
+* modernes Design
+* mobil optimiert
+* Kontaktformular
+* WhatsApp Button
+* Google Maps
+* Bildergalerie
+* SEO-Basis
+* Impressum
+* Datenschutz
+* Lieferung in wenigen Tagen
+
+Hinweis:
+
+Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.
+
+---
+
+# OPTIONALE ZUTATEN
+
+Zusätzliche Seite
++150 €
+
+Projekt- und Bildergalerie
++250 €
+
+Mehrsprachigkeit
++300 €
+
+SEO-Textpaket
++300 €
+
+Express-Lieferung
++300 €
+
+Keine weiteren Zusatzleistungen.
+
+---
+
+# SERVICE & PFLEGE
+
+49 € pro Monat
+
+Enthalten:
+
+* kleinere Textänderungen
+* Bildaustausch
+* technische Pflege
+* Support per WhatsApp oder E-Mail
+
+---
+
+# KONFIGURATOR
+
+Den aktuellen Konfigurator verbessern.
+
+Schrittweise Darstellung.
+
+Fragen:
+
+Welche Art von Unternehmen?
+
+* Dienstleister
+* Praxis
+* Gastronomie
+* Handwerk
+* Sonstiges
+
+Logo vorhanden?
+
+Ja / Nein
+
+Texte vorhanden?
+
+Ja / Nein
+
+Express-Lieferung?
+
+Ja / Nein
+
+Zusätzliche Zutaten auswählen.
+
+Live-Anzeige:
+
+Gesamtpreis
+
+WhatsApp-Button:
+
+Übernimmt automatisch die gewählten Optionen.
+
+---
+
+# ÜBER PIXZERIA
+
+Neuen Vertrauensbereich erstellen.
+
+Überschrift:
+
+Wer steckt hinter Pixzeria?
+
+Foto von Münir Gencer integrieren.
+
+Text:
+
+"Ich bin Münir Gencer aus Waltrop.
+
+Beruflich leite ich Business IT und Operations bei einem großen Energieunternehmen.
+
+Mit Pixzeria habe ich eine einfache Möglichkeit geschaffen, moderne Unternehmenswebseiten ohne Agenturfrust anzubieten.
+
+Klare Leistungen.
+Feste Preise.
+Schnelle Umsetzung."
+
+Der Abschnitt soll persönlich, ehrlich und vertrauenswürdig wirken.
+
+---
+
+# CTA-BEREICH
+
+Einziger großer schwarzer Bereich der Website.
+
+Headline:
+
+Bereit für deine neue Website?
+
+Subheadline:
+
+Professionelle Unternehmenswebseiten zum Festpreis.
+
+Buttons:
+
+[ Website konfigurieren ]
+
+[ WhatsApp Kontakt ]
+
+---
+
+# ENTFERNEN
+
+Entfernen:
+
+* CMS
+* Kundenportale
+* Mitgliederbereiche
+* Shops
+* App-Entwicklung
+* API-Integrationen
+* SaaS-Entwicklung
+* Automatisierungen
+* Enterprise-Lösungen
+* Individualsoftware
+
+Pixzeria verkauft Webseiten.
+
+Nicht Softwareprojekte.
+
+---
+
+# ZIEL
+
+Der Besucher soll nach 5 Sekunden verstehen:
+
+"Hier bekomme ich eine professionelle Website für 999 €."
+
+Die Website soll Vertrauen aufbauen.
+
+Die Website soll nicht beeindrucken.
+
+Die Website soll verkaufen.

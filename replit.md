@@ -2,14 +2,14 @@
 
 ## Overview
 
-PIXZERIA is a German web design agency website built with a modern full-stack architecture. The application positions itself as "web design as easy as ordering pizza" and targets businesses that need a cool digital presence without complications and expensive agencies - simple and fast solutions.
+PIXZERIA is a German web design agency website built with a modern full-stack architecture. The application sells professional business websites at a fixed price (999€) – "Professionelle Webseiten zum Festpreis." targeting businesses, freelancers, and local providers who need a modern website quickly. Business model: 100% digital, no meetings, order via WhatsApp.
 
 ## System Architecture
 
 ### Frontend Architecture
 - **Framework**: React 18 with TypeScript
 - **Routing**: Wouter for client-side routing
-- **Styling**: Tailwind CSS with custom pizza-themed design system
+- **Styling**: Tailwind CSS with Apple/Stripe-inspired design system (E-Pink #E6007E accent, black #111111, white, light gray #F7F7F8)
 - **UI Components**: Shadcn/ui component library with Radix UI primitives
 - **State Management**: TanStack Query (React Query) for server state
 - **Build Tool**: Vite for development and production builds

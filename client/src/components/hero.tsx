@@ -10,40 +10,40 @@ const BrowserMockup = () => (
       </div>
       <div className="browser-url">www.meine-firma.de</div>
     </div>
-    <div style={{ background: '#fff', minHeight: '320px', overflow: 'hidden' }}>
-      <div style={{ background: '#111', padding: '14px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div style={{ color: '#fff', fontWeight: 800, fontSize: '16px', letterSpacing: '-0.03em' }}>
+    <div style={{ background: '#fff', overflow: 'hidden' }}>
+      <div style={{ background: '#111', padding: '12px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ color: '#fff', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em' }}>
           MEISTER<span style={{ color: '#E6007E' }}>BAU</span>
         </div>
-        <div style={{ display: 'flex', gap: '20px' }}>
+        <div style={{ display: 'flex', gap: '16px' }}>
           {['Leistungen', 'Referenzen', 'Kontakt'].map(t => (
-            <div key={t} style={{ color: '#aaa', fontSize: '11px' }}>{t}</div>
+            <div key={t} style={{ color: '#999', fontSize: '10px' }}>{t}</div>
           ))}
         </div>
-        <div style={{ background: '#E6007E', color: '#fff', padding: '6px 14px', borderRadius: '20px', fontSize: '11px', fontWeight: 600 }}>Anfragen</div>
+        <div style={{ background: '#E6007E', color: '#fff', padding: '5px 12px', borderRadius: '20px', fontSize: '10px', fontWeight: 600 }}>Anfragen</div>
       </div>
-      <div style={{ background: 'linear-gradient(135deg, #F7F7F8 0%, #fff 100%)', padding: '28px 24px 20px' }}>
-        <div style={{ fontSize: '11px', color: '#E6007E', fontWeight: 600, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Ihr verlässlicher Partner</div>
-        <div style={{ fontSize: '20px', fontWeight: 900, color: '#111', lineHeight: 1.2, marginBottom: '10px' }}>
-          Professionelle Arbeit.<br />Faire Preise.
+      <div style={{ padding: '24px 20px 20px', background: 'linear-gradient(160deg, #F8F8F8 0%, #fff 100%)' }}>
+        <div style={{ fontSize: '10px', color: '#E6007E', fontWeight: 700, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Ihr verlässlicher Partner</div>
+        <div style={{ fontSize: '19px', fontWeight: 900, color: '#111', lineHeight: 1.2, marginBottom: '10px' }}>
+          Qualität, die<br />überzeugt.
         </div>
-        <div style={{ fontSize: '11px', color: '#666', marginBottom: '16px', lineHeight: 1.6 }}>
-          Wir erledigen alles für Sie – zuverlässig, schnell und zu fairen Konditionen.
+        <div style={{ fontSize: '10px', color: '#666', marginBottom: '14px', lineHeight: 1.6 }}>
+          Professionelle Arbeit zu fairen Preisen – pünktlich und zuverlässig.
         </div>
-        <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-          <div style={{ background: '#111', color: '#fff', padding: '8px 16px', borderRadius: '20px', fontSize: '11px', fontWeight: 600 }}>Jetzt anfragen</div>
-          <div style={{ border: '1.5px solid #ccc', padding: '8px 16px', borderRadius: '20px', fontSize: '11px', fontWeight: 600, color: '#555' }}>Mehr erfahren</div>
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '18px' }}>
+          <div style={{ background: '#111', color: '#fff', padding: '7px 14px', borderRadius: '20px', fontSize: '10px', fontWeight: 600 }}>Jetzt anfragen</div>
+          <div style={{ border: '1.5px solid #ddd', padding: '7px 14px', borderRadius: '20px', fontSize: '10px', color: '#555' }}>Referenzen</div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
           {[
-            { title: 'Qualität', text: 'Geprüfte Materialien', icon: '⭐' },
-            { title: 'Schnell', text: 'Termingerecht', icon: '⚡' },
-            { title: 'Fair', text: 'Transparente Preise', icon: '✓' },
-          ].map(card => (
-            <div key={card.title} style={{ background: '#fff', border: '1px solid #eee', borderRadius: '10px', padding: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-              <div style={{ fontSize: '14px', marginBottom: '4px' }}>{card.icon}</div>
-              <div style={{ fontSize: '11px', fontWeight: 700, color: '#111', marginBottom: '3px' }}>{card.title}</div>
-              <div style={{ fontSize: '10px', color: '#888', lineHeight: 1.4 }}>{card.text}</div>
+            { emoji: '⭐', title: 'Qualität', text: 'Geprüfte Materialien' },
+            { emoji: '⚡', title: 'Schnell', text: 'Termingerecht' },
+            { emoji: '✓', title: 'Fair', text: 'Klare Preise' },
+          ].map(c => (
+            <div key={c.title} style={{ background: '#fff', border: '1px solid #eee', borderRadius: '8px', padding: '10px', boxShadow: '0 1px 6px rgba(0,0,0,0.04)' }}>
+              <div style={{ fontSize: '13px', marginBottom: '3px' }}>{c.emoji}</div>
+              <div style={{ fontSize: '10px', fontWeight: 700, color: '#111', marginBottom: '2px' }}>{c.title}</div>
+              <div style={{ fontSize: '9px', color: '#999' }}>{c.text}</div>
             </div>
           ))}
         </div>
@@ -55,10 +55,7 @@ const BrowserMockup = () => (
 export default function Hero() {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-    }
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
   };
 
   return (
@@ -66,22 +63,17 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8"
-              style={{ background: '#F7F7F8', color: '#5F6368', border: '1px solid #E8E8E8' }}
-            >
-              <span style={{ width: 8, height: 8, background: '#E6007E', borderRadius: '50%', display: 'inline-block', flexShrink: 0 }} />
-              Für Unternehmen, Selbstständige & lokale Anbieter
-            </div>
-
-            <h1 className="heading-xl mb-6">
-              Webseiten.<br />
-              <span style={{ color: '#E6007E' }}>Einfach bestellt.</span>
+            <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, lineHeight: 1.1, color: '#111', letterSpacing: '-0.03em', marginBottom: '1.5rem' }}>
+              Professionelle Webseiten zum Festpreis.
             </h1>
 
-            <p className="text-lg mb-10" style={{ color: '#5F6368', lineHeight: 1.7 }}>
-              Professionelle Unternehmenswebseiten zum Festpreis.
-              Einfach auswählen, bestellen und online gehen.
+            <p className="text-xl font-semibold mb-3" style={{ color: '#111', lineHeight: 1.4 }}>
+              Einfach bestellt. Schnell geliefert.
+            </p>
+
+            <p className="text-base mb-10" style={{ color: '#5F6368', lineHeight: 1.8 }}>
+              Moderne Unternehmenswebseiten ohne Agenturchaos,
+              ohne Überraschungen und ohne endlose Meetings.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -100,29 +92,26 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="flex items-center gap-8 mt-10 pt-10 border-t" style={{ borderColor: '#E8E8E8' }}>
+            <div className="flex items-center gap-8 mt-10 pt-10 border-t" style={{ borderColor: '#EFEFEF' }}>
               <div>
                 <div className="text-2xl font-black" style={{ color: '#111' }}>999 €</div>
-                <div className="text-sm" style={{ color: '#5F6368' }}>Festpreis</div>
+                <div className="text-sm" style={{ color: '#5F6368' }}>Festpreis, alles inkl.</div>
               </div>
-              <div style={{ width: 1, height: 40, background: '#E8E8E8' }} />
+              <div style={{ width: 1, height: 36, background: '#E8E8E8' }} />
               <div>
                 <div className="text-2xl font-black" style={{ color: '#111' }}>ab 1 Woche</div>
                 <div className="text-sm" style={{ color: '#5F6368' }}>Lieferzeit</div>
               </div>
-              <div style={{ width: 1, height: 40, background: '#E8E8E8' }} />
+              <div style={{ width: 1, height: 36, background: '#E8E8E8' }} />
               <div>
                 <div className="text-2xl font-black" style={{ color: '#111' }}>100%</div>
-                <div className="text-sm" style={{ color: '#5F6368' }}>Digital & online</div>
+                <div className="text-sm" style={{ color: '#5F6368' }}>Online-Prozess</div>
               </div>
             </div>
           </div>
 
-          <div className="relative">
-            <div
-              className="absolute inset-0 rounded-3xl"
-              style={{ background: 'linear-gradient(135deg, #F7F7F8 0%, #efefef 100%)', transform: 'rotate(-2deg) scale(1.03)', zIndex: 0 }}
-            />
+          <div className="relative hidden md:block">
+            <div className="absolute inset-0 rounded-3xl" style={{ background: '#F3F3F4', transform: 'rotate(-2deg) scale(1.04)', zIndex: 0 }} />
             <div className="relative" style={{ zIndex: 1 }}>
               <BrowserMockup />
             </div>
