@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { MessageCircle, ArrowRight, ArrowLeft, Check } from "lucide-react";
+import { MessageCircle, ArrowRight, ArrowLeft, Check, Plus, Minus, Mail } from "lucide-react";
 import PizzaIcon from "./pizza-icon";
 
 const BUSINESS_TYPES = ["Dienstleister", "Praxis", "Gastronomie", "Handwerk", "Sonstiges"];
+
 const EXTRAS = [
-  { id: "seite", name: "Zusätzliche Seite", price: 150 },
   { id: "galerie", name: "Projekt- & Bildergalerie", price: 250 },
   { id: "sprache", name: "Mehrsprachigkeit", price: 300 },
   { id: "seo", name: "SEO-Textpaket", price: 300 },
 ];
+
 const BASE = 999;
+const PAGE_PRICE = 150;
 
 type Step = 0 | 1 | 2 | 3;
 
@@ -18,6 +20,7 @@ interface Config {
   hasLogo: boolean | null;
   hasTexts: boolean | null;
   express: boolean;
+  extraPages: number;
   extras: Record<string, boolean>;
   pflege: boolean;
 }
@@ -45,6 +48,54 @@ function StepIndicator({ step, total }: { step: number; total: number }) {
   );
 }
 
+function PageStepper({ value, onChange }: { value: number; onChange: (n: number) => void }) {
+  return (
+    <div
+      className="flex items-center justify-between gap-4 p-4 rounded-2xl border-2 transition-all"
+      style={{
+        borderColor: value > 0 ? '#E6007E' : '#E8E8E8',
+        background: value > 0 ? '#FFF0F8' : '#fff',
+      }}
+    >
+      <div>
+        <div className="font-medium text-sm" style={{ color: '#111' }}>Zusätzliche Seiten</div>
+        <div className="text-xs mt-0.5" style={{ color: '#5F6368' }}>
+          {value === 0 ? "Inkl. bis zu 5 Seiten" : `${value} × 150 € = ${value * PAGE_PRICE} €`}
+        </div>
+      </div>
+      <div className="flex items-center gap-3">
+        <button
+          onClick={() => onChange(Math.max(0, value - 1))}
+          disabled={value === 0}
+          className="w-8 h-8 rounded-full flex items-center justify-center border-2 transition-all font-bold"
+          style={{
+            borderColor: value > 0 ? '#E6007E' : '#E8E8E8',
+            color: value > 0 ? '#E6007E' : '#ccc',
+            background: '#fff',
+          }}
+        >
+          <Minus size={14} />
+        </button>
+        <span className="w-6 text-center font-black text-base" style={{ color: '#111' }}>{value}</span>
+        <button
+          onClick={() => onChange(Math.min(10, value + 1))}
+          className="w-8 h-8 rounded-full flex items-center justify-center border-2 transition-all font-bold"
+          style={{
+            borderColor: '#E6007E',
+            color: '#E6007E',
+            background: '#fff',
+          }}
+        >
+          <Plus size={14} />
+        </button>
+        <span className="text-sm font-bold w-16 text-right" style={{ color: value > 0 ? '#E6007E' : '#999' }}>
+          {value > 0 ? `+${value * PAGE_PRICE} €` : "0 €"}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function TrustBar() {
   const [step, setStep] = useState<Step>(0);
   const [config, setConfig] = useState<Config>({
@@ -52,6 +103,7 @@ export default function TrustBar() {
     hasLogo: null,
     hasTexts: null,
     express: false,
+    extraPages: 0,
     extras: {},
     pflege: false,
   });
@@ -62,14 +114,16 @@ export default function TrustBar() {
   const total =
     BASE +
     (config.express ? 300 : 0) +
+    config.extraPages * PAGE_PRICE +
     EXTRAS.filter((e) => config.extras[e.id]).reduce((s, e) => s + e.price, 0);
 
   const buildWhatsApp = () => {
     let msg = `Hallo, ich möchte eine Website bei Pixzeria bestellen.\n\n`;
     msg += `🏢 Unternehmenstyp: ${config.businessType || "–"}\n`;
-    msg += `🖼 Logo vorhanden: ${config.hasLogo === true ? "Ja" : config.hasLogo === false ? "Nein" : "–"}\n`;
-    msg += `📝 Texte vorhanden: ${config.hasTexts === true ? "Ja" : config.hasTexts === false ? "Nein" : "–"}\n\n`;
-    msg += `✅ Basis-Website: 999 €\n`;
+    msg += `🖼 Logo vorhanden: ${config.hasLogo === true ? "Ja" : "Nein"}\n`;
+    msg += `📝 Texte vorhanden: ${config.hasTexts === true ? "Ja" : "Nein"}\n\n`;
+    msg += `✅ Basis-Website (bis 5 Seiten): 999 €\n`;
+    if (config.extraPages > 0) msg += `• ${config.extraPages} zusätzliche Seite(n): +${config.extraPages * PAGE_PRICE} €\n`;
     if (config.express) msg += `• Express-Lieferung: +300 €\n`;
     const selectedExtras = EXTRAS.filter((e) => config.extras[e.id]);
     if (selectedExtras.length) msg += selectedExtras.map((e) => `• ${e.name}: +${e.price} €`).join("\n") + "\n";
@@ -114,7 +168,24 @@ export default function TrustBar() {
     // Step 1: Logo & texts
     <div key="1">
       <h3 className="font-bold text-xl mb-2" style={{ color: '#111' }}>Logo & Texte vorhanden?</h3>
-      <p className="text-sm mb-6" style={{ color: '#5F6368' }}>So können wir direkt loslegen.</p>
+      <p className="text-sm mb-5" style={{ color: '#5F6368' }}>Keine Sorge – du sendest alles nach der Bestellung.</p>
+
+      {/* Info box */}
+      <div className="flex gap-3 p-4 rounded-2xl mb-6" style={{ background: '#F7F7F8', border: '1px solid #E8E8E8' }}>
+        <div className="flex gap-3 flex-wrap text-xs" style={{ color: '#5F6368' }}>
+          <span className="flex items-center gap-1.5 font-medium">
+            <MessageCircle size={13} style={{ color: '#25D366' }} />
+            Per WhatsApp
+          </span>
+          <span style={{ color: '#ccc' }}>oder</span>
+          <span className="flex items-center gap-1.5 font-medium">
+            <Mail size={13} style={{ color: '#E6007E' }} />
+            Per E-Mail
+          </span>
+          <span className="ml-auto" style={{ color: '#999' }}>nach der Bestellung</span>
+        </div>
+      </div>
+
       <div className="mb-5">
         <div className="text-sm font-semibold mb-3" style={{ color: '#111' }}>Logo vorhanden?</div>
         <div className="flex gap-3">
@@ -129,7 +200,7 @@ export default function TrustBar() {
                 color: config.hasLogo === v ? '#E6007E' : '#333',
               }}
             >
-              {v ? "Ja" : "Nein"}
+              {v ? "Ja" : "Nein – ich brauche Hilfe"}
             </button>
           ))}
         </div>
@@ -148,7 +219,7 @@ export default function TrustBar() {
                 color: config.hasTexts === v ? '#E6007E' : '#333',
               }}
             >
-              {v ? "Ja" : "Nein"}
+              {v ? "Ja" : "Nein – ich brauche Hilfe"}
             </button>
           ))}
         </div>
@@ -173,6 +244,14 @@ export default function TrustBar() {
       <h3 className="font-bold text-xl mb-2" style={{ color: '#111' }}>Zusätzliche Optionen</h3>
       <p className="text-sm mb-6" style={{ color: '#5F6368' }}>Wähle was du brauchst – alles optional.</p>
       <div className="flex flex-col gap-3 mb-6">
+
+        {/* Extra pages stepper */}
+        <PageStepper
+          value={config.extraPages}
+          onChange={(n) => setConfig((c) => ({ ...c, extraPages: n }))}
+        />
+
+        {/* Express */}
         <label
           className="flex items-center justify-between gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-all"
           style={{
@@ -194,6 +273,8 @@ export default function TrustBar() {
           </div>
           <div className="font-bold text-sm" style={{ color: config.express ? '#E6007E' : '#999' }}>+300 €</div>
         </label>
+
+        {/* Other extras */}
         {EXTRAS.map((extra) => (
           <label
             key={extra.id}
@@ -215,6 +296,8 @@ export default function TrustBar() {
             <div className="font-bold text-sm" style={{ color: config.extras[extra.id] ? '#E6007E' : '#999' }}>+{extra.price} €</div>
           </label>
         ))}
+
+        {/* Service & Pflege */}
         <label
           className="flex items-center justify-between gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-all"
           style={{
@@ -251,7 +334,7 @@ export default function TrustBar() {
     <div key="3">
       <h3 className="font-bold text-xl mb-2" style={{ color: '#111' }}>Deine Zusammenfassung</h3>
       <p className="text-sm mb-6" style={{ color: '#5F6368' }}>Alles richtig? Dann direkt per WhatsApp bestellen.</p>
-      <div className="rounded-2xl border p-5 mb-6" style={{ borderColor: '#E8E8E8', background: '#F7F7F8' }}>
+      <div className="rounded-2xl border p-5 mb-4" style={{ borderColor: '#E8E8E8', background: '#F7F7F8' }}>
         <div className="flex flex-col gap-2 text-sm">
           <div className="flex justify-between">
             <span style={{ color: '#5F6368' }}>Unternehmenstyp</span>
@@ -267,9 +350,15 @@ export default function TrustBar() {
           </div>
           <div className="border-t my-2" style={{ borderColor: '#E8E8E8' }} />
           <div className="flex justify-between">
-            <span style={{ color: '#5F6368' }}>Basis-Website</span>
+            <span style={{ color: '#5F6368' }}>Basis-Website (bis 5 Seiten)</span>
             <span className="font-medium" style={{ color: '#111' }}>999 €</span>
           </div>
+          {config.extraPages > 0 && (
+            <div className="flex justify-between">
+              <span style={{ color: '#5F6368' }}>{config.extraPages} weitere Seite{config.extraPages > 1 ? "n" : ""}</span>
+              <span className="font-medium" style={{ color: '#E6007E' }}>+{config.extraPages * PAGE_PRICE} €</span>
+            </div>
+          )}
           {config.express && (
             <div className="flex justify-between">
               <span style={{ color: '#5F6368' }}>Express-Lieferung</span>
@@ -297,6 +386,17 @@ export default function TrustBar() {
           </div>
         </div>
       </div>
+
+      {/* How to send files */}
+      <div className="flex gap-3 p-4 rounded-2xl mb-4" style={{ background: '#FFF0F8', border: '1px solid #FFB3DC' }}>
+        <div className="text-xs leading-relaxed" style={{ color: '#B00060' }}>
+          <span className="font-bold">Nach der Bestellung</span> sendest du uns Logo, Bilder und Texte per{" "}
+          <span className="font-semibold">WhatsApp</span> oder{" "}
+          <span className="font-semibold">E-Mail</span>.
+          Wir melden uns innerhalb von 24 Stunden.
+        </div>
+      </div>
+
       <div className="p-4 rounded-xl text-xs mb-6" style={{ background: '#F7F7F8', color: '#888' }}>
         Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.
       </div>
