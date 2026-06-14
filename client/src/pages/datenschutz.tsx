@@ -23,7 +23,7 @@ export default function Datenschutz() {
             <div className="text-sm leading-relaxed" style={{ color: '#333' }}>
               <p className="font-semibold">Pixzeria</p>
               <p>Inhaber: Münir Gencer</p>
-              <p>Körnerstraße 18, 45731 Waltrop</p>
+              <p>Bachweg 22, 45731 Waltrop</p>
               <a href="mailto:info@pixzeria.de" className="hover:underline mt-1 block" style={{ color: '#E6007E' }}>
                 info@pixzeria.de
               </a>

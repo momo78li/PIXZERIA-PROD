@@ -24,7 +24,7 @@ export default function Impressum() {
               <p className="font-semibold text-base mb-1">Pixzeria</p>
               <p>Inhaber: Münir Gencer</p>
               <p>Einzelunternehmen</p>
-              <p className="mt-2">Körnerstraße 18</p>
+              <p className="mt-2">Bachweg 22</p>
               <p>45731 Waltrop</p>
               <p>Deutschland</p>
             </div>
@@ -59,7 +59,7 @@ export default function Impressum() {
             <h2 className="font-bold text-lg mb-4" style={{ color: '#111' }}>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
             <div className="text-sm leading-relaxed" style={{ color: '#333' }}>
               <p>Münir Gencer</p>
-              <p>Körnerstraße 18</p>
+              <p>Bachweg 22</p>
               <p>45731 Waltrop</p>
             </div>
           </section>
