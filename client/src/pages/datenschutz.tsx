@@ -87,8 +87,8 @@ export default function Datenschutz() {
               <p className="font-semibold">Pixzeria</p>
               <p>Inhaber: Münir Gencer</p>
               <p>45731 Waltrop, Deutschland</p>
-              <a href="mailto:muenir.gencer@gmail.com" className="hover:underline mt-1 block" style={{ color: '#E6007E' }}>
-                muenir.gencer@gmail.com
+              <a href="mailto:info@pixzeria.de" className="hover:underline mt-1 block" style={{ color: '#E6007E' }}>
+                info@pixzeria.de
               </a>
             </div>
           </section>
@@ -112,7 +112,7 @@ export default function Datenschutz() {
             <h2 className="font-bold text-lg mb-4" style={{ color: '#111' }}>Ihre Rechte</h2>
             <div className="text-sm leading-relaxed" style={{ color: '#5F6368' }}>
               <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer gespeicherten Daten sowie das Recht auf Datenübertragbarkeit.</p>
-              <p className="mt-3">Anfragen richten Sie bitte an: <a href="mailto:muenir.gencer@gmail.com" className="hover:underline" style={{ color: '#E6007E' }}>muenir.gencer@gmail.com</a></p>
+              <p className="mt-3">Anfragen richten Sie bitte an: <a href="mailto:info@pixzeria.de" className="hover:underline" style={{ color: '#E6007E' }}>info@pixzeria.de</a></p>
             </div>
           </section>
 

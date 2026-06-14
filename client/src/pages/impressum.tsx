@@ -32,8 +32,8 @@ export default function Impressum() {
             <div className="text-sm leading-relaxed" style={{ color: '#333' }}>
               <div className="flex items-center gap-2">
                 <Mail size={14} style={{ color: '#E6007E' }} />
-                <a href="mailto:muenir.gencer@gmail.com" className="hover:underline" style={{ color: '#111' }}>
-                  muenir.gencer@gmail.com
+                <a href="mailto:info@pixzeria.de" className="hover:underline" style={{ color: '#111' }}>
+                  info@pixzeria.de
                 </a>
               </div>
             </div>

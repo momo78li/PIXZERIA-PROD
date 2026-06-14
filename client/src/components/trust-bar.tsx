@@ -131,7 +131,7 @@ export default function TrustBar() {
     msg += `\n💰 Einmaliger Gesamtpreis: ${total} €`;
     if (config.pflege) msg += `\n+ 49 €/Monat Pflege`;
     msg += `\n\nBitte meldet euch bei mir!`;
-    return `https://wa.me/4915901234567?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/491734394343?text=${encodeURIComponent(msg)}`;
   };
 
   const steps = [

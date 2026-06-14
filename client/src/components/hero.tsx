@@ -101,7 +101,7 @@ export default function Hero() {
                 <ArrowRight size={18} />
               </button>
               <a
-                href="https://wa.me/4915901234567?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20von%20Pixzeria."
+                href="https://wa.me/491734394343?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20von%20Pixzeria."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline text-base py-4 px-8"

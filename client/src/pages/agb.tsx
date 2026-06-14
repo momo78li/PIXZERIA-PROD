@@ -61,7 +61,7 @@ export default function AGB() {
             </section>
           ))}
           <p className="text-center text-sm" style={{ color: '#999' }}>
-            Bei Fragen: <a href="mailto:muenir.gencer@gmail.com" className="hover:underline" style={{ color: '#E6007E' }}>muenir.gencer@gmail.com</a>
+            Bei Fragen: <a href="mailto:info@pixzeria.de" className="hover:underline" style={{ color: '#E6007E' }}>info@pixzeria.de</a>
           </p>
         </div>
       </main>

@@ -46,7 +46,7 @@ export default function Footer() {
               <ArrowRight size={18} />
             </button>
             <a
-              href="https://wa.me/4915901234567?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20von%20Pixzeria."
+              href="https://wa.me/491734394343?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20von%20Pixzeria."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-base border-2 border-white/20 text-white transition-all hover:bg-white/10"
@@ -71,12 +71,12 @@ export default function Footer() {
               <div className="text-sm" style={{ color: '#555' }}>Münir Gencer · Einzelunternehmen</div>
               <div className="text-sm" style={{ color: '#555' }}>45731 Waltrop, Deutschland</div>
               <a
-                href="mailto:muenir.gencer@gmail.com"
+                href="mailto:info@pixzeria.de"
                 className="text-sm flex items-center gap-2 transition-colors hover:text-white mt-1"
                 style={{ color: '#666' }}
               >
                 <Mail size={13} />
-                muenir.gencer@gmail.com
+                info@pixzeria.de
               </a>
             </div>
           </div>
