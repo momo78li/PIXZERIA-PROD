@@ -111,16 +111,6 @@ export default function Footer() {
               <li><Link href="/impressum" className="text-sm transition-colors hover:text-white" style={{ color: '#666' }}>Impressum</Link></li>
               <li><Link href="/datenschutz" className="text-sm transition-colors hover:text-white" style={{ color: '#666' }}>Datenschutz</Link></li>
               <li><Link href="/agb" className="text-sm transition-colors hover:text-white" style={{ color: '#666' }}>AGB</Link></li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => window.dispatchEvent(new CustomEvent("open-cookie-settings"))}
-                  className="text-sm transition-colors hover:text-white"
-                  style={{ color: '#666' }}
-                >
-                  Cookie-Einstellungen
-                </button>
-              </li>
             </ul>
           </div>
         </div>

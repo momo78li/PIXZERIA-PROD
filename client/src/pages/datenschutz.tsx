@@ -40,7 +40,7 @@ export default function Datenschutz() {
           <section className="p-6 rounded-2xl border" style={{ borderColor: '#E8E8E8' }}>
             <h2 className="font-bold text-lg mb-4" style={{ color: '#111' }}>3. Hosting & Server-Logfiles</h2>
             <div className="text-sm leading-relaxed" style={{ color: '#5F6368' }}>
-              <p>Diese Website wird bei <strong style={{ color: '#111' }}>Replit</strong> gehostet. Beim Aufruf der Website werden automatisch Informationen in Server-Log-Dateien gespeichert:</p>
+              <p>Diese Website wird bei <strong style={{ color: '#111' }}>Vercel</strong> (Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, USA) gehostet. Beim Aufruf der Website werden automatisch Informationen in Server-Log-Dateien gespeichert:</p>
               <ul className="list-disc list-inside mt-2 space-y-1">
                 <li>IP-Adresse (anonymisiert)</li>
                 <li>Browsertyp und -version</li>
