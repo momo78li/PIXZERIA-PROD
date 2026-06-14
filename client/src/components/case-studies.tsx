@@ -1,5 +1,43 @@
 import bkImg from "/assets/ref-bk-finanzkonzepte.jpg";
 
+const WaermepurPlaceholder = () => (
+  <div style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)', minHeight: 260, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '20px' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ color: '#fff', fontWeight: 900, fontSize: '18px', letterSpacing: '-0.02em' }}>
+        Wärme<span style={{ color: '#FF6B35' }}>Pur</span>
+      </div>
+      <div style={{ display: 'flex', gap: '14px' }}>
+        {['Leistungen', 'Über uns', 'Kontakt'].map(n => (
+          <div key={n} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '11px' }}>{n}</div>
+        ))}
+      </div>
+    </div>
+    <div>
+      <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '11px', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+        Ihr Experte für Wärmedämmung
+      </div>
+      <div style={{ color: '#fff', fontWeight: 900, fontSize: '28px', lineHeight: 1.15, marginBottom: '16px' }}>
+        Energie sparen.<br />Kosten senken.
+      </div>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ background: '#FF6B35', color: '#fff', padding: '8px 18px', borderRadius: '20px', fontSize: '11px', fontWeight: 700 }}>
+          Jetzt anfragen
+        </div>
+        <div style={{ border: '1.5px solid rgba(255,255,255,0.3)', color: '#fff', padding: '8px 18px', borderRadius: '20px', fontSize: '11px' }}>
+          Referenzen
+        </div>
+      </div>
+    </div>
+    <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
+      {['Dämmung', 'Heizung', 'Lüftung'].map(s => (
+        <div key={s} style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '8px', padding: '8px 14px', color: 'rgba(255,255,255,0.7)', fontSize: '10px', fontWeight: 600 }}>
+          {s}
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 const realProjects = [
   {
     name: "BK Finanzkonzepte",
@@ -7,6 +45,15 @@ const realProjects = [
     desc: "Moderne Unternehmenswebsite für einen unabhängigen Finanzberater. Mehrsprachig, mit Testimonials und klarer Angebotsstruktur.",
     tag: "Finanzberatung",
     img: bkImg,
+    hasImg: true as const,
+  },
+  {
+    name: "Wärme Pur",
+    url: "https://www.waermepur.com",
+    desc: "Professionelle Website für einen Wärmedämmungs-Spezialisten mit klarer Leistungsübersicht, modernem Design und gezielter Kundenansprache.",
+    tag: "Wärmedämmung",
+    img: null,
+    hasImg: false as const,
   },
 ];
 
@@ -77,38 +124,42 @@ export default function CaseStudies() {
           </p>
         </div>
 
-        {/* Real project */}
-        {realProjects.map((p) => (
-          <div key={p.name} className="card-clean mb-8 overflow-hidden p-0">
-            <div className="grid md:grid-cols-2">
-              <div className="overflow-hidden" style={{ maxHeight: 320 }}>
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  className="w-full h-full object-cover object-top"
-                  style={{ minHeight: 220 }}
-                />
+        {/* Real projects */}
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          {realProjects.map((p) => (
+            <div key={p.name} className="card-clean overflow-hidden p-0 flex flex-col">
+              <div className="overflow-hidden" style={{ maxHeight: 260 }}>
+                {p.hasImg && p.img ? (
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    className="w-full h-full object-cover object-top"
+                    style={{ minHeight: 200 }}
+                  />
+                ) : (
+                  <WaermepurPlaceholder />
+                )}
               </div>
-              <div className="p-8 flex flex-col justify-center">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mb-4"
+              <div className="p-6 flex flex-col flex-1">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mb-3 self-start"
                   style={{ background: '#FFF0F8', color: '#E6007E' }}>
-                  ✓ Echtes Projekt
+                  ✓ Echtes Projekt · {p.tag}
                 </span>
-                <h3 className="text-2xl font-black mb-3" style={{ color: '#111' }}>{p.name}</h3>
-                <p className="text-sm mb-5" style={{ color: '#5F6368', lineHeight: 1.7 }}>{p.desc}</p>
+                <h3 className="text-xl font-black mb-2" style={{ color: '#111' }}>{p.name}</h3>
+                <p className="text-sm mb-4 flex-1" style={{ color: '#5F6368', lineHeight: 1.7 }}>{p.desc}</p>
                 <a
                   href={p.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all"
+                  className="inline-flex items-center gap-2 text-sm font-semibold transition-all"
                   style={{ color: '#E6007E' }}
                 >
                   Website ansehen →
                 </a>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* Design concepts */}
         <div className="grid md:grid-cols-2 gap-6">
