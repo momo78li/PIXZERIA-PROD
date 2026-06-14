@@ -10,9 +10,17 @@ export default function StructuredData({ type = "ProfessionalService" }: Structu
       "@context": "https://schema.org",
       "@type": type,
       "name": "PIXZERIA",
-      "description": "Webdesign-Agentur für kleine und mittlere Unternehmen. Professionelle Websites ab 999€ – einfach wie Pizza bestellen. 100% digital, DSGVO-konform, Fixpreise.",
+      "description": "Webdesign-Agentur für Unternehmen, Handwerker und Dienstleister. Professionelle Business-Websites ab 999 € – zum Festpreis, 100 % digital, DSGVO-konform.",
       "url": "https://pixzeria.de",
       "email": "info@pixzeria.de",
+      "telephone": "+4917343943 43",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bachweg 22",
+        "addressLocality": "Waltrop",
+        "postalCode": "45731",
+        "addressCountry": "DE"
+      },
       "priceRange": "€€",
       "areaServed": {
         "@type": "Country",
@@ -21,42 +29,23 @@ export default function StructuredData({ type = "ProfessionalService" }: Structu
       "serviceType": [
         "Webdesign",
         "Website-Erstellung",
-        "SEO-Optimierung",
-        "Website-Hosting"
+        "SEO-Grundeinstellung",
+        "Website-Pflege"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Website-Pakete",
+        "name": "Website zum Festpreis",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Starter Pizza",
-              "description": "Bis zu 5 Seiten, Kontaktformular, Impressum & Datenschutz, SEO-Grundeinstellung"
+              "name": "Business-Website",
+              "description": "Professionelle Unternehmenswebsite: bis zu 5 Seiten, Kontaktformular, Impressum & Datenschutz, SEO-Grundeinstellung, mobil optimiert – alles inklusive."
             },
             "price": "999",
-            "priceCurrency": "EUR"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Professional Pizza",
-              "description": "Bis zu 10 Seiten, Blog, Besucherstatistiken, Erweiterte SEO-Optimierung"
-            },
-            "price": "1699",
-            "priceCurrency": "EUR"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Business Pizza",
-              "description": "Bis zu 20 Seiten, Mehrsprachigkeit, Premium SEO-Paket, Mitarbeiterbereich"
-            },
-            "price": "2499",
-            "priceCurrency": "EUR"
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
           }
         ]
       }
