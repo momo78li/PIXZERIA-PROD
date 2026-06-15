@@ -23,6 +23,7 @@ interface Config {
   extraPages: number;
   extras: Record<string, boolean>;
   pflege: boolean;
+  comment: string;
 }
 
 function StepIndicator({ step, total }: { step: number; total: number }) {
@@ -106,6 +107,7 @@ export default function TrustBar() {
     extraPages: 0,
     extras: {},
     pflege: false,
+    comment: "",
   });
 
   const toggleExtra = (id: string) =>
@@ -130,6 +132,7 @@ export default function TrustBar() {
     if (config.pflege) msg += `• Service & Pflege: +49 €/Monat\n`;
     msg += `\n💰 Einmaliger Gesamtpreis: ${total} €`;
     if (config.pflege) msg += `\n+ 49 €/Monat Pflege`;
+    if (config.comment.trim()) msg += `\n\n💬 Anmerkungen:\n${config.comment.trim()}`;
     msg += `\n\nBitte meldet euch bei mir!`;
     return `https://wa.me/491734394343?text=${encodeURIComponent(msg)}`;
   };
@@ -384,6 +387,31 @@ export default function TrustBar() {
             </div>
             <span style={{ color: '#111' }}>{total} €</span>
           </div>
+        </div>
+      </div>
+
+      {/* Comment field */}
+      <div className="mb-4">
+        <label className="block text-sm font-semibold mb-2" style={{ color: '#111' }}>
+          Anmerkungen für uns <span className="font-normal" style={{ color: '#999' }}>(optional)</span>
+        </label>
+        <textarea
+          value={config.comment}
+          onChange={(e) => setConfig((c) => ({ ...c, comment: e.target.value }))}
+          placeholder="z. B. Domain vorhanden, Farbwünsche, besondere Funktionen, Fragen..."
+          rows={3}
+          maxLength={500}
+          className="w-full rounded-2xl border-2 p-4 text-sm resize-none outline-none transition-all"
+          style={{
+            borderColor: config.comment ? '#E6007E' : '#E8E8E8',
+            background: config.comment ? '#FFF0F8' : '#fff',
+            color: '#111',
+          }}
+          onFocus={(e) => (e.target.style.borderColor = '#E6007E')}
+          onBlur={(e) => (e.target.style.borderColor = config.comment ? '#E6007E' : '#E8E8E8')}
+        />
+        <div className="text-right text-xs mt-1" style={{ color: '#ccc' }}>
+          {config.comment.length}/500
         </div>
       </div>
 
