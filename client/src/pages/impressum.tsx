@@ -2,6 +2,7 @@ import { ArrowLeft, Mail } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Link } from "wouter";
+import { waLink, waDisplay } from "@/lib/whatsapp";
 
 export default function Impressum() {
   return (
@@ -41,8 +42,8 @@ export default function Impressum() {
               </div>
               <div className="flex items-center gap-2">
                 <span style={{ color: '#E6007E', fontSize: 13 }}>💬</span>
-                <a href="https://wa.me/491734394343" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: '#111' }}>
-                  WhatsApp: +49 173 4394343
+                <a href={waLink()} target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: '#111' }}>
+                  WhatsApp: {waDisplay()}
                 </a>
               </div>
             </div>

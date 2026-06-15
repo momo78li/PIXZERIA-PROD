@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { MessageCircle, ArrowRight, Mail } from "lucide-react";
 import PizzaIcon from "./pizza-icon";
+import { waLink } from "@/lib/whatsapp";
 
 const PixzeriaWordmark = () => (
   <span className="font-black tracking-tight text-2xl text-white" style={{ letterSpacing: '-0.03em' }}>
@@ -46,7 +47,7 @@ export default function Footer() {
               <ArrowRight size={18} />
             </button>
             <a
-              href="https://wa.me/491734394343?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20von%20Pixzeria."
+              href={waLink("Hallo, ich interessiere mich für eine Website von Pixzeria.")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-base border-2 border-white/20 text-white transition-all hover:bg-white/10"

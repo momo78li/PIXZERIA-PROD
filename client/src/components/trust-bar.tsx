@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MessageCircle, ArrowRight, ArrowLeft, Check, Plus, Minus, Mail } from "lucide-react";
 import PizzaIcon from "./pizza-icon";
+import { waLink } from "@/lib/whatsapp";
 
 const BUSINESS_TYPES = ["Dienstleister", "Praxis", "Gastronomie", "Handwerk", "Sonstiges"];
 
@@ -134,7 +135,7 @@ export default function TrustBar() {
     if (config.pflege) msg += `\n+ 49 €/Monat Pflege`;
     if (config.comment.trim()) msg += `\n\n💬 Anmerkungen:\n${config.comment.trim()}`;
     msg += `\n\nBitte meldet euch bei mir!`;
-    return `https://wa.me/491734394343?text=${encodeURIComponent(msg)}`;
+    return waLink(msg);
   };
 
   const steps = [

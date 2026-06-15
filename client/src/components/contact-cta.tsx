@@ -1,4 +1,5 @@
 import { CheckCircle, MessageCircle } from "lucide-react";
+import { waLink } from "@/lib/whatsapp";
 
 const features = [
   "Kleinere Textänderungen inklusive",
@@ -50,7 +51,7 @@ export default function ContactCTA() {
               Monatlich kündbar. Keine Mindestlaufzeit.
             </div>
             <a
-              href="https://wa.me/491734394343?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20den%20Service%20%26%20Pflege%20Plan%20von%20Pixzeria."
+              href={waLink("Hallo, ich interessiere mich für den Service & Pflege Plan von Pixzeria.")}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-pink w-full justify-center text-sm py-3"
