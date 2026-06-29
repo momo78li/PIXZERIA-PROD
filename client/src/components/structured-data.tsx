@@ -10,8 +10,8 @@ export default function StructuredData({ type = "ProfessionalService" }: Structu
       "@context": "https://schema.org",
       "@type": type,
       "name": "PIXZERIA",
-      "description": "Webdesign-Agentur für Unternehmen, Handwerker und Dienstleister. Professionelle Business-Websites ab 999 € – zum Festpreis, 100 % digital, DSGVO-konform.",
-      "url": "https://pixzeria.de",
+      "description": "Professionelle Website erstellen lassen ab 999 € – zum Festpreis. Webdesign für Handwerker, Dienstleister und Unternehmen. Günstig, schnell, DSGVO-konform.",
+      "url": "https://pixzeria.com",
       "email": "info@pixzeria.de",
       "telephone": "+4917343943 43",
       "address": {

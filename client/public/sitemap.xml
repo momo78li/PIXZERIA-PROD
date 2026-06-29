@@ -2,25 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://pixzeria.de/</loc>
+    <loc>https://pixzeria.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://pixzeria.de/impressum</loc>
+    <loc>https://pixzeria.com/impressum</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://pixzeria.de/datenschutz</loc>
+    <loc>https://pixzeria.com/datenschutz</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://pixzeria.de/agb</loc>
+    <loc>https://pixzeria.com/agb</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
