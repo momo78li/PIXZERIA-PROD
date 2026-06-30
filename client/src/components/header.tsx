@@ -38,7 +38,7 @@ function PromoBanner() {
         <span className="text-white/90">
           <span className="font-bold text-[#E6007E]">WM 2026 Rabattaktion</span>
           <span className="text-white/50 mx-1.5">·</span>
-          Jetzt Website bestellen &amp; <span className="font-bold text-white">10 % sparen</span>
+          Jetzt Website bestellen &amp; <span className="font-bold text-white">15 % sparen</span>
           <span className="text-white/50 ml-1.5 text-xs hidden sm:inline">— nur für begrenzte Zeit</span>
         </span>
         <a
